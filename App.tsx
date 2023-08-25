@@ -1,8 +1,8 @@
 import React from "react";
-import BottomTabs from "./src/stacks/BottomTabs";
+import { BottomTabNavigation } from "@presentation";
 
 const App: React.FC = () => {
-  return <BottomTabs />;
+  return <BottomTabNavigation />;
 };
 
 export default App;

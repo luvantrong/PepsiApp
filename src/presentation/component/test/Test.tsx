@@ -1,12 +1,13 @@
-import { StyleSheet, Text, View } from "react-native";
+import { SafeAreaView, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { fontFamily } from "@assets";
+import { Colors } from "@resources";
 
 const _Test = () => {
   return (
-    <View>
+    <SafeAreaView>
       <Text style={{ fontFamily: fontFamily.italic }}>Test</Text>
-    </View>
+    </SafeAreaView>
   );
 };
 
