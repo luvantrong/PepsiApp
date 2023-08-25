@@ -1,21 +1,21 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:1:1-25:12
-INJECTED from /Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:1:1-25:12
-INJECTED from /Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:1:1-25:12
-INJECTED from /Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:1:1-25:12
-MERGED from /Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:1:1-25:12
+ADDED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/main/AndroidManifest.xml:1:1-25:12
+INJECTED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/main/AndroidManifest.xml:1:1-25:12
+INJECTED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/main/AndroidManifest.xml:1:1-25:12
+INJECTED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/main/AndroidManifest.xml:1:1-25:12
+MERGED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/main/AndroidManifest.xml:1:1-25:12
 MERGED from [com.facebook.flipper:flipper-network-plugin:0.182.0] /Users/tronglv/.gradle/caches/transforms-3/5a7e5148402ae4e51c50009ccd524eec/transformed/jetified-flipper-network-plugin-0.182.0/AndroidManifest.xml:8:1-15:12
 MERGED from [com.facebook.flipper:flipper-fresco-plugin:0.182.0] /Users/tronglv/.gradle/caches/transforms-3/03d08314dc24c05edd4a7d5cd8920e6f/transformed/jetified-flipper-fresco-plugin-0.182.0/AndroidManifest.xml:8:1-15:12
 MERGED from [com.facebook.flipper:flipper:0.182.0] /Users/tronglv/.gradle/caches/transforms-3/9064054948e273a366edee69d38717c4/transformed/jetified-flipper-0.182.0/AndroidManifest.xml:8:1-18:12
-MERGED from [:react-native-async-storage_async-storage] /Users/tronglv/PepsiApp/node_modules/@react-native-async-storage/async-storage/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
-MERGED from [:react-native-community_clipboard] /Users/tronglv/PepsiApp/node_modules/@react-native-community/clipboard/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
-MERGED from [:react-native-community_masked-view] /Users/tronglv/PepsiApp/node_modules/@react-native-community/masked-view/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
-MERGED from [:react-native-firebase_firestore] /Users/tronglv/PepsiApp/node_modules/@react-native-firebase/firestore/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
-MERGED from [:react-native-firebase_app] /Users/tronglv/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-30:12
-MERGED from [:react-native-gesture-handler] /Users/tronglv/PepsiApp/node_modules/react-native-gesture-handler/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
-MERGED from [:react-native-safe-area-context] /Users/tronglv/PepsiApp/node_modules/react-native-safe-area-context/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
-MERGED from [:react-native-screens] /Users/tronglv/PepsiApp/node_modules/react-native-screens/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:react-native-async-storage_async-storage] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/@react-native-async-storage/async-storage/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:react-native-community_clipboard] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/@react-native-community/clipboard/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:react-native-community_masked-view] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/@react-native-community/masked-view/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:react-native-firebase_firestore] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/@react-native-firebase/firestore/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:react-native-firebase_app] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-30:12
+MERGED from [:react-native-gesture-handler] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/react-native-gesture-handler/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:react-native-safe-area-context] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/react-native-safe-area-context/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:react-native-screens] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/react-native-screens/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [com.facebook.react:react-android:0.72.4] /Users/tronglv/.gradle/caches/transforms-3/828a82ee99a116749730a03824b83638/transformed/jetified-react-android-0.72.4-debug/AndroidManifest.xml:2:1-7:12
 MERGED from [com.facebook.react:hermes-android:0.72.4] /Users/tronglv/.gradle/caches/transforms-3/309f19ec10f51fdc5fb6a49e95d10f8b/transformed/jetified-hermes-android-0.72.4-debug/AndroidManifest.xml:2:1-7:12
 MERGED from [com.facebook.fresco:imagepipeline-okhttp3:2.5.0] /Users/tronglv/.gradle/caches/transforms-3/a6f8e720df439883223d4b2904fa5e86/transformed/jetified-imagepipeline-okhttp3-2.5.0/AndroidManifest.xml:2:1-9:12
@@ -91,39 +91,39 @@ MERGED from [com.facebook.fresco:ui-common:2.6.0] /Users/tronglv/.gradle/caches/
 MERGED from [com.facebook.fresco:fbcore:2.6.0] /Users/tronglv/.gradle/caches/transforms-3/3739931413d83fe765fe5b9f531d6e78/transformed/jetified-fbcore-2.6.0/AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] /Users/tronglv/.gradle/caches/transforms-3/f26d8545b30ce395e0bf6f04348b98cf/transformed/jetified-annotation-experimental-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] /Users/tronglv/.gradle/caches/transforms-3/a944c32fbe336e89abc891f6e185cc36/transformed/jetified-protolite-well-known-types-18.0.0/AndroidManifest.xml:2:1-11:12
-INJECTED from /Users/tronglv/PepsiApp/android/app/src/debug/AndroidManifest.xml:2:1-13:12
-INJECTED from /Users/tronglv/PepsiApp/android/app/src/debug/AndroidManifest.xml:2:1-13:12
-INJECTED from /Users/tronglv/PepsiApp/android/app/src/debug/AndroidManifest.xml:2:1-13:12
+INJECTED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/debug/AndroidManifest.xml:2:1-13:12
+INJECTED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/debug/AndroidManifest.xml:2:1-13:12
+INJECTED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/debug/AndroidManifest.xml:2:1-13:12
 	package
-		INJECTED from /Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml
-		ADDED from /Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:1:1-25:12
-		INJECTED from /Users/tronglv/PepsiApp/android/app/src/debug/AndroidManifest.xml
+		INJECTED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/main/AndroidManifest.xml:1:1-25:12
+		INJECTED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/debug/AndroidManifest.xml
 	android:versionName
-		INJECTED from /Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml
-		ADDED from /Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:1:1-25:12
-		INJECTED from /Users/tronglv/PepsiApp/android/app/src/debug/AndroidManifest.xml
+		INJECTED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/main/AndroidManifest.xml:1:1-25:12
+		INJECTED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/debug/AndroidManifest.xml
 	xmlns:tools
-		ADDED from /Users/tronglv/PepsiApp/android/app/src/debug/AndroidManifest.xml:3:5-51
+		ADDED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/debug/AndroidManifest.xml:3:5-51
 	android:versionCode
-		INJECTED from /Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml
-		ADDED from /Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:1:1-25:12
-		INJECTED from /Users/tronglv/PepsiApp/android/app/src/debug/AndroidManifest.xml
+		INJECTED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/main/AndroidManifest.xml:1:1-25:12
+		INJECTED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/debug/AndroidManifest.xml
 	xmlns:android
-		ADDED from /Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:1:11-69
+		ADDED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/main/AndroidManifest.xml:1:11-69
 uses-permission#android.permission.INTERNET
-ADDED from /Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:3:5-67
+ADDED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/main/AndroidManifest.xml:3:5-67
 MERGED from [com.facebook.flipper:flipper:0.182.0] /Users/tronglv/.gradle/caches/transforms-3/9064054948e273a366edee69d38717c4/transformed/jetified-flipper-0.182.0/AndroidManifest.xml:15:5-67
 MERGED from [com.facebook.flipper:flipper:0.182.0] /Users/tronglv/.gradle/caches/transforms-3/9064054948e273a366edee69d38717c4/transformed/jetified-flipper-0.182.0/AndroidManifest.xml:15:5-67
 MERGED from [com.google.firebase:firebase-firestore:24.7.0] /Users/tronglv/.gradle/caches/transforms-3/9756c79a2e3278c483b02294fb61406d/transformed/jetified-firebase-firestore-24.7.0/AndroidManifest.xml:13:5-67
 MERGED from [com.google.firebase:firebase-firestore:24.7.0] /Users/tronglv/.gradle/caches/transforms-3/9756c79a2e3278c483b02294fb61406d/transformed/jetified-firebase-firestore-24.7.0/AndroidManifest.xml:13:5-67
 	android:name
-		ADDED from /Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:3:22-64
+		ADDED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/main/AndroidManifest.xml:3:22-64
 application
-ADDED from /Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:5:5-24:19
-MERGED from /Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:5:5-24:19
-MERGED from /Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:5:5-24:19
-MERGED from [:react-native-firebase_app] /Users/tronglv/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:8:5-28:19
-MERGED from [:react-native-firebase_app] /Users/tronglv/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:8:5-28:19
+ADDED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/main/AndroidManifest.xml:5:5-24:19
+MERGED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/main/AndroidManifest.xml:5:5-24:19
+MERGED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/main/AndroidManifest.xml:5:5-24:19
+MERGED from [:react-native-firebase_app] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:8:5-28:19
+MERGED from [:react-native-firebase_app] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:8:5-28:19
 MERGED from [com.google.firebase:firebase-firestore:24.7.0] /Users/tronglv/.gradle/caches/transforms-3/9756c79a2e3278c483b02294fb61406d/transformed/jetified-firebase-firestore-24.7.0/AndroidManifest.xml:15:5-23:19
 MERGED from [com.google.firebase:firebase-firestore:24.7.0] /Users/tronglv/.gradle/caches/transforms-3/9756c79a2e3278c483b02294fb61406d/transformed/jetified-firebase-firestore-24.7.0/AndroidManifest.xml:15:5-23:19
 MERGED from [com.google.android.material:material:1.1.0] /Users/tronglv/.gradle/caches/transforms-3/5536e920aa81a72b8c32b6eb59af50ed/transformed/material-1.1.0/AndroidManifest.xml:22:5-20
@@ -159,79 +159,79 @@ MERGED from [com.facebook.soloader:soloader:0.10.5] /Users/tronglv/.gradle/cache
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.7.0] /Users/tronglv/.gradle/caches/transforms-3/e733f3ed402512485827a81d2513168d/transformed/core-1.7.0/AndroidManifest.xml:24:18-86
 	android:label
-		ADDED from /Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:7:7-39
-		ADDED from /Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:7:7-39
+		ADDED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/main/AndroidManifest.xml:7:7-39
+		ADDED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/main/AndroidManifest.xml:7:7-39
 	tools:ignore
-		ADDED from /Users/tronglv/PepsiApp/android/app/src/debug/AndroidManifest.xml:10:9-48
+		ADDED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/debug/AndroidManifest.xml:10:9-48
 	android:roundIcon
-		ADDED from /Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:9:7-52
-		ADDED from /Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:9:7-52
+		ADDED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/main/AndroidManifest.xml:9:7-52
+		ADDED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/main/AndroidManifest.xml:9:7-52
 	tools:targetApi
-		ADDED from /Users/tronglv/PepsiApp/android/app/src/debug/AndroidManifest.xml:9:9-29
+		ADDED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/debug/AndroidManifest.xml:9:9-29
 	android:icon
-		ADDED from /Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:8:7-41
-		ADDED from /Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:8:7-41
+		ADDED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/main/AndroidManifest.xml:8:7-41
+		ADDED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/main/AndroidManifest.xml:8:7-41
 	android:allowBackup
-		ADDED from /Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:10:7-34
-		ADDED from /Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:10:7-34
+		ADDED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/main/AndroidManifest.xml:10:7-34
+		ADDED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/main/AndroidManifest.xml:10:7-34
 	android:theme
-		ADDED from /Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:11:7-38
-		ADDED from /Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:11:7-38
+		ADDED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/main/AndroidManifest.xml:11:7-38
+		ADDED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/main/AndroidManifest.xml:11:7-38
 	android:usesCleartextTraffic
-		ADDED from /Users/tronglv/PepsiApp/android/app/src/debug/AndroidManifest.xml:8:9-44
+		ADDED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/debug/AndroidManifest.xml:8:9-44
 	android:name
-		ADDED from /Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:6:7-38
-		ADDED from /Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:6:7-38
+		ADDED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/main/AndroidManifest.xml:6:7-38
+		ADDED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/main/AndroidManifest.xml:6:7-38
 activity#com.pepsiapp.MainActivity
-ADDED from /Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:12:7-23:18
+ADDED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/main/AndroidManifest.xml:12:7-23:18
 	android:label
-		ADDED from /Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:14:9-41
+		ADDED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/main/AndroidManifest.xml:14:9-41
 	android:launchMode
-		ADDED from /Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:16:9-40
+		ADDED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/main/AndroidManifest.xml:16:9-40
 	android:windowSoftInputMode
-		ADDED from /Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:17:9-51
+		ADDED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/main/AndroidManifest.xml:17:9-51
 	android:exported
-		ADDED from /Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:18:9-32
+		ADDED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/main/AndroidManifest.xml:18:9-32
 	android:configChanges
-		ADDED from /Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:15:9-118
+		ADDED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/main/AndroidManifest.xml:15:9-118
 	android:name
-		ADDED from /Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:13:9-37
+		ADDED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/main/AndroidManifest.xml:13:9-37
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:19:9-22:25
+ADDED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/main/AndroidManifest.xml:19:9-22:25
 action#android.intent.action.MAIN
-ADDED from /Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:20:13-65
+ADDED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/main/AndroidManifest.xml:20:13-65
 	android:name
-		ADDED from /Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:20:21-62
+		ADDED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/main/AndroidManifest.xml:20:21-62
 category#android.intent.category.LAUNCHER
-ADDED from /Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:21:13-73
+ADDED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/main/AndroidManifest.xml:21:13-73
 	android:name
-		ADDED from /Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:21:23-70
+		ADDED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/main/AndroidManifest.xml:21:23-70
 uses-sdk
-INJECTED from /Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from /Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml
-INJECTED from /Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml
+INJECTED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/main/AndroidManifest.xml
+INJECTED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/main/AndroidManifest.xml
 MERGED from [com.facebook.flipper:flipper-network-plugin:0.182.0] /Users/tronglv/.gradle/caches/transforms-3/5a7e5148402ae4e51c50009ccd524eec/transformed/jetified-flipper-network-plugin-0.182.0/AndroidManifest.xml:11:5-13:41
 MERGED from [com.facebook.flipper:flipper-network-plugin:0.182.0] /Users/tronglv/.gradle/caches/transforms-3/5a7e5148402ae4e51c50009ccd524eec/transformed/jetified-flipper-network-plugin-0.182.0/AndroidManifest.xml:11:5-13:41
 MERGED from [com.facebook.flipper:flipper-fresco-plugin:0.182.0] /Users/tronglv/.gradle/caches/transforms-3/03d08314dc24c05edd4a7d5cd8920e6f/transformed/jetified-flipper-fresco-plugin-0.182.0/AndroidManifest.xml:11:5-13:41
 MERGED from [com.facebook.flipper:flipper-fresco-plugin:0.182.0] /Users/tronglv/.gradle/caches/transforms-3/03d08314dc24c05edd4a7d5cd8920e6f/transformed/jetified-flipper-fresco-plugin-0.182.0/AndroidManifest.xml:11:5-13:41
 MERGED from [com.facebook.flipper:flipper:0.182.0] /Users/tronglv/.gradle/caches/transforms-3/9064054948e273a366edee69d38717c4/transformed/jetified-flipper-0.182.0/AndroidManifest.xml:11:5-13:41
 MERGED from [com.facebook.flipper:flipper:0.182.0] /Users/tronglv/.gradle/caches/transforms-3/9064054948e273a366edee69d38717c4/transformed/jetified-flipper-0.182.0/AndroidManifest.xml:11:5-13:41
-MERGED from [:react-native-async-storage_async-storage] /Users/tronglv/PepsiApp/node_modules/@react-native-async-storage/async-storage/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:react-native-async-storage_async-storage] /Users/tronglv/PepsiApp/node_modules/@react-native-async-storage/async-storage/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:react-native-community_clipboard] /Users/tronglv/PepsiApp/node_modules/@react-native-community/clipboard/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:react-native-community_clipboard] /Users/tronglv/PepsiApp/node_modules/@react-native-community/clipboard/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:react-native-community_masked-view] /Users/tronglv/PepsiApp/node_modules/@react-native-community/masked-view/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:react-native-community_masked-view] /Users/tronglv/PepsiApp/node_modules/@react-native-community/masked-view/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:react-native-firebase_firestore] /Users/tronglv/PepsiApp/node_modules/@react-native-firebase/firestore/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:react-native-firebase_firestore] /Users/tronglv/PepsiApp/node_modules/@react-native-firebase/firestore/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:react-native-firebase_app] /Users/tronglv/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:6:5-44
-MERGED from [:react-native-firebase_app] /Users/tronglv/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:6:5-44
-MERGED from [:react-native-gesture-handler] /Users/tronglv/PepsiApp/node_modules/react-native-gesture-handler/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:react-native-gesture-handler] /Users/tronglv/PepsiApp/node_modules/react-native-gesture-handler/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:react-native-safe-area-context] /Users/tronglv/PepsiApp/node_modules/react-native-safe-area-context/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:react-native-safe-area-context] /Users/tronglv/PepsiApp/node_modules/react-native-safe-area-context/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:react-native-screens] /Users/tronglv/PepsiApp/node_modules/react-native-screens/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:react-native-screens] /Users/tronglv/PepsiApp/node_modules/react-native-screens/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:react-native-async-storage_async-storage] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/@react-native-async-storage/async-storage/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:react-native-async-storage_async-storage] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/@react-native-async-storage/async-storage/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:react-native-community_clipboard] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/@react-native-community/clipboard/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:react-native-community_clipboard] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/@react-native-community/clipboard/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:react-native-community_masked-view] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/@react-native-community/masked-view/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:react-native-community_masked-view] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/@react-native-community/masked-view/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:react-native-firebase_firestore] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/@react-native-firebase/firestore/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:react-native-firebase_firestore] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/@react-native-firebase/firestore/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:react-native-firebase_app] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:6:5-44
+MERGED from [:react-native-firebase_app] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:6:5-44
+MERGED from [:react-native-gesture-handler] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/react-native-gesture-handler/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:react-native-gesture-handler] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/react-native-gesture-handler/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:react-native-safe-area-context] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/react-native-safe-area-context/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:react-native-safe-area-context] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/react-native-safe-area-context/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:react-native-screens] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/react-native-screens/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:react-native-screens] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/react-native-screens/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [com.facebook.react:react-android:0.72.4] /Users/tronglv/.gradle/caches/transforms-3/828a82ee99a116749730a03824b83638/transformed/jetified-react-android-0.72.4-debug/AndroidManifest.xml:5:5-44
 MERGED from [com.facebook.react:react-android:0.72.4] /Users/tronglv/.gradle/caches/transforms-3/828a82ee99a116749730a03824b83638/transformed/jetified-react-android-0.72.4-debug/AndroidManifest.xml:5:5-44
 MERGED from [com.facebook.react:hermes-android:0.72.4] /Users/tronglv/.gradle/caches/transforms-3/309f19ec10f51fdc5fb6a49e95d10f8b/transformed/jetified-hermes-android-0.72.4-debug/AndroidManifest.xml:5:5-44
@@ -382,64 +382,64 @@ MERGED from [androidx.annotation:annotation-experimental:1.1.0] /Users/tronglv/.
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] /Users/tronglv/.gradle/caches/transforms-3/f26d8545b30ce395e0bf6f04348b98cf/transformed/jetified-annotation-experimental-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] /Users/tronglv/.gradle/caches/transforms-3/a944c32fbe336e89abc891f6e185cc36/transformed/jetified-protolite-well-known-types-18.0.0/AndroidManifest.xml:7:5-9:41
 MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] /Users/tronglv/.gradle/caches/transforms-3/a944c32fbe336e89abc891f6e185cc36/transformed/jetified-protolite-well-known-types-18.0.0/AndroidManifest.xml:7:5-9:41
-INJECTED from /Users/tronglv/PepsiApp/android/app/src/debug/AndroidManifest.xml
-INJECTED from /Users/tronglv/PepsiApp/android/app/src/debug/AndroidManifest.xml
+INJECTED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/debug/AndroidManifest.xml
+INJECTED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/debug/AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from /Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml
-		INJECTED from /Users/tronglv/PepsiApp/android/app/src/debug/AndroidManifest.xml
+		INJECTED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/debug/AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from /Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml
-		INJECTED from /Users/tronglv/PepsiApp/android/app/src/debug/AndroidManifest.xml
+		INJECTED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/debug/AndroidManifest.xml
 uses-permission#android.permission.SYSTEM_ALERT_WINDOW
-ADDED from /Users/tronglv/PepsiApp/android/app/src/debug/AndroidManifest.xml:5:5-77
+ADDED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/debug/AndroidManifest.xml:5:5-77
 	android:name
-		ADDED from /Users/tronglv/PepsiApp/android/app/src/debug/AndroidManifest.xml:5:22-75
+		ADDED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/debug/AndroidManifest.xml:5:22-75
 activity#com.facebook.react.devsupport.DevSettingsActivity
-ADDED from /Users/tronglv/PepsiApp/android/app/src/debug/AndroidManifest.xml:11:9-111
+ADDED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/debug/AndroidManifest.xml:11:9-111
 	android:exported
-		ADDED from /Users/tronglv/PepsiApp/android/app/src/debug/AndroidManifest.xml:11:84-108
+		ADDED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/debug/AndroidManifest.xml:11:84-108
 	android:name
-		ADDED from /Users/tronglv/PepsiApp/android/app/src/debug/AndroidManifest.xml:11:19-83
+		ADDED from /Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/debug/AndroidManifest.xml:11:19-83
 uses-permission#android.permission.ACCESS_WIFI_STATE
 ADDED from [com.facebook.flipper:flipper:0.182.0] /Users/tronglv/.gradle/caches/transforms-3/9064054948e273a366edee69d38717c4/transformed/jetified-flipper-0.182.0/AndroidManifest.xml:16:5-76
 	android:name
 		ADDED from [com.facebook.flipper:flipper:0.182.0] /Users/tronglv/.gradle/caches/transforms-3/9064054948e273a366edee69d38717c4/transformed/jetified-flipper-0.182.0/AndroidManifest.xml:16:22-73
 meta-data#app_data_collection_default_enabled
-ADDED from [:react-native-firebase_app] /Users/tronglv/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:9:9-11:36
+ADDED from [:react-native-firebase_app] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:9:9-11:36
 	android:value
-		ADDED from [:react-native-firebase_app] /Users/tronglv/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-33
+		ADDED from [:react-native-firebase_app] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-33
 	android:name
-		ADDED from [:react-native-firebase_app] /Users/tronglv/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:10:13-63
+		ADDED from [:react-native-firebase_app] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:10:13-63
 service#com.google.firebase.components.ComponentDiscoveryService
-ADDED from [:react-native-firebase_app] /Users/tronglv/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:13:9-21:19
+ADDED from [:react-native-firebase_app] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:13:9-21:19
 MERGED from [com.google.firebase:firebase-firestore:24.7.0] /Users/tronglv/.gradle/caches/transforms-3/9756c79a2e3278c483b02294fb61406d/transformed/jetified-firebase-firestore-24.7.0/AndroidManifest.xml:16:9-22:19
 MERGED from [com.google.firebase:firebase-firestore:24.7.0] /Users/tronglv/.gradle/caches/transforms-3/9756c79a2e3278c483b02294fb61406d/transformed/jetified-firebase-firestore-24.7.0/AndroidManifest.xml:16:9-22:19
 MERGED from [com.google.firebase:firebase-common:20.3.3] /Users/tronglv/.gradle/caches/transforms-3/a2ee07eb3c616cbd4f42fdc268736227/transformed/jetified-firebase-common-20.3.3/AndroidManifest.xml:32:9-36:35
 MERGED from [com.google.firebase:firebase-common:20.3.3] /Users/tronglv/.gradle/caches/transforms-3/a2ee07eb3c616cbd4f42fdc268736227/transformed/jetified-firebase-common-20.3.3/AndroidManifest.xml:32:9-36:35
 	android:exported
-		ADDED from [:react-native-firebase_app] /Users/tronglv/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:16:13-37
+		ADDED from [:react-native-firebase_app] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:16:13-37
 	tools:targetApi
-		ADDED from [:react-native-firebase_app] /Users/tronglv/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:17:13-32
+		ADDED from [:react-native-firebase_app] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:17:13-32
 	android:directBootAware
-		ADDED from [:react-native-firebase_app] /Users/tronglv/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:15:13-43
+		ADDED from [:react-native-firebase_app] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:15:13-43
 	android:name
-		ADDED from [:react-native-firebase_app] /Users/tronglv/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:14:13-84
+		ADDED from [:react-native-firebase_app] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:14:13-84
 meta-data#com.google.firebase.components:io.invertase.firebase.app.ReactNativeFirebaseAppRegistrar
-ADDED from [:react-native-firebase_app] /Users/tronglv/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:18:13-20:85
+ADDED from [:react-native-firebase_app] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:18:13-20:85
 	android:value
-		ADDED from [:react-native-firebase_app] /Users/tronglv/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:20:17-82
+		ADDED from [:react-native-firebase_app] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:20:17-82
 	android:name
-		ADDED from [:react-native-firebase_app] /Users/tronglv/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:19:17-120
+		ADDED from [:react-native-firebase_app] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:19:17-120
 provider#io.invertase.firebase.app.ReactNativeFirebaseAppInitProvider
-ADDED from [:react-native-firebase_app] /Users/tronglv/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:23:9-27:38
+ADDED from [:react-native-firebase_app] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:23:9-27:38
 	android:authorities
-		ADDED from [:react-native-firebase_app] /Users/tronglv/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:25:13-86
+		ADDED from [:react-native-firebase_app] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:25:13-86
 	android:exported
-		ADDED from [:react-native-firebase_app] /Users/tronglv/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:26:13-37
+		ADDED from [:react-native-firebase_app] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:26:13-37
 	android:initOrder
-		ADDED from [:react-native-firebase_app] /Users/tronglv/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:27:13-35
+		ADDED from [:react-native-firebase_app] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:27:13-35
 	android:name
-		ADDED from [:react-native-firebase_app] /Users/tronglv/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:24:13-88
+		ADDED from [:react-native-firebase_app] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:24:13-88
 uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from [com.google.firebase:firebase-firestore:24.7.0] /Users/tronglv/.gradle/caches/transforms-3/9756c79a2e3278c483b02294fb61406d/transformed/jetified-firebase-firestore-24.7.0/AndroidManifest.xml:12:5-79
 MERGED from [io.grpc:grpc-android:1.52.1] /Users/tronglv/.gradle/caches/transforms-3/4253aeb3f419b036b341c6f013da8bb5/transformed/jetified-grpc-android-1.52.1/AndroidManifest.xml:9:5-79

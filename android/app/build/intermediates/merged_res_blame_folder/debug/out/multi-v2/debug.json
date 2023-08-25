@@ -1437,6 +1437,23 @@
                     }
                 },
                 {
+                    "source": "/Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/main/res/values/strings.xml",
+                    "from": {
+                        "startLines": "1",
+                        "startColumns": "4",
+                        "startOffsets": "16",
+                        "endColumns": "45",
+                        "endOffsets": "57"
+                    },
+                    "to": {
+                        "startLines": "703",
+                        "startColumns": "4",
+                        "startOffsets": "45064",
+                        "endColumns": "45",
+                        "endOffsets": "45105"
+                    }
+                },
+                {
                     "source": "/Users/tronglv/.gradle/caches/transforms-3/4a28035ff3340fb024559e42e6702a81/transformed/lifecycle-runtime-2.4.0/res/values/values.xml",
                     "from": {
                         "startLines": "2",
@@ -1454,20 +1471,20 @@
                     }
                 },
                 {
-                    "source": "/Users/tronglv/PepsiApp/android/app/src/main/res/values/strings.xml",
+                    "source": "/Users/tronglv/Documents/GitHub/PepsiApp/android/app/build/generated/res/resValues/debug/values/gradleResValues.xml",
                     "from": {
-                        "startLines": "1",
-                        "startColumns": "4",
-                        "startOffsets": "16",
-                        "endColumns": "45",
-                        "endOffsets": "57"
+                        "startLines": "6,8",
+                        "startColumns": "4,4",
+                        "startOffsets": "154,258",
+                        "endColumns": "63,68",
+                        "endOffsets": "213,322"
                     },
                     "to": {
-                        "startLines": "703",
-                        "startColumns": "4",
-                        "startOffsets": "45064",
-                        "endColumns": "45",
-                        "endOffsets": "45105"
+                        "startLines": "666,667",
+                        "startColumns": "4,4",
+                        "startOffsets": "42462,42526",
+                        "endColumns": "63,68",
+                        "endOffsets": "42521,42590"
                     }
                 },
                 {
@@ -1507,6 +1524,25 @@
                     }
                 },
                 {
+                    "source": "/Users/tronglv/Documents/GitHub/PepsiApp/android/app/src/main/res/values/styles.xml",
+                    "from": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "54",
+                        "endLines": "6",
+                        "endColumns": "12",
+                        "endOffsets": "267"
+                    },
+                    "to": {
+                        "startLines": "851",
+                        "startColumns": "4",
+                        "startOffsets": "62920",
+                        "endLines": "854",
+                        "endColumns": "12",
+                        "endOffsets": "63098"
+                    }
+                },
+                {
                     "source": "/Users/tronglv/.gradle/caches/transforms-3/e733f3ed402512485827a81d2513168d/transformed/core-1.7.0/res/values/values.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,89,90,94,95,96,97,104,114,162,194,231",
@@ -1523,25 +1559,6 @@
                         "endLines": "55,96,97,189,190,298,299,300,301,302,303,304,517,518,519,520,521,522,523,524,525,526,527,528,529,530,531,541,542,543,547,548,549,550,551,552,553,554,555,556,557,558,559,560,561,562,563,564,565,566,567,568,569,570,571,572,573,574,575,576,577,578,598,599,614,615,616,617,618,619,620,621,622,623,624,625,626,627,628,632,669,825,3162,3166,3167,3171,3172,3786,3787,5312,5593,5832,5853,6034,6040",
                         "endColumns": "59,71,87,68,62,69,67,71,69,60,73,72,60,60,61,63,61,60,67,99,59,65,72,68,56,51,61,71,75,64,58,58,59,59,59,59,59,59,59,59,59,59,58,59,59,59,59,59,59,59,59,59,59,58,59,59,58,58,58,58,58,58,34,34,54,62,54,57,57,60,62,56,50,49,60,56,65,33,34,34,69,70,116,12,109,12,128,71,66,24,24,24,24,24,24",
                         "endOffsets": "3187,5679,5767,12183,12246,19521,19589,19661,19731,19792,19866,19939,34081,34142,34204,34268,34330,34391,34459,34559,34619,34685,34758,34827,34884,34936,34998,35588,35664,35729,35952,36011,36071,36131,36191,36251,36311,36371,36431,36491,36551,36611,36670,36730,36790,36850,36910,36970,37030,37090,37150,37210,37270,37329,37389,37449,37508,37567,37626,37685,37744,37803,38804,38839,39597,39660,39715,39773,39831,39892,39955,40012,40063,40113,40174,40231,40297,40331,40366,40544,42717,61109,213624,213825,213935,214136,214265,256415,256482,326093,335581,345905,346586,351658,351825"
-                    }
-                },
-                {
-                    "source": "/Users/tronglv/PepsiApp/android/app/src/main/res/values/styles.xml",
-                    "from": {
-                        "startLines": "3",
-                        "startColumns": "4",
-                        "startOffsets": "54",
-                        "endLines": "6",
-                        "endColumns": "12",
-                        "endOffsets": "267"
-                    },
-                    "to": {
-                        "startLines": "851",
-                        "startColumns": "4",
-                        "startOffsets": "62920",
-                        "endLines": "854",
-                        "endColumns": "12",
-                        "endOffsets": "63098"
                     }
                 },
                 {
@@ -1580,23 +1597,6 @@
                         "endLines": "24,4453,5627,5711",
                         "endColumns": "60,12,24,24",
                         "endOffsets": "1334,296550,337149,341665"
-                    }
-                },
-                {
-                    "source": "/Users/tronglv/PepsiApp/android/app/build/generated/res/resValues/debug/values/gradleResValues.xml",
-                    "from": {
-                        "startLines": "6,8",
-                        "startColumns": "4,4",
-                        "startOffsets": "154,258",
-                        "endColumns": "63,68",
-                        "endOffsets": "213,322"
-                    },
-                    "to": {
-                        "startLines": "666,667",
-                        "startColumns": "4,4",
-                        "startOffsets": "42462,42526",
-                        "endColumns": "63,68",
-                        "endOffsets": "42521,42590"
                     }
                 },
                 {
