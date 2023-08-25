@@ -1,4 +1,4 @@
 {
-  "extends": "@tsconfig/react-native/tsconfig.json",
-  "forceConsistentCasingInFileNames": false
+  "extends": "@tsconfig/react-native/tsconfig.json"
+  // "forceConsistentCasingInFileNames": false,
 }
