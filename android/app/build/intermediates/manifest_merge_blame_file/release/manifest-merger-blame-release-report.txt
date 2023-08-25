@@ -1,0 +1,272 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.pepsiapp"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+8-->/Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="33" />
+9-->/Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->/Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:3:5-67
+11-->/Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:3:22-64
+12    <uses-permission android:name="android.permission.WAKE_LOCK" />
+12-->[:react-native-firebase_auth] /Users/tronglv/PepsiApp/node_modules/@react-native-firebase/auth/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:8:5-68
+12-->[:react-native-firebase_auth] /Users/tronglv/PepsiApp/node_modules/@react-native-firebase/auth/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:8:22-65
+13    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+13-->[:react-native-firebase_auth] /Users/tronglv/PepsiApp/node_modules/@react-native-firebase/auth/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:9:5-79
+13-->[:react-native-firebase_auth] /Users/tronglv/PepsiApp/node_modules/@react-native-firebase/auth/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:9:22-76
+14
+15    <application
+15-->/Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:5:5-24:19
+16        android:name="com.pepsiapp.MainApplication"
+16-->/Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:6:7-38
+17        android:allowBackup="false"
+17-->/Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:10:7-34
+18        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+18-->[androidx.core:core:1.7.0] /Users/tronglv/.gradle/caches/transforms-3/e733f3ed402512485827a81d2513168d/transformed/core-1.7.0/AndroidManifest.xml:24:18-86
+19        android:icon="@mipmap/ic_launcher"
+19-->/Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:8:7-41
+20        android:label="@string/app_name"
+20-->/Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:7:7-39
+21        android:roundIcon="@mipmap/ic_launcher_round"
+21-->/Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:9:7-52
+22        android:theme="@style/AppTheme" >
+22-->/Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:11:7-38
+23        <activity
+23-->/Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:12:7-23:18
+24            android:name="com.pepsiapp.MainActivity"
+24-->/Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:13:9-37
+25            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode"
+25-->/Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:15:9-118
+26            android:exported="true"
+26-->/Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:18:9-32
+27            android:label="@string/app_name"
+27-->/Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:14:9-41
+28            android:launchMode="singleTask"
+28-->/Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:16:9-40
+29            android:windowSoftInputMode="adjustResize" >
+29-->/Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:17:9-51
+30            <intent-filter>
+30-->/Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:19:9-22:25
+31                <action android:name="android.intent.action.MAIN" />
+31-->/Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:20:13-65
+31-->/Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:20:21-62
+32
+33                <category android:name="android.intent.category.LAUNCHER" />
+33-->/Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:21:13-73
+33-->/Users/tronglv/PepsiApp/android/app/src/main/AndroidManifest.xml:21:23-70
+34            </intent-filter>
+35        </activity>
+36
+37        <meta-data
+37-->[:react-native-firebase_app] /Users/tronglv/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:9:9-11:36
+38            android:name="app_data_collection_default_enabled"
+38-->[:react-native-firebase_app] /Users/tronglv/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:10:13-63
+39            android:value="true" />
+39-->[:react-native-firebase_app] /Users/tronglv/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:11:13-33
+40
+41        <service
+41-->[:react-native-firebase_app] /Users/tronglv/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:13:9-21:19
+42            android:name="com.google.firebase.components.ComponentDiscoveryService"
+42-->[:react-native-firebase_app] /Users/tronglv/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:14:13-84
+43            android:directBootAware="true"
+43-->[:react-native-firebase_app] /Users/tronglv/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:15:13-43
+44            android:exported="false" >
+44-->[:react-native-firebase_app] /Users/tronglv/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:16:13-37
+45            <meta-data
+45-->[:react-native-firebase_app] /Users/tronglv/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:18:13-20:85
+46                android:name="com.google.firebase.components:io.invertase.firebase.app.ReactNativeFirebaseAppRegistrar"
+46-->[:react-native-firebase_app] /Users/tronglv/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:19:17-120
+47                android:value="com.google.firebase.components.ComponentRegistrar" />
+47-->[:react-native-firebase_app] /Users/tronglv/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:20:17-82
+48            <meta-data
+48-->[com.google.firebase:firebase-auth:22.1.1] /Users/tronglv/.gradle/caches/transforms-3/fc303ec5c99b0d4f5c63bdda84362aaf/transformed/jetified-firebase-auth-22.1.1/AndroidManifest.xml:69:13-71:85
+49                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+49-->[com.google.firebase:firebase-auth:22.1.1] /Users/tronglv/.gradle/caches/transforms-3/fc303ec5c99b0d4f5c63bdda84362aaf/transformed/jetified-firebase-auth-22.1.1/AndroidManifest.xml:70:17-109
+50                android:value="com.google.firebase.components.ComponentRegistrar" />
+50-->[com.google.firebase:firebase-auth:22.1.1] /Users/tronglv/.gradle/caches/transforms-3/fc303ec5c99b0d4f5c63bdda84362aaf/transformed/jetified-firebase-auth-22.1.1/AndroidManifest.xml:71:17-82
+51            <meta-data
+51-->[com.google.firebase:firebase-firestore:24.7.0] /Users/tronglv/.gradle/caches/transforms-3/9756c79a2e3278c483b02294fb61406d/transformed/jetified-firebase-firestore-24.7.0/AndroidManifest.xml:19:13-21:85
+52                android:name="com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar"
+52-->[com.google.firebase:firebase-firestore:24.7.0] /Users/tronglv/.gradle/caches/transforms-3/9756c79a2e3278c483b02294fb61406d/transformed/jetified-firebase-firestore-24.7.0/AndroidManifest.xml:20:17-111
+53                android:value="com.google.firebase.components.ComponentRegistrar" />
+53-->[com.google.firebase:firebase-firestore:24.7.0] /Users/tronglv/.gradle/caches/transforms-3/9756c79a2e3278c483b02294fb61406d/transformed/jetified-firebase-firestore-24.7.0/AndroidManifest.xml:21:17-82
+54            <meta-data
+54-->[com.google.firebase:firebase-database:20.2.2] /Users/tronglv/.gradle/caches/transforms-3/ad31783805bcc434ceeca1f00c3ba3ea/transformed/jetified-firebase-database-20.2.2/AndroidManifest.xml:31:13-33:85
+55                android:name="com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar"
+55-->[com.google.firebase:firebase-database:20.2.2] /Users/tronglv/.gradle/caches/transforms-3/ad31783805bcc434ceeca1f00c3ba3ea/transformed/jetified-firebase-database-20.2.2/AndroidManifest.xml:32:17-109
+56                android:value="com.google.firebase.components.ComponentRegistrar" />
+56-->[com.google.firebase:firebase-database:20.2.2] /Users/tronglv/.gradle/caches/transforms-3/ad31783805bcc434ceeca1f00c3ba3ea/transformed/jetified-firebase-database-20.2.2/AndroidManifest.xml:33:17-82
+57        </service>
+58
+59        <provider
+59-->[:react-native-firebase_app] /Users/tronglv/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:23:9-27:38
+60            android:name="io.invertase.firebase.app.ReactNativeFirebaseAppInitProvider"
+60-->[:react-native-firebase_app] /Users/tronglv/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:24:13-88
+61            android:authorities="com.pepsiapp.reactnativefirebaseappinitprovider"
+61-->[:react-native-firebase_app] /Users/tronglv/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:25:13-86
+62            android:exported="false"
+62-->[:react-native-firebase_app] /Users/tronglv/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:26:13-37
+63            android:initOrder="99" />
+63-->[:react-native-firebase_app] /Users/tronglv/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:27:13-35
+64
+65        <activity
+65-->[com.google.android.gms:play-services-auth:20.6.0] /Users/tronglv/.gradle/caches/transforms-3/0990b0510953ce88008c484bf0915976/transformed/jetified-play-services-auth-20.6.0/AndroidManifest.xml:23:9-27:75
+66            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+66-->[com.google.android.gms:play-services-auth:20.6.0] /Users/tronglv/.gradle/caches/transforms-3/0990b0510953ce88008c484bf0915976/transformed/jetified-play-services-auth-20.6.0/AndroidManifest.xml:24:13-93
+67            android:excludeFromRecents="true"
+67-->[com.google.android.gms:play-services-auth:20.6.0] /Users/tronglv/.gradle/caches/transforms-3/0990b0510953ce88008c484bf0915976/transformed/jetified-play-services-auth-20.6.0/AndroidManifest.xml:25:13-46
+68            android:exported="false"
+68-->[com.google.android.gms:play-services-auth:20.6.0] /Users/tronglv/.gradle/caches/transforms-3/0990b0510953ce88008c484bf0915976/transformed/jetified-play-services-auth-20.6.0/AndroidManifest.xml:26:13-37
+69            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+69-->[com.google.android.gms:play-services-auth:20.6.0] /Users/tronglv/.gradle/caches/transforms-3/0990b0510953ce88008c484bf0915976/transformed/jetified-play-services-auth-20.6.0/AndroidManifest.xml:27:13-72
+70        <!--
+71            Service handling Google Sign-In user revocation. For apps that do not integrate with
+72            Google Sign-In, this service will never be started.
+73        -->
+74        <service
+74-->[com.google.android.gms:play-services-auth:20.6.0] /Users/tronglv/.gradle/caches/transforms-3/0990b0510953ce88008c484bf0915976/transformed/jetified-play-services-auth-20.6.0/AndroidManifest.xml:33:9-37:51
+75            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+75-->[com.google.android.gms:play-services-auth:20.6.0] /Users/tronglv/.gradle/caches/transforms-3/0990b0510953ce88008c484bf0915976/transformed/jetified-play-services-auth-20.6.0/AndroidManifest.xml:34:13-89
+76            android:exported="true"
+76-->[com.google.android.gms:play-services-auth:20.6.0] /Users/tronglv/.gradle/caches/transforms-3/0990b0510953ce88008c484bf0915976/transformed/jetified-play-services-auth-20.6.0/AndroidManifest.xml:35:13-36
+77            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
+77-->[com.google.android.gms:play-services-auth:20.6.0] /Users/tronglv/.gradle/caches/transforms-3/0990b0510953ce88008c484bf0915976/transformed/jetified-play-services-auth-20.6.0/AndroidManifest.xml:36:13-107
+78            android:visibleToInstantApps="true" />
+78-->[com.google.android.gms:play-services-auth:20.6.0] /Users/tronglv/.gradle/caches/transforms-3/0990b0510953ce88008c484bf0915976/transformed/jetified-play-services-auth-20.6.0/AndroidManifest.xml:37:13-48
+79
+80        <activity
+80-->[com.google.firebase:firebase-auth:22.1.1] /Users/tronglv/.gradle/caches/transforms-3/fc303ec5c99b0d4f5c63bdda84362aaf/transformed/jetified-firebase-auth-22.1.1/AndroidManifest.xml:29:9-46:20
+81            android:name="com.google.firebase.auth.internal.GenericIdpActivity"
+81-->[com.google.firebase:firebase-auth:22.1.1] /Users/tronglv/.gradle/caches/transforms-3/fc303ec5c99b0d4f5c63bdda84362aaf/transformed/jetified-firebase-auth-22.1.1/AndroidManifest.xml:30:13-80
+82            android:excludeFromRecents="true"
+82-->[com.google.firebase:firebase-auth:22.1.1] /Users/tronglv/.gradle/caches/transforms-3/fc303ec5c99b0d4f5c63bdda84362aaf/transformed/jetified-firebase-auth-22.1.1/AndroidManifest.xml:31:13-46
+83            android:exported="true"
+83-->[com.google.firebase:firebase-auth:22.1.1] /Users/tronglv/.gradle/caches/transforms-3/fc303ec5c99b0d4f5c63bdda84362aaf/transformed/jetified-firebase-auth-22.1.1/AndroidManifest.xml:32:13-36
+84            android:launchMode="singleTask"
+84-->[com.google.firebase:firebase-auth:22.1.1] /Users/tronglv/.gradle/caches/transforms-3/fc303ec5c99b0d4f5c63bdda84362aaf/transformed/jetified-firebase-auth-22.1.1/AndroidManifest.xml:33:13-44
+85            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+85-->[com.google.firebase:firebase-auth:22.1.1] /Users/tronglv/.gradle/caches/transforms-3/fc303ec5c99b0d4f5c63bdda84362aaf/transformed/jetified-firebase-auth-22.1.1/AndroidManifest.xml:34:13-72
+86            <intent-filter>
+86-->[com.google.firebase:firebase-auth:22.1.1] /Users/tronglv/.gradle/caches/transforms-3/fc303ec5c99b0d4f5c63bdda84362aaf/transformed/jetified-firebase-auth-22.1.1/AndroidManifest.xml:35:13-45:29
+87                <action android:name="android.intent.action.VIEW" />
+87-->[com.google.firebase:firebase-auth:22.1.1] /Users/tronglv/.gradle/caches/transforms-3/fc303ec5c99b0d4f5c63bdda84362aaf/transformed/jetified-firebase-auth-22.1.1/AndroidManifest.xml:36:17-69
+87-->[com.google.firebase:firebase-auth:22.1.1] /Users/tronglv/.gradle/caches/transforms-3/fc303ec5c99b0d4f5c63bdda84362aaf/transformed/jetified-firebase-auth-22.1.1/AndroidManifest.xml:36:25-66
+88
+89                <category android:name="android.intent.category.DEFAULT" />
+89-->[com.google.firebase:firebase-auth:22.1.1] /Users/tronglv/.gradle/caches/transforms-3/fc303ec5c99b0d4f5c63bdda84362aaf/transformed/jetified-firebase-auth-22.1.1/AndroidManifest.xml:38:17-76
+89-->[com.google.firebase:firebase-auth:22.1.1] /Users/tronglv/.gradle/caches/transforms-3/fc303ec5c99b0d4f5c63bdda84362aaf/transformed/jetified-firebase-auth-22.1.1/AndroidManifest.xml:38:27-73
+90                <category android:name="android.intent.category.BROWSABLE" />
+90-->[com.google.firebase:firebase-auth:22.1.1] /Users/tronglv/.gradle/caches/transforms-3/fc303ec5c99b0d4f5c63bdda84362aaf/transformed/jetified-firebase-auth-22.1.1/AndroidManifest.xml:39:17-78
+90-->[com.google.firebase:firebase-auth:22.1.1] /Users/tronglv/.gradle/caches/transforms-3/fc303ec5c99b0d4f5c63bdda84362aaf/transformed/jetified-firebase-auth-22.1.1/AndroidManifest.xml:39:27-75
+91
+92                <data
+92-->[com.google.firebase:firebase-auth:22.1.1] /Users/tronglv/.gradle/caches/transforms-3/fc303ec5c99b0d4f5c63bdda84362aaf/transformed/jetified-firebase-auth-22.1.1/AndroidManifest.xml:41:17-44:51
+93                    android:host="firebase.auth"
+93-->[com.google.firebase:firebase-auth:22.1.1] /Users/tronglv/.gradle/caches/transforms-3/fc303ec5c99b0d4f5c63bdda84362aaf/transformed/jetified-firebase-auth-22.1.1/AndroidManifest.xml:42:21-49
+94                    android:path="/"
+94-->[com.google.firebase:firebase-auth:22.1.1] /Users/tronglv/.gradle/caches/transforms-3/fc303ec5c99b0d4f5c63bdda84362aaf/transformed/jetified-firebase-auth-22.1.1/AndroidManifest.xml:43:21-37
+95                    android:scheme="genericidp" />
+95-->[com.google.firebase:firebase-auth:22.1.1] /Users/tronglv/.gradle/caches/transforms-3/fc303ec5c99b0d4f5c63bdda84362aaf/transformed/jetified-firebase-auth-22.1.1/AndroidManifest.xml:44:21-48
+96            </intent-filter>
+97        </activity>
+98        <activity
+98-->[com.google.firebase:firebase-auth:22.1.1] /Users/tronglv/.gradle/caches/transforms-3/fc303ec5c99b0d4f5c63bdda84362aaf/transformed/jetified-firebase-auth-22.1.1/AndroidManifest.xml:47:9-64:20
+99            android:name="com.google.firebase.auth.internal.RecaptchaActivity"
+99-->[com.google.firebase:firebase-auth:22.1.1] /Users/tronglv/.gradle/caches/transforms-3/fc303ec5c99b0d4f5c63bdda84362aaf/transformed/jetified-firebase-auth-22.1.1/AndroidManifest.xml:48:13-79
+100            android:excludeFromRecents="true"
+100-->[com.google.firebase:firebase-auth:22.1.1] /Users/tronglv/.gradle/caches/transforms-3/fc303ec5c99b0d4f5c63bdda84362aaf/transformed/jetified-firebase-auth-22.1.1/AndroidManifest.xml:49:13-46
+101            android:exported="true"
+101-->[com.google.firebase:firebase-auth:22.1.1] /Users/tronglv/.gradle/caches/transforms-3/fc303ec5c99b0d4f5c63bdda84362aaf/transformed/jetified-firebase-auth-22.1.1/AndroidManifest.xml:50:13-36
+102            android:launchMode="singleTask"
+102-->[com.google.firebase:firebase-auth:22.1.1] /Users/tronglv/.gradle/caches/transforms-3/fc303ec5c99b0d4f5c63bdda84362aaf/transformed/jetified-firebase-auth-22.1.1/AndroidManifest.xml:51:13-44
+103            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+103-->[com.google.firebase:firebase-auth:22.1.1] /Users/tronglv/.gradle/caches/transforms-3/fc303ec5c99b0d4f5c63bdda84362aaf/transformed/jetified-firebase-auth-22.1.1/AndroidManifest.xml:52:13-72
+104            <intent-filter>
+104-->[com.google.firebase:firebase-auth:22.1.1] /Users/tronglv/.gradle/caches/transforms-3/fc303ec5c99b0d4f5c63bdda84362aaf/transformed/jetified-firebase-auth-22.1.1/AndroidManifest.xml:53:13-63:29
+105                <action android:name="android.intent.action.VIEW" />
+105-->[com.google.firebase:firebase-auth:22.1.1] /Users/tronglv/.gradle/caches/transforms-3/fc303ec5c99b0d4f5c63bdda84362aaf/transformed/jetified-firebase-auth-22.1.1/AndroidManifest.xml:36:17-69
+105-->[com.google.firebase:firebase-auth:22.1.1] /Users/tronglv/.gradle/caches/transforms-3/fc303ec5c99b0d4f5c63bdda84362aaf/transformed/jetified-firebase-auth-22.1.1/AndroidManifest.xml:36:25-66
+106
+107                <category android:name="android.intent.category.DEFAULT" />
+107-->[com.google.firebase:firebase-auth:22.1.1] /Users/tronglv/.gradle/caches/transforms-3/fc303ec5c99b0d4f5c63bdda84362aaf/transformed/jetified-firebase-auth-22.1.1/AndroidManifest.xml:38:17-76
+107-->[com.google.firebase:firebase-auth:22.1.1] /Users/tronglv/.gradle/caches/transforms-3/fc303ec5c99b0d4f5c63bdda84362aaf/transformed/jetified-firebase-auth-22.1.1/AndroidManifest.xml:38:27-73
+108                <category android:name="android.intent.category.BROWSABLE" />
+108-->[com.google.firebase:firebase-auth:22.1.1] /Users/tronglv/.gradle/caches/transforms-3/fc303ec5c99b0d4f5c63bdda84362aaf/transformed/jetified-firebase-auth-22.1.1/AndroidManifest.xml:39:17-78
+108-->[com.google.firebase:firebase-auth:22.1.1] /Users/tronglv/.gradle/caches/transforms-3/fc303ec5c99b0d4f5c63bdda84362aaf/transformed/jetified-firebase-auth-22.1.1/AndroidManifest.xml:39:27-75
+109
+110                <data
+110-->[com.google.firebase:firebase-auth:22.1.1] /Users/tronglv/.gradle/caches/transforms-3/fc303ec5c99b0d4f5c63bdda84362aaf/transformed/jetified-firebase-auth-22.1.1/AndroidManifest.xml:41:17-44:51
+111                    android:host="firebase.auth"
+111-->[com.google.firebase:firebase-auth:22.1.1] /Users/tronglv/.gradle/caches/transforms-3/fc303ec5c99b0d4f5c63bdda84362aaf/transformed/jetified-firebase-auth-22.1.1/AndroidManifest.xml:42:21-49
+112                    android:path="/"
+112-->[com.google.firebase:firebase-auth:22.1.1] /Users/tronglv/.gradle/caches/transforms-3/fc303ec5c99b0d4f5c63bdda84362aaf/transformed/jetified-firebase-auth-22.1.1/AndroidManifest.xml:43:21-37
+113                    android:scheme="recaptcha" />
+113-->[com.google.firebase:firebase-auth:22.1.1] /Users/tronglv/.gradle/caches/transforms-3/fc303ec5c99b0d4f5c63bdda84362aaf/transformed/jetified-firebase-auth-22.1.1/AndroidManifest.xml:44:21-48
+114            </intent-filter>
+115        </activity>
+116
+117        <provider
+117-->[com.google.firebase:firebase-common:20.3.3] /Users/tronglv/.gradle/caches/transforms-3/a2ee07eb3c616cbd4f42fdc268736227/transformed/jetified-firebase-common-20.3.3/AndroidManifest.xml:25:9-30:39
+118            android:name="com.google.firebase.provider.FirebaseInitProvider"
+118-->[com.google.firebase:firebase-common:20.3.3] /Users/tronglv/.gradle/caches/transforms-3/a2ee07eb3c616cbd4f42fdc268736227/transformed/jetified-firebase-common-20.3.3/AndroidManifest.xml:26:13-77
+119            android:authorities="com.pepsiapp.firebaseinitprovider"
+119-->[com.google.firebase:firebase-common:20.3.3] /Users/tronglv/.gradle/caches/transforms-3/a2ee07eb3c616cbd4f42fdc268736227/transformed/jetified-firebase-common-20.3.3/AndroidManifest.xml:27:13-72
+120            android:directBootAware="true"
+120-->[com.google.firebase:firebase-common:20.3.3] /Users/tronglv/.gradle/caches/transforms-3/a2ee07eb3c616cbd4f42fdc268736227/transformed/jetified-firebase-common-20.3.3/AndroidManifest.xml:28:13-43
+121            android:exported="false"
+121-->[com.google.firebase:firebase-common:20.3.3] /Users/tronglv/.gradle/caches/transforms-3/a2ee07eb3c616cbd4f42fdc268736227/transformed/jetified-firebase-common-20.3.3/AndroidManifest.xml:29:13-37
+122            android:initOrder="100" />
+122-->[com.google.firebase:firebase-common:20.3.3] /Users/tronglv/.gradle/caches/transforms-3/a2ee07eb3c616cbd4f42fdc268736227/transformed/jetified-firebase-common-20.3.3/AndroidManifest.xml:30:13-36
+123
+124        <activity
+124-->[com.google.android.gms:play-services-base:18.1.0] /Users/tronglv/.gradle/caches/transforms-3/f6705de6282e42555ae60a3f4e75bd63/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:20:9-22:45
+125            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+125-->[com.google.android.gms:play-services-base:18.1.0] /Users/tronglv/.gradle/caches/transforms-3/f6705de6282e42555ae60a3f4e75bd63/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:20:19-85
+126            android:exported="false"
+126-->[com.google.android.gms:play-services-base:18.1.0] /Users/tronglv/.gradle/caches/transforms-3/f6705de6282e42555ae60a3f4e75bd63/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:22:19-43
+127            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+127-->[com.google.android.gms:play-services-base:18.1.0] /Users/tronglv/.gradle/caches/transforms-3/f6705de6282e42555ae60a3f4e75bd63/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:21:19-78
+128
+129        <meta-data
+129-->[com.google.android.gms:play-services-basement:18.2.0] /Users/tronglv/.gradle/caches/transforms-3/b27eca56621688e0ba8e90b27e23130f/transformed/jetified-play-services-basement-18.2.0/AndroidManifest.xml:21:9-23:69
+130            android:name="com.google.android.gms.version"
+130-->[com.google.android.gms:play-services-basement:18.2.0] /Users/tronglv/.gradle/caches/transforms-3/b27eca56621688e0ba8e90b27e23130f/transformed/jetified-play-services-basement-18.2.0/AndroidManifest.xml:22:13-58
+131            android:value="@integer/google_play_services_version" />
+131-->[com.google.android.gms:play-services-basement:18.2.0] /Users/tronglv/.gradle/caches/transforms-3/b27eca56621688e0ba8e90b27e23130f/transformed/jetified-play-services-basement-18.2.0/AndroidManifest.xml:23:13-66
+132
+133        <provider
+133-->[androidx.emoji2:emoji2:1.0.0] /Users/tronglv/.gradle/caches/transforms-3/a2247da8ff45edc6a5f74b995788b510/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:26:9-34:20
+134            android:name="androidx.startup.InitializationProvider"
+134-->[androidx.emoji2:emoji2:1.0.0] /Users/tronglv/.gradle/caches/transforms-3/a2247da8ff45edc6a5f74b995788b510/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:27:13-67
+135            android:authorities="com.pepsiapp.androidx-startup"
+135-->[androidx.emoji2:emoji2:1.0.0] /Users/tronglv/.gradle/caches/transforms-3/a2247da8ff45edc6a5f74b995788b510/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:28:13-68
+136            android:exported="false" >
+136-->[androidx.emoji2:emoji2:1.0.0] /Users/tronglv/.gradle/caches/transforms-3/a2247da8ff45edc6a5f74b995788b510/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:29:13-37
+137            <meta-data
+137-->[androidx.emoji2:emoji2:1.0.0] /Users/tronglv/.gradle/caches/transforms-3/a2247da8ff45edc6a5f74b995788b510/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:31:13-33:52
+138                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+138-->[androidx.emoji2:emoji2:1.0.0] /Users/tronglv/.gradle/caches/transforms-3/a2247da8ff45edc6a5f74b995788b510/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:32:17-75
+139                android:value="androidx.startup" />
+139-->[androidx.emoji2:emoji2:1.0.0] /Users/tronglv/.gradle/caches/transforms-3/a2247da8ff45edc6a5f74b995788b510/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:33:17-49
+140            <meta-data
+140-->[androidx.lifecycle:lifecycle-process:2.4.0] /Users/tronglv/.gradle/caches/transforms-3/56578b0f03b19b939792378d13429a2e/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:31:13-33:52
+141                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+141-->[androidx.lifecycle:lifecycle-process:2.4.0] /Users/tronglv/.gradle/caches/transforms-3/56578b0f03b19b939792378d13429a2e/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:32:17-78
+142                android:value="androidx.startup" />
+142-->[androidx.lifecycle:lifecycle-process:2.4.0] /Users/tronglv/.gradle/caches/transforms-3/56578b0f03b19b939792378d13429a2e/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:33:17-49
+143        </provider>
+144
+145        <meta-data
+145-->[com.facebook.soloader:soloader:0.10.5] /Users/tronglv/.gradle/caches/transforms-3/8a04ce6a9210ecaeffe7c9dd3fbd0f8c/transformed/jetified-soloader-0.10.5/AndroidManifest.xml:12:9-14:37
+146            android:name="com.facebook.soloader.enabled"
+146-->[com.facebook.soloader:soloader:0.10.5] /Users/tronglv/.gradle/caches/transforms-3/8a04ce6a9210ecaeffe7c9dd3fbd0f8c/transformed/jetified-soloader-0.10.5/AndroidManifest.xml:13:13-57
+147            android:value="false" />
+147-->[com.facebook.soloader:soloader:0.10.5] /Users/tronglv/.gradle/caches/transforms-3/8a04ce6a9210ecaeffe7c9dd3fbd0f8c/transformed/jetified-soloader-0.10.5/AndroidManifest.xml:14:13-34
+148    </application>
+149
+150</manifest>

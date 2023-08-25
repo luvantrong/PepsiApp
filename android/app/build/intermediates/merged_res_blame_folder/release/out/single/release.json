@@ -1,0 +1,50 @@
+[
+    {
+        "merged": "com.pepsiapp-merged_res-34:/drawable-mdpi_node_modules_reactnative_libraries_newappscreen_components_logo.png.flat",
+        "source": "com.pepsiapp-res-28:/drawable-mdpi/node_modules_reactnative_libraries_newappscreen_components_logo.png"
+    },
+    {
+        "merged": "com.pepsiapp-merged_res-34:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "com.pepsiapp-main-35:/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.pepsiapp-merged_res-34:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "com.pepsiapp-main-35:/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.pepsiapp-merged_res-34:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "com.pepsiapp-main-35:/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.pepsiapp-merged_res-34:/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "com.pepsiapp-main-35:/mipmap-xhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.pepsiapp-merged_res-34:/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "com.pepsiapp-main-35:/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.pepsiapp-merged_res-34:/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "com.pepsiapp-main-35:/mipmap-xxxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.pepsiapp-merged_res-34:/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "com.pepsiapp-main-35:/mipmap-mdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.pepsiapp-merged_res-34:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "com.pepsiapp-main-35:/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.pepsiapp-merged_res-34:/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "com.pepsiapp-main-35:/mipmap-hdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.pepsiapp-merged_res-34:/drawable_rn_edit_text_material.xml.flat",
+        "source": "com.pepsiapp-main-35:/drawable/rn_edit_text_material.xml"
+    },
+    {
+        "merged": "com.pepsiapp-merged_res-34:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "com.pepsiapp-main-35:/mipmap-xxxhdpi/ic_launcher.png"
+    }
+]

@@ -1,0 +1,6 @@
+module Pods_PepsiApp {
+  umbrella header "Pods-PepsiApp-umbrella.h"
+
+  export *
+  module * { export * }
+}
