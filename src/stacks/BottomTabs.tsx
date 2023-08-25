@@ -18,7 +18,6 @@ const BottomTabs = () => {
           tabBarHideOnKeyboard: true,
           tabBarActiveTintColor: "#52CC6D",
           tabBarInactiveTintColor: "#828282",
-
           tabBarStyle: {
             height: 100,
             paddingTop: 5,

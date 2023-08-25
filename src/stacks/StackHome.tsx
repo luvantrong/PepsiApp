@@ -5,10 +5,12 @@ import About from "../screens/About";
 import { NavigationContainer } from "@react-navigation/native";
 type HomeProps = {};
 type AboutProps = {};
+type SettingProps = {};
 
 export type StackParamList = {
   Home: HomeProps | undefined;
   About: AboutProps | undefined;
+  Setting: SettingProps | undefined;
 };
 
 const Stack = createNativeStackNavigator<StackParamList>();

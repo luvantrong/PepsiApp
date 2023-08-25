@@ -14,7 +14,7 @@ type PropsType = NativeStackScreenProps<StackParamList, "Home">;
 const Home: React.FC<PropsType> = (props) => {
   const { navigation } = props;
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{ backgroundColor: "#52CC6D", flex: 1 }}>
       <Text>Welcome to App!</Text>
       <TouchableOpacity
         style={{
