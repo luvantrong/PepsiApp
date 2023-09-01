@@ -1,7 +1,7 @@
-import { Image, SafeAreaView, StyleSheet, Text, View } from "react-native";
+import { Image, Pressable, SafeAreaView, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { BackgroundApp } from "@components";
-import { BACKGROUND_START, IMAGE_HEADLINE, IMAGE_TALEN } from "@assets";
+import { BACKGROUND_START, BUTTON_THELE, IMAGE_HEADLINE, IMAGE_TALEN } from "@assets";
 import { DimensionsStyle } from "@resources";
 
 const _Start = () => {
@@ -13,6 +13,11 @@ const _Start = () => {
           style={_styles.styleImageHeadline}
         />
         <Image source={{ uri: IMAGE_TALEN }} style={_styles.styleImageTalen} />
+        <View style={_styles.styleViewButton}>
+          <Pressable>
+            <Image source={{ uri: BUTTON_THELE }} />
+          </Pressable>
+        </View>
       </SafeAreaView>
     </BackgroundApp>
   );
@@ -30,7 +35,14 @@ const _styles = StyleSheet.create({
     width: "100%",
     height: DimensionsStyle.height * 0.65,
     resizeMode: "stretch",
-    marginTop: -35,
+    bottom: 35,
+  },
+
+  styleViewButton: {
+    width: "100%",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
   },
 });
 export const Start = React.memo(_Start);
