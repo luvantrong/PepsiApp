@@ -43,8 +43,8 @@ export const IMAGE_HEADLINE =
 export const IMAGE_TALEN =
   "https://firebasestorage.googleapis.com/v0/b/pepsiapp-3476d.appspot.com/o/IMAGE_TALEN.png?alt=media&token=5722124f-4110-41a1-bd8b-2613235638e8";
 
-export const BUTTON_HUONGDAN =
+export const BUTTON_INSTRUCT=
   "https://firebasestorage.googleapis.com/v0/b/pepsiapp-3476d.appspot.com/o/BUTTON_HUONGDAN.png?alt=media&token=4aac35ab-5ad6-4f17-849b-8ee3fca2cfc9";
 
-export const BUTTON_THELE =
+export const BUTTON_RULES =
   "https://firebasestorage.googleapis.com/v0/b/pepsiapp-3476d.appspot.com/o/BUTTON_THELE.png?alt=media&token=d7145038-3f1b-463a-9c96-4ab682ba2921";
