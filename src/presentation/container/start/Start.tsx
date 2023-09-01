@@ -26,26 +26,31 @@ const _Start = () => {
           source={{ uri: IMAGE_HEADLINE }}
           style={_styles.styleImageHeadline}
         />
-        <Image source={{ uri: IMAGE_TALEN }} style={_styles.styleImageTalen} />
-        <View style={_styles.styleViewButton}>
-          <Pressable>
-            <Image
-              source={{ uri: BUTTON_RULES }}
-              style={_styles.styleButtonRulesAndInstruct}
-            />
-          </Pressable>
-          <Pressable>
-            <Image
-              source={{ uri: ICON_BOTTOM_MIC_ACTIVE }}
-              style={_styles.styleButtonMic}
-            />
-          </Pressable>
-          <Pressable>
-            <Image
-              source={{ uri: BUTTON_INSTRUCT }}
-              style={_styles.styleButtonRulesAndInstruct}
-            />
-          </Pressable>
+        <View style={_styles.styleViewImageTalenAndBottomButton}>
+          <Image
+            source={{ uri: IMAGE_TALEN }}
+            style={_styles.styleImageTalen}
+          />
+          <View style={_styles.styleViewButton}>
+            <Pressable>
+              <Image
+                source={{ uri: BUTTON_RULES }}
+                style={_styles.styleButtonRulesAndInstruct}
+              />
+            </Pressable>
+            <Pressable>
+              <Image
+                source={{ uri: ICON_BOTTOM_MIC_ACTIVE }}
+                style={_styles.styleButtonMic}
+              />
+            </Pressable>
+            <Pressable>
+              <Image
+                source={{ uri: BUTTON_INSTRUCT }}
+                style={_styles.styleButtonRulesAndInstruct}
+              />
+            </Pressable>
+          </View>
         </View>
       </SafeAreaView>
     </BackgroundApp>
@@ -60,11 +65,15 @@ const _styles = StyleSheet.create({
     marginTop: DimensionsStyle.width * 0.1,
   },
 
+  styleViewImageTalenAndBottomButton: {
+    width: "100%",
+    bottom: 40,
+  },
+
   styleImageTalen: {
     width: "100%",
     height: DimensionsStyle.height * 0.65,
     resizeMode: "stretch",
-    bottom: DimensionsStyle.width * 0.075,
   },
 
   styleViewButton: {
@@ -73,7 +82,7 @@ const _styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     position: "absolute",
-    bottom: DimensionsStyle.width * 0.32,
+    bottom: 70,
   },
 
   styleButtonRulesAndInstruct: {
@@ -86,7 +95,7 @@ const _styles = StyleSheet.create({
     width: DimensionsStyle.width * 0.3,
     height: DimensionsStyle.width * 0.3,
     resizeMode: "stretch",
-    marginHorizontal: -20,
+    marginHorizontal: -22,
   },
 });
 export const Start = React.memo(_Start);
