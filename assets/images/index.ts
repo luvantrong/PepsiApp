@@ -27,3 +27,24 @@ export const ICON_BOTTOM_BESTLIST_ACTIVE =
 
 export const ICON_BOTTOM_MIC =
   "https://firebasestorage.googleapis.com/v0/b/pepsiapp-3476d.appspot.com/o/ICON_BOTTOM_MIC.png?alt=media&token=95592ecf-baab-4100-b4da-62d110fee86a";
+
+export const ICON_BOTTOM_MIC_ACTIVE =
+  "https://firebasestorage.googleapis.com/v0/b/pepsiapp-3476d.appspot.com/o/ICON_BOTTOM_MIC_ACTIVE.png?alt=media&token=50c1b0a2-f322-4c0f-b4a5-6e444a0b5e0e";
+
+export const BACKGROUND_START =
+  "https://firebasestorage.googleapis.com/v0/b/pepsiapp-3476d.appspot.com/o/BACKGROUND_START.png?alt=media&token=cc2a64d7-f11b-4def-851c-5933bb9e4f8d";
+
+export const BACKGROUND_APP =
+  "https://firebasestorage.googleapis.com/v0/b/pepsiapp-3476d.appspot.com/o/BACKGROUND_APP.png?alt=media&token=5aab95a1-6838-4a7a-a779-de3ebfe9a8f1";
+
+export const IMAGE_HEADLINE =
+  "https://firebasestorage.googleapis.com/v0/b/pepsiapp-3476d.appspot.com/o/IMAGE_HEADLINE.png?alt=media&token=c12d5d2a-e895-4841-afec-63c2e70100ac";
+
+export const IMAGE_TALEN =
+  "https://firebasestorage.googleapis.com/v0/b/pepsiapp-3476d.appspot.com/o/IMAGE_TALEN.png?alt=media&token=5722124f-4110-41a1-bd8b-2613235638e8";
+
+export const BUTTON_HUONGDAN =
+  "https://firebasestorage.googleapis.com/v0/b/pepsiapp-3476d.appspot.com/o/BUTTON_HUONGDAN.png?alt=media&token=4aac35ab-5ad6-4f17-849b-8ee3fca2cfc9";
+
+export const BUTTON_THELE =
+  "https://firebasestorage.googleapis.com/v0/b/pepsiapp-3476d.appspot.com/o/BUTTON_THELE.png?alt=media&token=d7145038-3f1b-463a-9c96-4ab682ba2921";
