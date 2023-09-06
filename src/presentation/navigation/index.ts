@@ -1,1 +1,1 @@
-export * from "./BottomTabNavigation";
+export * from "./HomeNavigation";

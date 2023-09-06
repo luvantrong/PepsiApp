@@ -1,5 +1,6 @@
 export const Colors = {
-  TEXT_BOTTOM_BAR: "rgba(119, 174, 240, 1)",
-  SHADOW_ICON_MIC: "rgba(43, 153, 255, 0.90)",
   WHITE: "rgba(255, 255, 255, 1)",
+  YELLOW: "rgba(255, 221, 0, 1)",
+  BLACK_PLA: "gray",
+  BLACK: "rgba(45, 45, 45, 1)",
 };

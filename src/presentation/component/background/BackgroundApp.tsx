@@ -10,7 +10,7 @@ import { Colors } from "@resources";
 
 export type BackgroundProps = {
   children: React.ReactNode;
-  uri: string;
+  uri: string | undefined;
   styleBackground?: StyleProp<ViewStyle>;
 };
 
