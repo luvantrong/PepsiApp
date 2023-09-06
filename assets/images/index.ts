@@ -1,3 +1,5 @@
+import { firebase } from "@react-native-firebase/firestore";
+
 export const BG_BOTTOM_TAB =
   "https://firebasestorage.googleapis.com/v0/b/pepsiapp-3476d.appspot.com/o/BG_BOTTOM_TAB.png?alt=media&token=ddfea2d0-f12f-41e8-b72c-8dbb0878b6ed";
 
@@ -48,3 +50,5 @@ export const BUTTON_INSTRUCT=
 
 export const BUTTON_RULES =
   "https://firebasestorage.googleapis.com/v0/b/pepsiapp-3476d.appspot.com/o/BUTTON_THELE.png?alt=media&token=d7145038-3f1b-463a-9c96-4ab682ba2921";
+
+  

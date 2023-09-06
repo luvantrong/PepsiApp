@@ -1,9 +1,9 @@
 import React from "react";
-import { BottomTabNavigation } from "@presentation";
+import { BottomTabNavigation, Test } from "@presentation";
 import { Start } from "@containers";
 
 const App: React.FC = () => {
-  return <Start />;
+  return <Test />;
 };
 
 export default App;

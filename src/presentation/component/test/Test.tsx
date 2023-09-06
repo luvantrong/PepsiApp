@@ -20,13 +20,40 @@ type Banner = {
 };
 
 const _Test = () => {
+  // async function getImage() {
+  //   const url = await storage().ref("garnele.jpg").getDownloadURL();
+  //   console.log(url);
+  //   return url;
+  // }
   return (
     <SafeAreaView>
       <Text
-        style={{ fontFamily: fontFamily.italic, marginStart: 10, fontSize: 30 }}
+        style={{
+          fontFamily: fontFamily.Black721,
+          marginStart: 10,
+          fontSize: 30,
+        }}
       >
-        Ri thèm nước ngọt, Ri có tiền tự mua đi, Ri không có tiền thì nhịn,chú
-        trom
+        Ri thèm nước ngọt
+      </Text>
+      <Text
+        style={{
+          fontFamily: fontFamily.medium,
+          marginStart: 10,
+          fontSize: 30,
+          fontWeight: "bold",
+        }}
+      >
+        Ri thèm nước ngọt
+      </Text>
+      <Text
+        style={{
+          fontFamily: fontFamily.medium,
+          marginStart: 10,
+          fontSize: 30,
+        }}
+      >
+        Ri thèm nước ngọt
       </Text>
     </SafeAreaView>
   );
