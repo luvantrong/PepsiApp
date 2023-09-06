@@ -7,7 +7,13 @@ import {
   Pressable,
 } from "react-native";
 import React, { useState } from "react";
-import { BACKGROUND_SIGNUP, BG_GETCODE, ICON_CHECK, fontFamily } from "@assets";
+import {
+  BACKGROUND_SIGNUP,
+  BG_GETCODE,
+  BG_SIGNIN,
+  ICON_CHECK,
+  fontFamily,
+} from "@assets";
 import { storage } from "@shared-state";
 import { BackgroundApp, Button, TextField, TextView } from "@components";
 import { Colors, DimensionsStyle } from "@resources";
@@ -35,7 +41,7 @@ const _SignUp = () => {
   };
   return (
     <BackgroundApp uri={getImageUrl(BACKGROUND_SIGNUP)}>
-      <SafeAreaView>
+      <SafeAreaView style={{ flex: 1 }}>
         <View style={_styles.headlineStyle}>
           <TextView title="Hey, mừng bạn đến với" />
           <TextView
@@ -88,7 +94,15 @@ const _SignUp = () => {
         <View style={_styles.viewButtonStyle}>
           <Button title="Lấy mã OTP" uriImage={getImageUrl(BG_GETCODE)} />
           <Text style={_styles.textOrStyle}>Hoặc</Text>
-          <Button title="Lấy mã OTP" uriImage={getImageUrl(BG_GETCODE)} />
+          <Button
+            title="Đăng nhập"
+            uriImage={getImageUrl(BG_SIGNIN)}
+            textStyle={{ color: Colors.BLUE_2 }}
+            pressableStyle={{
+              borderColor: Colors.YELLOW,
+              backgroundColor: Colors.WHITE,
+            }}
+          />
         </View>
       </SafeAreaView>
     </BackgroundApp>
@@ -130,6 +144,9 @@ const _styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     flexDirection: "column",
+    position: "absolute",
+    alignSelf: "center",
+    bottom: DimensionsStyle.height * 0.16,
   },
 
   textOrStyle: {

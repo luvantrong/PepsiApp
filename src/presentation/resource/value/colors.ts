@@ -4,4 +4,5 @@ export const Colors = {
   BLACK_PLA: "gray",
   BLACK: "rgba(45, 45, 45, 1)",
   BORDER_GRAY: "#EFE8D1",
+  BLUE_2: "rgba(0, 99, 167, 1)",
 };

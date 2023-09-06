@@ -67,6 +67,7 @@ const _styles = StyleSheet.create({
     fontSize: 18,
     fontFamily: fontFamily.Black721,
     color: Colors.WHITE,
+    marginBottom: 2,
   },
 });
 
