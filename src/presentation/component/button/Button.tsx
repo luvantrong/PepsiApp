@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import React from "react";
 import { fontFamily } from "@assets";
-import { Colors } from "@resources";
+import { Colors, DimensionsStyle } from "@resources";
 
 export type ButtonProps = {
   title: string;
@@ -50,19 +50,22 @@ const _Button: React.FC<ButtonProps> = (props) => {
 
 const _styles = StyleSheet.create({
   container: {
-    marginHorizontal: 20,
-    height: 40,
+    height: 44,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    borderRadius: 8,
-    resizeMode: "cover",
+    borderRadius: 10,
+    width: DimensionsStyle.width * 0.6,
+    resizeMode: "stretch",
     overflow: "hidden",
+    borderColor: Colors.BORDER_GRAY,
+    borderWidth: 1,
+    backgroundColor: Colors.BLACK_PLA,
   },
 
   textStyle: {
-    fontSize: 14,
-    fontFamily: fontFamily.bold,
+    fontSize: 18,
+    fontFamily: fontFamily.Black721,
     color: Colors.WHITE,
   },
 });
