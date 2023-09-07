@@ -36,6 +36,7 @@ const Item = ({ item }: ItemProps) => (
         width: DimensionsStyle.width * 0.8,
         height: DimensionsStyle.width * 0.8,
         marginBottom: 20,
+        borderRadius: 20,
       }}
     />
     <TextViewBold
