@@ -13,64 +13,38 @@ import {
   BG_SIGNIN,
   BG_SIGNIN_CHECK,
   ICON_CHECK,
+  IMAGE_3_LON_1,
   fontFamily,
 } from "@assets";
 import { storage } from "@shared-state";
 import { BackgroundApp, Button, TextField, TextView } from "@components";
 import { Colors, DimensionsStyle } from "@resources";
-import BouncyCheckbox from "react-native-bouncy-checkbox";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { HomeStackParamList } from "@navigation";
+import { getImageUrl } from "./SignUp";
 
-export const getImageUrl = (path: string) => {
-  try {
-    const [url, setUrl] = React.useState<string | undefined>();
-    const getUrl = async () => {
-      const result = await storage.ref(path).getDownloadURL();
-      if (result) setUrl(result);
-    };
-    getUrl();
-    return url;
-  } catch (error) {
-    console.error("Error getting image URL:", error);
-    return undefined;
-  }
-};
-type PropsType = NativeStackScreenProps<HomeStackParamList, "SignUp">;
+type PropsType = NativeStackScreenProps<HomeStackParamList, "SignIn">;
 
-const _SignUp: React.FC<PropsType> = (props) => {
+const _SignIn: React.FC<PropsType> = (props) => {
   const { navigation } = props;
-  const [checkboxState, setCheckboxState] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState("");
-  const [userName, setUserName] = useState("");
+
   const [backgroundGetCode, setBackgroundGetCode] = useState(BG_GETCODE);
   const [validate, setValidate] = useState(false);
-
-  const checkRemember = () => {
-    setCheckboxState(!checkboxState);
-  };
 
   const handlePhoneNumberTextChange = (text: string) => {
     setPhoneNumber(text);
   };
 
-  const handleUserNameTextChange = (text: string) => {
-    setUserName(text);
-  };
-
-  const handleGoToRules = () => {
-    navigation.push("Rules");
-  };
-
   useEffect(() => {
-    if (checkboxState && phoneNumber && userName) {
+    if (phoneNumber) {
       setBackgroundGetCode(BG_SIGNIN_CHECK);
       setValidate(true);
     } else {
       setBackgroundGetCode(BG_GETCODE);
       setValidate(false);
     }
-  }, [phoneNumber, userName, checkboxState]);
+  }, [phoneNumber]);
 
   const handleGoToConfirmOTP = () => {
     if (validate) {
@@ -78,10 +52,9 @@ const _SignUp: React.FC<PropsType> = (props) => {
     }
   };
 
-  const handleGoToSignIn = () => {
-    navigation.push("SignIn");
+  const handleGoToSignUp = () => {
+    navigation.push("SignUp");
   };
-
   return (
     <BackgroundApp uri={getImageUrl(BACKGROUND_SIGNUP)}>
       <SafeAreaView style={{ flex: 1 }}>
@@ -93,51 +66,26 @@ const _SignUp: React.FC<PropsType> = (props) => {
           />
         </View>
 
-        <TextView title="Đăng ký" textStyle={_styles.textSignUpStyle} />
+        <TextView title="Đăng nhập" textStyle={_styles.textSignUpStyle} />
+        <Text style={_styles.textPhone}>Số điện thoại</Text>
         <TextField
           placeholder="Số điện thoại"
           value={phoneNumber}
           onChange={handlePhoneNumberTextChange}
+          textStyle={{ marginTop: 5 }}
         />
-        <TextField
-          placeholder="Tên người dùng"
-          value={userName}
-          onChange={handleUserNameTextChange}
+
+        <Image
+          source={{ uri: getImageUrl(IMAGE_3_LON_1) }}
+          style={{
+            width: DimensionsStyle.width * 0.5,
+            height: DimensionsStyle.height * 0.22,
+            resizeMode: "stretch",
+            alignSelf: "center",
+            marginTop: 25,
+          }}
         />
-        <View style={_styles.viewCheckRulesStyle}>
-          <BouncyCheckbox
-            onPress={checkRemember}
-            isChecked={checkboxState}
-            fillColor={Colors.WHITE}
-            size={20}
-            innerIconStyle={{
-              borderRadius: 9,
-            }}
-            iconStyle={{
-              borderRadius: 9,
-            }}
-            checkIconImageSource={ICON_CHECK}
-          />
-          <Text style={[_styles.textCheckRulesStyle, { marginStart: -10 }]}>
-            Tôi đã đọc và đồng ý với
-          </Text>
-          <Pressable onPress={handleGoToRules}>
-            <Text
-              style={[
-                _styles.textCheckRulesStyle,
-                {
-                  color: Colors.YELLOW,
-                  fontFamily: fontFamily.Black721,
-                  marginBottom: 1,
-                },
-              ]}
-            >
-              {" "}
-              thể lệ chương trình
-            </Text>
-          </Pressable>
-          <Text style={_styles.textCheckRulesStyle}> Pepsi Tết.</Text>
-        </View>
+
         <View style={_styles.viewButtonStyle}>
           <Button
             sumPlay=""
@@ -154,14 +102,14 @@ const _SignUp: React.FC<PropsType> = (props) => {
           <Text style={_styles.textOrStyle}>Hoặc</Text>
           <Button
             sumPlay=""
-            title="Đăng nhập"
+            title="Đăng ký"
             uriImage={getImageUrl(BG_SIGNIN)}
             textStyle={{ color: Colors.BLUE_2 }}
             pressableStyle={{
               borderColor: Colors.YELLOW,
               backgroundColor: Colors.WHITE,
             }}
-            onPress={handleGoToSignIn}
+            onPress={handleGoToSignUp}
           />
         </View>
       </SafeAreaView>
@@ -186,20 +134,6 @@ const _styles = StyleSheet.create({
     marginTop: DimensionsStyle.width * 0.15,
   },
 
-  viewCheckRulesStyle: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "flex-start",
-    marginHorizontal: 20,
-    marginTop: 12,
-  },
-
-  textCheckRulesStyle: {
-    fontFamily: fontFamily.medium,
-    fontSize: 14,
-    color: Colors.WHITE,
-  },
-
   viewButtonStyle: {
     alignItems: "center",
     justifyContent: "center",
@@ -214,6 +148,13 @@ const _styles = StyleSheet.create({
     marginVertical: 10,
     color: Colors.WHITE,
   },
-});
 
-export const SignUp = React.memo(_SignUp);
+  textPhone: {
+    fontFamily: fontFamily.Black721,
+    marginHorizontal: 20,
+    color: Colors.WHITE,
+    fontSize: 14,
+    marginTop: 15,
+  },
+});
+export const SignIn = React.memo(_SignIn);

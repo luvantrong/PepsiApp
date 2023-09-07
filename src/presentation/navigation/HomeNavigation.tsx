@@ -4,7 +4,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import { Test } from "../component/test";
 import { NavigationContainer } from "@react-navigation/native";
-import { SignUp, Rules, ConfirmOTP } from "../container/sign-in";
+import { SignUp, Rules, ConfirmOTP, SignIn } from "../container/sign-in";
 import { Home } from "../container/home";
 
 type SignUpProps = {};
@@ -12,6 +12,7 @@ type TestProps = {};
 type RulesProps = {};
 type ConfirmOTPProps = {};
 type HomeProps = {};
+type SignInProps = {};
 
 export type HomeStackParamList = {
   SignUp: SignUpProps | undefined;
@@ -19,6 +20,7 @@ export type HomeStackParamList = {
   Test: TestProps | undefined;
   ConfirmOTP: ConfirmOTPProps | undefined;
   Home: HomeProps | undefined;
+  SignIn: SignInProps | undefined;
 };
 
 const Stack = createNativeStackNavigator<HomeStackParamList>();
@@ -37,6 +39,7 @@ const _HomeNavigation = () => {
         <Stack.Screen name="Test" component={Test} />
         <Stack.Screen name="ConfirmOTP" component={ConfirmOTP} />
         <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="SignIn" component={SignIn} />
       </Stack.Navigator>
     </NavigationContainer>
   );

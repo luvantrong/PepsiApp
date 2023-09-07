@@ -7,3 +7,4 @@ export const BACKGROUND_RULES = "BACKGROUND_RULES.png";
 export const ICON_ARROW = "ICON_ARROW.png";
 export const ICON_LOGOUT = "ICON_LOGOUT.png";
 export const BG_PLAY = "BUTTON_PLAY.png";
+export const IMAGE_3_LON_1 = "IMAGE_3_LON_1.png";
