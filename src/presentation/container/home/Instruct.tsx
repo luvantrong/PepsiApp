@@ -29,7 +29,7 @@ type ItemProps = {
 };
 
 const Item = ({ item }: ItemProps) => (
-  <View style={{ marginBottom: 30 }}>
+  <View style={{ marginBottom: 45 }}>
     <Image
       source={{ uri: getImageUrl(item.image) }}
       style={{
