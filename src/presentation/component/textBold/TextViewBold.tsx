@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import React from "react";
 import { fontFamily } from "@assets";
+import { Colors } from "@resources";
 
 type Props = {
   boldTexts: string[];
@@ -53,12 +54,15 @@ const _styles = StyleSheet.create({
     justifyContent: "center",
   },
   textBold: {
-    fontFamily: fontFamily.bold,
-    fontSize: 14,
+    fontFamily: fontFamily.medium,
+    fontSize: 12,
+    fontWeight: "bold",
+    color: Colors.YELLOW,
   },
   text: {
-    fontSize: 14,
+    fontSize: 10,
     fontFamily: fontFamily.medium,
+    color: Colors.WHITE,
   },
 });
 

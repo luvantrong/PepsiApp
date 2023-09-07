@@ -10,21 +10,26 @@ import {
 import React from "react";
 import { fontFamily } from "@assets";
 import { Colors, DimensionsStyle } from "@resources";
+import { TextViewBold } from "../textBold";
 
 export type ButtonProps = {
   title: string;
+  titleSmall?: string;
+  titleSmallStyle?: StyleProp<TextStyle>;
   pressableStyle?: StyleProp<ViewStyle>;
   uriImage?: string;
   textStyle?: StyleProp<TextStyle>;
   onPress?: (screen?: string) => void;
+  sumPlay: string;
 };
 
 const _Button: React.FC<ButtonProps> = (props) => {
-  const { uriImage, title, onPress } = props;
+  const { uriImage, title, onPress, titleSmall, sumPlay } = props;
 
   const handlePress = () => {
     onPress && onPress();
   };
+
   return uriImage ? (
     <ImageBackground
       style={StyleSheet.flatten([_styles.container, props.pressableStyle])}
@@ -34,6 +39,7 @@ const _Button: React.FC<ButtonProps> = (props) => {
         <Text style={StyleSheet.flatten([_styles.textStyle, props.textStyle])}>
           {title}
         </Text>
+        {titleSmall && <TextViewBold text={titleSmall} boldTexts={[sumPlay]} />}
       </Pressable>
     </ImageBackground>
   ) : (
@@ -51,7 +57,7 @@ const _Button: React.FC<ButtonProps> = (props) => {
 const _styles = StyleSheet.create({
   container: {
     height: 44,
-    flexDirection: "row",
+    flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 10,
@@ -68,6 +74,15 @@ const _styles = StyleSheet.create({
     fontFamily: fontFamily.Black721,
     color: Colors.WHITE,
     marginBottom: 2,
+    textAlign: "center",
+  },
+
+  textSmallStyle: {
+    display: "none",
+    textAlign: "center",
+    fontSize: 10,
+    fontFamily: fontFamily.medium,
+    color: Colors.WHITE,
   },
 });
 

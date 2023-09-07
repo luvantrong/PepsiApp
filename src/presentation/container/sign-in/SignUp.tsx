@@ -44,6 +44,7 @@ const _SignUp: React.FC<PropsType> = (props) => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [userName, setUserName] = useState("");
   const [backgroundGetCode, setBackgroundGetCode] = useState(BG_GETCODE);
+  const [validate, setValidate] = useState(false);
 
   const checkRemember = () => {
     setCheckboxState(!checkboxState);
@@ -62,10 +63,20 @@ const _SignUp: React.FC<PropsType> = (props) => {
   };
 
   useEffect(() => {
-    if (checkboxState && phoneNumber && userName)
+    if (checkboxState && phoneNumber && userName) {
       setBackgroundGetCode(BG_SIGNIN_CHECK);
-    else setBackgroundGetCode(BG_GETCODE);
+      setValidate(true);
+    } else {
+      setBackgroundGetCode(BG_GETCODE);
+      setValidate(false);
+    }
   }, [phoneNumber, userName, checkboxState]);
+
+  const handleGoToConfirmOTP = () => {
+    if (validate) {
+      navigation.push("ConfirmOTP");
+    }
+  };
 
   return (
     <BackgroundApp uri={getImageUrl(BACKGROUND_SIGNUP)}>
@@ -125,6 +136,7 @@ const _SignUp: React.FC<PropsType> = (props) => {
         </View>
         <View style={_styles.viewButtonStyle}>
           <Button
+            sumPlay=""
             title="Lấy mã OTP"
             uriImage={getImageUrl(backgroundGetCode)}
             pressableStyle={{
@@ -133,9 +145,11 @@ const _SignUp: React.FC<PropsType> = (props) => {
                   ? Colors.YELLOW
                   : Colors.WHITE,
             }}
+            onPress={handleGoToConfirmOTP}
           />
           <Text style={_styles.textOrStyle}>Hoặc</Text>
           <Button
+            sumPlay=""
             title="Đăng nhập"
             uriImage={getImageUrl(BG_SIGNIN)}
             textStyle={{ color: Colors.BLUE_2 }}
