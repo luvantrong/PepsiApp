@@ -30,6 +30,10 @@ const _Home: React.FC<PropsType> = (props) => {
   let titleSum = "Bạn có tổng cộng 3 lượt chơi";
   let sumPlay = "8";
   let newTitleSum = titleSum.replace("3", sumPlay);
+  const handleGoToInstruct = () => {
+    navigation.push("Instruct");
+  };
+
   return (
     <BackgroundApp uri={getImageUrl(BACKGROUND_HOME)}>
       <SafeAreaView style={{ flex: 1 }}>
@@ -47,7 +51,7 @@ const _Home: React.FC<PropsType> = (props) => {
           style={_styles.imageCenter}
         />
         <View style={_styles.viewMenu}>
-          <Pressable>
+          <Pressable onPress={handleGoToInstruct}>
             <Text style={_styles.textRules}>Hướng dẫn</Text>
           </Pressable>
 

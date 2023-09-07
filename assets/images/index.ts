@@ -10,3 +10,4 @@ export const BG_PLAY = "BUTTON_PLAY.png";
 export const IMAGE_3_LON_1 = "IMAGE_3_LON_1.png";
 export const BACKGROUND_HOME = "BACKGROUND_HOME.png";
 export const IMAGE_HOME = "IMAGE_HOME.png";
+export const BACKGROUND_PRESENT = "BACKGROUND_PRESENT.png";
