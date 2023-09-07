@@ -22,6 +22,7 @@ export type HeaderProps = {
   onPressRight?: () => void;
   iconRightStyle?: StyleProp<ImageStyle>;
   loginStatus?: boolean;
+  containerStyle?: StyleProp<ViewStyle>;
 };
 
 const _Header: React.FC<HeaderProps> = (props) => {
@@ -34,7 +35,7 @@ const _Header: React.FC<HeaderProps> = (props) => {
     loginStatus,
   } = props;
   return (
-    <View style={StyleSheet.flatten(_styles.container)}>
+    <View style={StyleSheet.flatten([_styles.container, props.containerStyle])}>
       <Pressable onPress={onPressLeft}>
         <Image
           style={StyleSheet.flatten([_styles.iconLeft, props.iconLeftStyle])}
