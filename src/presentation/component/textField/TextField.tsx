@@ -17,10 +17,11 @@ export type TextFieldProps = {
   viewStyle?: StyleProp<ViewStyle>;
   onChange?: (text: string) => void;
   textStyle?: StyleProp<TextStyle>;
+  value: string;
 };
 
 const _TextField: React.FC<TextFieldProps> = (props) => {
-  const { placeholder, onChange } = props;
+  const { placeholder, onChange, value } = props;
   return (
     <View style={[{ marginHorizontal: 20 }, props.viewStyle]}>
       <TextInput
@@ -28,6 +29,7 @@ const _TextField: React.FC<TextFieldProps> = (props) => {
         placeholder={placeholder}
         placeholderTextColor={Colors.BLACK_PLA}
         onChangeText={onChange}
+        value={value}
       />
     </View>
   );
