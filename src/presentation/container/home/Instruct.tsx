@@ -42,12 +42,13 @@ const Item = ({ item }: ItemProps) => (
     <TextViewBold
       text={item.content}
       boldTexts={["Bước 1:", "Bước 2:", "Bước 3"]}
-      textStyle={{ fontSize: 18 }}
+      textStyle={{ fontSize: 18, textAlign: "center" }}
       boldStyle={{
         fontSize: 18,
         color: Colors.WHITE,
         fontFamily: fontFamily.Black721,
       }}
+      viewStyle={{ width: DimensionsStyle.width * 0.7, alignSelf: "center" }}
     />
   </View>
 );
