@@ -35,7 +35,7 @@ const _Button: React.FC<ButtonProps> = (props) => {
       style={StyleSheet.flatten([_styles.container, props.pressableStyle])}
       source={{ uri: uriImage }}
     >
-      <Pressable onPress={handlePress}>
+      <Pressable onPress={handlePress} style={{ width: "100%" }}>
         <Text style={StyleSheet.flatten([_styles.textStyle, props.textStyle])}>
           {title}
         </Text>

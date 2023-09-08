@@ -5,9 +5,10 @@ import {
   SafeAreaView,
   Image,
   Pressable,
+  Modal,
 } from "react-native";
-import React from "react";
-import { BackgroundApp, Button } from "@components";
+import React, { useState } from "react";
+import { BackgroundApp, Button, PopupSignOut } from "@components";
 import {
   BACKGROUND_HOME,
   BG_PLAY,
@@ -27,6 +28,7 @@ type PropsType = NativeStackScreenProps<HomeStackParamList, "Home">;
 
 const _Home: React.FC<PropsType> = (props) => {
   const { navigation } = props;
+  const [modalVisibleSignOut, setModalVisibleSignOut] = useState(false);
   let titleSum = "Bạn có tổng cộng 3 lượt chơi";
   let sumPlay = "8";
   let newTitleSum = titleSum.replace("3", sumPlay);
@@ -34,9 +36,30 @@ const _Home: React.FC<PropsType> = (props) => {
     navigation.push("Instruct");
   };
 
+  const handleShowPopupSignOut = () => {
+    setModalVisibleSignOut(true);
+  };
+
   return (
     <BackgroundApp uri={getImageUrl(BACKGROUND_HOME)}>
       <SafeAreaView style={{ flex: 1 }}>
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={modalVisibleSignOut}
+        >
+          <PopupSignOut
+            onPressSignOut={() => {
+              setModalVisibleSignOut(!modalVisibleSignOut);
+              // setLoggedIn(false);
+              // setDataUser({} as User);
+              navigation.push("SignIn");
+            }}
+            onPressCancel={() => {
+              setModalVisibleSignOut(!modalVisibleSignOut);
+            }}
+          />
+        </Modal>
         <Header
           iconLeft={getImageUrl(ICON_ARROW)}
           titleCenter="Thể lệ chương trình"
@@ -45,6 +68,7 @@ const _Home: React.FC<PropsType> = (props) => {
           titleCenterStyle={{ opacity: 0 }}
           iconLeftStyle={{ opacity: 0 }}
           containerStyle={{ marginTop: 10 }}
+          onPressRight={handleShowPopupSignOut}
         />
         <Image
           source={{ uri: getImageUrl(IMAGE_HOME) }}

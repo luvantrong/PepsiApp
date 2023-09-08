@@ -13,3 +13,6 @@ export const IMAGE_HOME = "IMAGE_HOME.png";
 export const BACKGROUND_PRESENT = "BACKGROUND_PRESENT.png";
 export const IMG_INSTRUCT_1 = "IMG_INSTRUCT_1.png";
 export const IMG_INSTRUCT_2 = "IMG_INSTRUCT_2.png";
+export const BACKGROUND_SIGNOUT = "BACKGROUND_SIGNOUT.png";
+export const BUTTON_SIGNOUT = "BUTTON_SIGNOUT.png";
+export const BG_CANCEL = "BG_CANCEL.png";
