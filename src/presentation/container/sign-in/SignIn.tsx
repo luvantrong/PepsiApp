@@ -69,7 +69,7 @@ const _SignIn: React.FC<PropsType> = (props) => {
         <TextView title="Đăng nhập" textStyle={_styles.textSignUpStyle} />
         <Text style={_styles.textPhone}>Số điện thoại</Text>
         <TextField
-          placeholder="Số điện thoại"
+          placeholder="Nhập số điện thoại"
           value={phoneNumber}
           onChange={handlePhoneNumberTextChange}
           textStyle={{ marginTop: 5 }}

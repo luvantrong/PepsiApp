@@ -5,9 +5,10 @@ import {
   Text,
   View,
   Image,
+  Modal,
 } from "react-native";
 import React, { useState, useEffect } from "react";
-import { BackgroundApp, Header, TextViewBold } from "@components";
+import { BackgroundApp, Header, PopupSignOut, TextViewBold } from "@components";
 import { getImageUrl } from "../sign-in";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { HomeStackParamList } from "@navigation";
@@ -55,16 +56,38 @@ const Item = ({ item }: ItemProps) => (
 
 const _Instruct: React.FC<PropsType> = (props) => {
   const { navigation } = props;
+  const [modalVisibleSignOut, setModalVisibleSignOut] = useState(false);
   const handleGoToHome = () => navigation.push("Home");
+  const handleShowPopupSignOut = () => {
+    setModalVisibleSignOut(true);
+  };
   return (
     <BackgroundApp uri={getImageUrl(BACKGROUND_PRESENT)}>
       <SafeAreaView style={{ flex: 1, marginBottom: -40 }}>
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={modalVisibleSignOut}
+        >
+          <PopupSignOut
+            onPressSignOut={() => {
+              setModalVisibleSignOut(!modalVisibleSignOut);
+              // setLoggedIn(false);
+              // setDataUser({} as User);
+              navigation.push("SignIn");
+            }}
+            onPressCancel={() => {
+              setModalVisibleSignOut(!modalVisibleSignOut);
+            }}
+          />
+        </Modal>
         <Header
           iconLeft={getImageUrl(ICON_ARROW)}
           titleCenter="Hướng dẫn"
           iconRight={getImageUrl(ICON_LOGOUT)}
           loginStatus={true}
           onPressLeft={handleGoToHome}
+          onPressRight={handleShowPopupSignOut}
         />
         <ScrollView
           style={_styles.scrollViewStyle}

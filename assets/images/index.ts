@@ -16,3 +16,7 @@ export const IMG_INSTRUCT_2 = "IMG_INSTRUCT_2.png";
 export const BACKGROUND_SIGNOUT = "BACKGROUND_SIGNOUT.png";
 export const BUTTON_SIGNOUT = "BUTTON_SIGNOUT.png";
 export const BG_CANCEL = "BG_CANCEL.png";
+export const BACKGROUND_SELECT_PLAY = "BACKGROUND_SELECT_PLAY.png";
+export const BUTTON_CLOSE = "BUTTON_CLOSE.png";
+export const BG_BUTTON_SELECT_PLAY = "BG_BUTTON_SELECT_PLAY.png";
+export const BUTTON_SELECT_ZERO = "BUTTON_SELECT_ZERO.png";

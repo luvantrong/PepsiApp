@@ -8,7 +8,12 @@ import {
   Modal,
 } from "react-native";
 import React, { useState } from "react";
-import { BackgroundApp, Button, PopupSignOut } from "@components";
+import {
+  BackgroundApp,
+  Button,
+  PopupSelectPlay,
+  PopupSignOut,
+} from "@components";
 import {
   BACKGROUND_HOME,
   BG_PLAY,
@@ -29,6 +34,7 @@ type PropsType = NativeStackScreenProps<HomeStackParamList, "Home">;
 const _Home: React.FC<PropsType> = (props) => {
   const { navigation } = props;
   const [modalVisibleSignOut, setModalVisibleSignOut] = useState(false);
+  const [modalVisibleSelectPlay, setModalVisibleSelectPlay] = useState(false);
   let titleSum = "Bạn có tổng cộng 3 lượt chơi";
   let sumPlay = "8";
   let newTitleSum = titleSum.replace("3", sumPlay);
@@ -38,6 +44,10 @@ const _Home: React.FC<PropsType> = (props) => {
 
   const handleShowPopupSignOut = () => {
     setModalVisibleSignOut(true);
+  };
+
+  const handleShowPopupSelectPlay = () => {
+    setModalVisibleSelectPlay(true);
   };
 
   return (
@@ -57,6 +67,28 @@ const _Home: React.FC<PropsType> = (props) => {
             }}
             onPressCancel={() => {
               setModalVisibleSignOut(!modalVisibleSignOut);
+            }}
+          />
+        </Modal>
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={modalVisibleSelectPlay}
+        >
+          <PopupSelectPlay
+            sumPlayFree="3"
+            sumPlayExchange="0"
+            onPressClose={() => {
+              setModalVisibleSelectPlay(!modalVisibleSelectPlay);
+            }}
+            onPressFree={() => {
+              setModalVisibleSelectPlay(!modalVisibleSelectPlay);
+              // setLoggedIn(false);
+              // setDataUser({} as User);
+              navigation.push("SignIn");
+            }}
+            onPressExchange={() => {
+              setModalVisibleSelectPlay(!modalVisibleSelectPlay);
             }}
           />
         </Modal>
@@ -87,6 +119,7 @@ const _Home: React.FC<PropsType> = (props) => {
               height: 60,
             }}
             titleSmall={newTitleSum}
+            onPress={handleShowPopupSelectPlay}
           />
           <Button
             sumPlay=""
