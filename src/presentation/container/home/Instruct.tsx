@@ -20,7 +20,7 @@ import {
   IMG_INSTRUCT_2,
   fontFamily,
 } from "@assets";
-import { IInstruct } from "src/domain/entity";
+import { IInstruct } from "@domain";
 import { useSelector } from "react-redux";
 import { RootState } from "@shared-state";
 import { getUrlImage } from "../sign-in";

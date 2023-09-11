@@ -13,7 +13,14 @@ import { DimensionsStyle } from "@resources";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { HomeStackParamList } from "@navigation";
 import { BackgroundApp, Header, TextViewBold } from "@components";
-import { BACKGROUND_PLAY, ICON_ARROW, ICON_LOGOUT, IMAGE_HOME } from "@assets";
+import {
+  BACKGROUND_PLAY,
+  ICON_ARROW,
+  ICON_LOGOUT,
+  IMAGE_CENTER_PLAY,
+  IMAGE_HOME,
+  IMAGE_TARGET,
+} from "@assets";
 import { useSelector } from "react-redux";
 import { RootState } from "@shared-state";
 import { getUrlImage } from "../sign-in";
@@ -31,6 +38,7 @@ const _Play: React.FC<PropsType> = (props) => {
   const type = route.params?.type;
   const sumPlay = route.params?.sumPlay;
   const [typePlay, setTypePlay] = React.useState<string>("miễn phí");
+  const [opacityImageTarget, setOpacityImageTarget] = React.useState<number>(1);
 
   if (type === false) {
     setTypePlay("quy đổi");
@@ -46,10 +54,13 @@ const _Play: React.FC<PropsType> = (props) => {
         if (gesture.dy < 0) {
           pan.setValue({ x: 0, y: gesture.dy });
         }
+        if (gesture.dy < -screenHeight / 5) {
+          setOpacityImageTarget(0);
+        }
       },
       onPanResponderRelease: (_, gesture) => {
         if (gesture.dy < -screenHeight / 5) {
-          navigation.push("SignIn");
+          navigation.push("HappyPresent");
         } else {
           Animated.spring(pan, {
             toValue: { x: 0, y: 0 },
@@ -79,10 +90,18 @@ const _Play: React.FC<PropsType> = (props) => {
           }}
           boldStyle={{ fontSize: 18 }}
         />
+        <Image
+          source={{ uri: getUrlImage(listAllImages, IMAGE_TARGET) }}
+          style={[_styles.imageTarget, { opacity: opacityImageTarget }]}
+        />
+        <Image
+          source={{ uri: getUrlImage(listAllImages, IMAGE_CENTER_PLAY) }}
+          style={_styles.imageCenter}
+        />
         <Animated.View
           style={[
             _styles.imageContainer,
-            { transform: pan.getTranslateTransform(), bottom: -50 },
+            { transform: pan.getTranslateTransform(), bottom: -60 },
           ]}
           {...panResponder.panHandlers}
         >
@@ -108,8 +127,24 @@ const _styles = StyleSheet.create({
     right: 0,
   },
   image: {
-    width: 200,
-    height: 200,
+    width: DimensionsStyle.width * 0.55,
+    height: DimensionsStyle.width * 0.6,
+    resizeMode: "stretch",
+    alignSelf: "center",
+  },
+
+  imageTarget: {
+    width: 64,
+    height: 56,
+    resizeMode: "stretch",
+    alignSelf: "center",
+    position: "absolute",
+    bottom: DimensionsStyle.height * 0.21,
+  },
+
+  imageCenter: {
+    width: DimensionsStyle.width * 1,
+    height: DimensionsStyle.width * 1.4,
     resizeMode: "stretch",
     alignSelf: "center",
   },
