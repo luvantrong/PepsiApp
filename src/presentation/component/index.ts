@@ -7,3 +7,4 @@ export * from "./textBold";
 export * from "./header";
 export * from "./popup";
 export * from "./backgroundModal";
+export * from "./loading";

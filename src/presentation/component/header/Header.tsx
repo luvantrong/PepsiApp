@@ -7,6 +7,7 @@ import {
   Pressable,
   ViewStyle,
   Text,
+  TextStyle,
 } from "react-native";
 import React from "react";
 import { fontFamily } from "@assets";
@@ -17,7 +18,7 @@ export type HeaderProps = {
   onPressLeft?: () => void;
   iconLeftStyle?: StyleProp<ImageStyle>;
   titleCenter: string;
-  titleCenterStyle?: StyleProp<ViewStyle>;
+  titleCenterStyle?: StyleProp<TextStyle>;
   iconRight: string | undefined;
   onPressRight?: () => void;
   iconRightStyle?: StyleProp<ImageStyle>;

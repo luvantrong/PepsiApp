@@ -23,16 +23,21 @@ import {
   IMAGE_HOME,
   fontFamily,
 } from "@assets";
-import { getImageUrl } from "../sign-in";
 import { Header } from "@components";
 import { Colors, DimensionsStyle } from "@resources";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { HomeStackParamList } from "@navigation";
+import { useSelector } from "react-redux";
+import { RootState } from "@shared-state";
+import { getUrlImage } from "../sign-in";
 
 type PropsType = NativeStackScreenProps<HomeStackParamList, "Home">;
 
 const _Home: React.FC<PropsType> = (props) => {
   const { navigation } = props;
+  const listAllImages = useSelector<RootState, string[]>(
+    (state) => state.storage.storage
+  );
   const [modalVisibleSignOut, setModalVisibleSignOut] = useState(false);
   const [modalVisibleSelectPlay, setModalVisibleSelectPlay] = useState(false);
   let titleSum = "Bạn có tổng cộng 3 lượt chơi";
@@ -51,7 +56,7 @@ const _Home: React.FC<PropsType> = (props) => {
   };
 
   return (
-    <BackgroundApp uri={getImageUrl(BACKGROUND_HOME)}>
+    <BackgroundApp uri={getUrlImage(listAllImages, BACKGROUND_HOME)}>
       <SafeAreaView style={{ flex: 1 }}>
         <Modal
           animationType="slide"
@@ -83,19 +88,18 @@ const _Home: React.FC<PropsType> = (props) => {
             }}
             onPressFree={() => {
               setModalVisibleSelectPlay(!modalVisibleSelectPlay);
-              // setLoggedIn(false);
-              // setDataUser({} as User);
-              navigation.push("SignIn");
+              navigation.push("Play", { type: true, sumPlay: "3" });
             }}
             onPressExchange={() => {
               setModalVisibleSelectPlay(!modalVisibleSelectPlay);
+              navigation.push("Play", { type: false, sumPlay: "0" });
             }}
           />
         </Modal>
         <Header
-          iconLeft={getImageUrl(ICON_ARROW)}
+          iconLeft={getUrlImage(listAllImages, ICON_ARROW)}
           titleCenter="Thể lệ chương trình"
-          iconRight={getImageUrl(ICON_LOGOUT)}
+          iconRight={getUrlImage(listAllImages, ICON_LOGOUT)}
           loginStatus={true}
           titleCenterStyle={{ opacity: 0 }}
           iconLeftStyle={{ opacity: 0 }}
@@ -103,7 +107,7 @@ const _Home: React.FC<PropsType> = (props) => {
           onPressRight={handleShowPopupSignOut}
         />
         <Image
-          source={{ uri: getImageUrl(IMAGE_HOME) }}
+          source={{ uri: getUrlImage(listAllImages, IMAGE_HOME) }}
           style={_styles.imageCenter}
         />
         <View style={_styles.viewMenu}>
@@ -114,7 +118,7 @@ const _Home: React.FC<PropsType> = (props) => {
           <Button
             sumPlay={sumPlay}
             title="Chơi ngay"
-            uriImage={getImageUrl(BG_PLAY)}
+            uriImage={getUrlImage(listAllImages, BG_PLAY)}
             pressableStyle={{
               height: 60,
             }}
@@ -124,21 +128,21 @@ const _Home: React.FC<PropsType> = (props) => {
           <Button
             sumPlay=""
             title="Quét mã"
-            uriImage={getImageUrl(BG_SIGNIN)}
+            uriImage={getUrlImage(listAllImages, BG_SIGNIN)}
             textStyle={{ color: Colors.BLUE_2 }}
             pressableStyle={_styles.pressableStyle}
           />
           <Button
             sumPlay=""
             title="Bộ sưu tập"
-            uriImage={getImageUrl(BG_SIGNIN)}
+            uriImage={getUrlImage(listAllImages, BG_SIGNIN)}
             textStyle={{ color: Colors.BLUE_2 }}
             pressableStyle={_styles.pressableStyle}
           />
           <Button
             sumPlay=""
             title="Chi tiết quà tặng"
-            uriImage={getImageUrl(BG_SIGNIN)}
+            uriImage={getUrlImage(listAllImages, BG_SIGNIN)}
             textStyle={{ color: Colors.BLUE_2 }}
             pressableStyle={_styles.pressableStyle}
           />

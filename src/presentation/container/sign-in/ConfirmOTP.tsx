@@ -3,14 +3,12 @@ import {
   StyleSheet,
   Text,
   View,
-  Image,
   Pressable,
 } from "react-native";
 import React, { useState, useEffect } from "react";
 import {
   BACKGROUND_SIGNUP,
   BG_GETCODE,
-  BG_SIGNIN,
   BG_SIGNIN_CHECK,
   fontFamily,
 } from "@assets";
@@ -18,13 +16,18 @@ import { BackgroundApp, Button, TextField, TextView } from "@components";
 import { Colors, DimensionsStyle } from "@resources";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { HomeStackParamList } from "@navigation";
-import { getImageUrl } from "./SignUp";
 import OTPInputView from "@twotalltotems/react-native-otp-input";
+import { useSelector } from "react-redux";
+import { RootState, storage } from "@shared-state";
+import { getUrlImage } from "../sign-in";
 
 type PropsType = NativeStackScreenProps<HomeStackParamList, "ConfirmOTP">;
 
 const _ConfirmOTP: React.FC<PropsType> = (props) => {
   const { navigation } = props;
+  const listAllImages = useSelector<RootState, string[]>(
+    (state) => state.storage.storage
+  );
   const [code, setCode] = useState<string>("");
   const [borderColorOTP, setBorderColorOTP] = useState<string>(Colors.WHITE);
   const [backgroundConfirmOTP, setBackgroundConfirmOTP] =
@@ -55,7 +58,7 @@ const _ConfirmOTP: React.FC<PropsType> = (props) => {
     setCode("");
   };
   return (
-    <BackgroundApp uri={getImageUrl(BACKGROUND_SIGNUP)}>
+    <BackgroundApp uri={getUrlImage(listAllImages, BACKGROUND_SIGNUP)}>
       <SafeAreaView style={{ flex: 1 }}>
         <View style={_styles.headlineStyle}>
           <TextView title="Hey, mừng bạn đến với" />
@@ -97,7 +100,7 @@ const _ConfirmOTP: React.FC<PropsType> = (props) => {
         <View style={_styles.viewButton}>
           <Button
             title="Xác nhận"
-            uriImage={getImageUrl(backgroundConfirmOTP)}
+            uriImage={getUrlImage(listAllImages, backgroundConfirmOTP)}
             sumPlay=""
             onPress={handleConfirmOTP}
           />

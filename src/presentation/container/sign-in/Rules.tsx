@@ -1,19 +1,13 @@
-import {
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  Pressable,
-  ScrollView,
-} from "react-native";
-import React, { useState, useEffect } from "react";
+import { SafeAreaView, StyleSheet, Text, ScrollView } from "react-native";
+import React from "react";
 import { BACKGROUND_RULES, ICON_ARROW, ICON_LOGOUT, fontFamily } from "@assets";
 import { BackgroundApp, Header } from "@components";
-import { getImageUrl } from "./SignUp";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { HomeStackParamList } from "@navigation";
 import { Colors } from "@resources";
+import { useSelector } from "react-redux";
+import { RootState } from "@shared-state";
+import { getUrlImage } from "./SignUp";
 
 const contentRules_1 =
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Scelerisque tortor luctus auctor quam. Aliquam eget augue fermentum eu, at etiam. Id porttitor egestas tortor nisl. Maecenas volutpat sapien neque et sit mauris quis. Neque consectetur egestas nam rutrum nisi, eu lobortis et turpis. Duis id parturient sit et faucibus cursus. A maecenas nec enim consectetur non, donec vitae. Gravida vulputate quam nibh gravida. Quis egestas neque, nibh commodo elit sed odio ac. Purus elementum risus aliquam nunc in. Sapien nunc ornare fermentum non laoreet nec turpis sit turpis. \n";
@@ -40,17 +34,20 @@ type PropsType = NativeStackScreenProps<HomeStackParamList, "Rules">;
 
 const _Rules: React.FC<PropsType> = (props) => {
   const { navigation } = props;
+  const listAllImages = useSelector<RootState, string[]>(
+    (state) => state.storage.storage
+  );
 
   const handleGoBack = () => {
     navigation.push("SignUp");
   };
   return (
-    <BackgroundApp uri={getImageUrl(BACKGROUND_RULES)}>
+    <BackgroundApp uri={getUrlImage(listAllImages, BACKGROUND_RULES)}>
       <SafeAreaView style={{ flex: 1 }}>
         <Header
-          iconLeft={getImageUrl(ICON_ARROW)}
+          iconLeft={getUrlImage(listAllImages, ICON_ARROW)}
           titleCenter="Thể lệ chương trình"
-          iconRight={getImageUrl(ICON_LOGOUT)}
+          iconRight={getUrlImage(listAllImages, ICON_LOGOUT)}
           loginStatus={false}
           onPressLeft={handleGoBack}
         />

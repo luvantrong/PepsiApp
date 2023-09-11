@@ -1,33 +1,29 @@
-import {
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  Pressable,
-} from "react-native";
+import { SafeAreaView, StyleSheet, Text, View, Image } from "react-native";
 import React, { useState, useEffect } from "react";
 import {
   BACKGROUND_SIGNUP,
   BG_GETCODE,
   BG_SIGNIN,
   BG_SIGNIN_CHECK,
-  ICON_CHECK,
   IMAGE_3_LON_1,
   fontFamily,
 } from "@assets";
-import { storage } from "@shared-state";
+import { RootState, storage } from "@shared-state";
 import { BackgroundApp, Button, TextField, TextView } from "@components";
 import { Colors, DimensionsStyle } from "@resources";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { HomeStackParamList } from "@navigation";
-import { getImageUrl } from "./SignUp";
+import { useSelector } from "react-redux";
+import { getUrlImage } from "./SignUp";
 
 type PropsType = NativeStackScreenProps<HomeStackParamList, "SignIn">;
 
 const _SignIn: React.FC<PropsType> = (props) => {
   const { navigation } = props;
   const [phoneNumber, setPhoneNumber] = useState("");
+  const listAllImages = useSelector<RootState, string[]>(
+    (state) => state.storage.storage
+  );
 
   const [backgroundGetCode, setBackgroundGetCode] = useState(BG_GETCODE);
   const [validate, setValidate] = useState(false);
@@ -56,7 +52,7 @@ const _SignIn: React.FC<PropsType> = (props) => {
     navigation.push("SignUp");
   };
   return (
-    <BackgroundApp uri={getImageUrl(BACKGROUND_SIGNUP)}>
+    <BackgroundApp uri={getUrlImage(listAllImages, BACKGROUND_SIGNUP)}>
       <SafeAreaView style={{ flex: 1 }}>
         <View style={_styles.headlineStyle}>
           <TextView title="Hey, mừng bạn đến với" />
@@ -76,7 +72,7 @@ const _SignIn: React.FC<PropsType> = (props) => {
         />
 
         <Image
-          source={{ uri: getImageUrl(IMAGE_3_LON_1) }}
+          source={{ uri: getUrlImage(listAllImages, IMAGE_3_LON_1) }}
           style={{
             width: DimensionsStyle.width * 0.5,
             height: DimensionsStyle.height * 0.22,
@@ -90,7 +86,7 @@ const _SignIn: React.FC<PropsType> = (props) => {
           <Button
             sumPlay=""
             title="Lấy mã OTP"
-            uriImage={getImageUrl(backgroundGetCode)}
+            uriImage={getUrlImage(listAllImages, backgroundGetCode)}
             pressableStyle={{
               borderColor:
                 backgroundGetCode == BG_SIGNIN_CHECK
@@ -103,7 +99,7 @@ const _SignIn: React.FC<PropsType> = (props) => {
           <Button
             sumPlay=""
             title="Đăng ký"
-            uriImage={getImageUrl(BG_SIGNIN)}
+            uriImage={getUrlImage(listAllImages, BG_SIGNIN)}
             textStyle={{ color: Colors.BLUE_2 }}
             pressableStyle={{
               borderColor: Colors.YELLOW,

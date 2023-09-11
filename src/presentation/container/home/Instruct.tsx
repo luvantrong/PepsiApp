@@ -7,14 +7,12 @@ import {
   Image,
   Modal,
 } from "react-native";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { BackgroundApp, Header, PopupSignOut, TextViewBold } from "@components";
-import { getImageUrl } from "../sign-in";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { HomeStackParamList } from "@navigation";
 import { Colors, DimensionsStyle } from "@resources";
 import {
-  BACKGROUND_HOME,
   BACKGROUND_PRESENT,
   ICON_ARROW,
   ICON_LOGOUT,
@@ -23,6 +21,9 @@ import {
   fontFamily,
 } from "@assets";
 import { IInstruct } from "src/domain/entity";
+import { useSelector } from "react-redux";
+import { RootState } from "@shared-state";
+import { getUrlImage } from "../sign-in";
 
 type PropsType = NativeStackScreenProps<HomeStackParamList, "Instruct">;
 type ItemProps = {
@@ -32,7 +33,7 @@ type ItemProps = {
 const Item = ({ item }: ItemProps) => (
   <View style={{ marginBottom: 45 }}>
     <Image
-      source={{ uri: getImageUrl(item.image) }}
+      source={{ uri: item.image }}
       style={{
         width: DimensionsStyle.width * 0.8,
         height: DimensionsStyle.width * 0.8,
@@ -56,13 +57,16 @@ const Item = ({ item }: ItemProps) => (
 
 const _Instruct: React.FC<PropsType> = (props) => {
   const { navigation } = props;
+  const listAllImages = useSelector<RootState, string[]>(
+    (state) => state.storage.storage
+  );
   const [modalVisibleSignOut, setModalVisibleSignOut] = useState(false);
   const handleGoToHome = () => navigation.push("Home");
   const handleShowPopupSignOut = () => {
     setModalVisibleSignOut(true);
   };
   return (
-    <BackgroundApp uri={getImageUrl(BACKGROUND_PRESENT)}>
+    <BackgroundApp uri={getUrlImage(listAllImages, BACKGROUND_PRESENT)}>
       <SafeAreaView style={{ flex: 1, marginBottom: -40 }}>
         <Modal
           animationType="slide"
@@ -82,9 +86,9 @@ const _Instruct: React.FC<PropsType> = (props) => {
           />
         </Modal>
         <Header
-          iconLeft={getImageUrl(ICON_ARROW)}
+          iconLeft={getUrlImage(listAllImages, ICON_ARROW)}
           titleCenter="Hướng dẫn"
-          iconRight={getImageUrl(ICON_LOGOUT)}
+          iconRight={getUrlImage(listAllImages, ICON_LOGOUT)}
           loginStatus={true}
           onPressLeft={handleGoToHome}
           onPressRight={handleShowPopupSignOut}
@@ -118,19 +122,22 @@ export const Instruct = React.memo(_Instruct);
 const DATA: IInstruct[] = [
   {
     key: "1",
-    image: IMG_INSTRUCT_1,
+    image:
+      "https://firebasestorage.googleapis.com/v0/b/pepsiapp-3476d.appspot.com/o/IMG_INSTRUCT_1.png?alt=media&token=bd75401d-57a9-49ac-a434-261d21017aee",
     content:
       "Bước 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Varius in pulvinar feugiat rutrum libero volutpat.",
   },
   {
     key: "2",
-    image: IMG_INSTRUCT_2,
+    image:
+      "https://firebasestorage.googleapis.com/v0/b/pepsiapp-3476d.appspot.com/o/IMG_INSTRUCT_2.png?alt=media&token=85f3fac2-96de-4cb3-a692-ae291a175b5d",
     content:
       "Bước 2: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Varius in pulvinar feugiat rutrum libero volutpat.",
   },
   {
     key: "3",
-    image: IMG_INSTRUCT_1,
+    image:
+      "https://firebasestorage.googleapis.com/v0/b/pepsiapp-3476d.appspot.com/o/IMG_INSTRUCT_1.png?alt=media&token=bd75401d-57a9-49ac-a434-261d21017aee",
     content:
       "Bước 3: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Varius in pulvinar feugiat rutrum libero volutpat.",
   },

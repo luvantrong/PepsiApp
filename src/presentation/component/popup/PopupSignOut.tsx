@@ -2,7 +2,6 @@ import { ImageBackground, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { Colors, DimensionsStyle } from "@resources";
 import { BackgroundModal } from "../backgroundModal";
-import { getImageUrl } from "@containers";
 import {
   BG_SIGNIN,
   BACKGROUND_SIGNOUT,
@@ -13,6 +12,9 @@ import {
 } from "@assets";
 import { TextViewBold } from "../textBold";
 import { Button } from "../button";
+import { getUrlImage } from "@containers";
+import { useSelector } from "react-redux";
+import { RootState } from "@shared-state";
 
 type Props = {
   onPressSignOut: () => void;
@@ -21,11 +23,14 @@ type Props = {
 
 const _PopupSignOut: React.FC<Props> = (props) => {
   const { onPressSignOut, onPressCancel } = props;
+  const listAllImages = useSelector<RootState, string[]>(
+    (state) => state.storage.storage
+  );
   return (
     <View style={_styles.centeredView}>
       <BackgroundModal />
       <ImageBackground
-        source={{ uri: getImageUrl(BACKGROUND_SIGNOUT) }}
+        source={{ uri: getUrlImage(listAllImages, BACKGROUND_SIGNOUT) }}
         style={_styles.viewImageBackground}
       >
         <View style={_styles.viewPopup}>
@@ -37,7 +42,7 @@ const _PopupSignOut: React.FC<Props> = (props) => {
           />
           <Button
             title="Đăng xuất"
-            uriImage={getImageUrl(BUTTON_SIGNOUT)}
+            uriImage={getUrlImage(listAllImages, BUTTON_SIGNOUT)}
             sumPlay=""
             pressableStyle={_styles.buttonSignout}
             textStyle={{ fontSize: 14 }}
@@ -45,7 +50,7 @@ const _PopupSignOut: React.FC<Props> = (props) => {
           />
           <Button
             title="Huỷ"
-            uriImage={getImageUrl(BG_CANCEL)}
+            uriImage={getUrlImage(listAllImages, BG_CANCEL)}
             sumPlay=""
             pressableStyle={_styles.buttonCancel}
             textStyle={{ fontSize: 14, color: Colors.BLUE_2 }}
