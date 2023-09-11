@@ -17,6 +17,7 @@ import {
   BACKGROUND_HAPPY,
   BACKGROUND_PLAY,
   BG_SIGNIN_CHECK,
+  BUTTON_HAPPY,
   ICON_ARROW,
   ICON_LOGOUT,
   IMAGE_CENTER_PLAY,
@@ -104,7 +105,7 @@ const _HappyPresent: React.FC<PropsType> = (props) => {
         />
         <Button
           title="Xác nhận"
-          uriImage={listAllImages[BG_SIGNIN_CHECK]}
+          uriImage={listAllImages[BUTTON_HAPPY]}
           sumPlay=""
           pressableStyle={{
             alignSelf: "center",

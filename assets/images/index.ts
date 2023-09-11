@@ -27,3 +27,4 @@ export const BACKGROUND_HAPPY = "BACKGROUND_HAPPY.png";
 export const PRESENT_BLUE = "PRESENT_BLUE.png";
 export const PRESENT_ORANGE = "PRESENT_ORANGE.png";
 export const PRESENT_GREEN = "PRESENT_GREEN.png";
+export const BUTTON_HAPPY = "BUTTON_HAPPY.png";
