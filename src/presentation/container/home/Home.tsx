@@ -82,7 +82,7 @@ const _Home: React.FC<PropsType> = (props) => {
         >
           <PopupSelectPlay
             sumPlayFree="3"
-            sumPlayExchange="0"
+            sumPlayExchange="1"
             onPressClose={() => {
               setModalVisibleSelectPlay(!modalVisibleSelectPlay);
             }}
@@ -92,7 +92,7 @@ const _Home: React.FC<PropsType> = (props) => {
             }}
             onPressExchange={() => {
               setModalVisibleSelectPlay(!modalVisibleSelectPlay);
-              navigation.push("Play", { type: false, sumPlay: "0" });
+              navigation.push("Play", { type: false, sumPlay: "1" });
             }}
           />
         </Modal>

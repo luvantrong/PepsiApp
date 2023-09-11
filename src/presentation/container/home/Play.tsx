@@ -8,7 +8,7 @@ import {
   SafeAreaView,
   Text,
 } from "react-native";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { DimensionsStyle } from "@resources";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { HomeStackParamList } from "@navigation";
@@ -40,9 +40,11 @@ const _Play: React.FC<PropsType> = (props) => {
   const [typePlay, setTypePlay] = React.useState<string>("miễn phí");
   const [opacityImageTarget, setOpacityImageTarget] = React.useState<number>(1);
 
-  if (type === false) {
-    setTypePlay("quy đổi");
-  }
+  useEffect(() => {
+    if (type === false) {
+      setTypePlay("quy đổi");
+    }
+  }, []);
 
   const textContentPlay = "Bạn còn " + sumPlay + " lượt chơi " + typePlay;
   const pan = useRef(new Animated.ValueXY()).current;
