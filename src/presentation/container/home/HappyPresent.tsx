@@ -55,7 +55,7 @@ const _HappyPresent: React.FC<PropsType> = (props) => {
       name: "1 lon Mirinda PHÚC",
     },
   ];
-  const listAllImages = useSelector<RootState, string[]>(
+  const listAllImages = useSelector<RootState, Record<string, string>>(
     (state) => state.storage.storage
   );
 
@@ -73,19 +73,19 @@ const _HappyPresent: React.FC<PropsType> = (props) => {
     " coins";
 
   return (
-    <BackgroundApp uri={getUrlImage(listAllImages, BACKGROUND_HAPPY)}>
+    <BackgroundApp uri={listAllImages[BACKGROUND_HAPPY]}>
       <SafeAreaView>
         <Header
-          iconLeft={getUrlImage(listAllImages, ICON_ARROW)}
+          iconLeft={listAllImages[ICON_ARROW]}
           titleCenter="Vuốt lên để chơi"
-          iconRight={getUrlImage(listAllImages, ICON_LOGOUT)}
+          iconRight={listAllImages[ICON_LOGOUT]}
           loginStatus={true}
           iconLeftStyle={{ opacity: 0 }}
           titleCenterStyle={{ opacity: 0 }}
         />
 
         <Image
-          source={{ uri: getUrlImage(listAllImages, imagePresent) }}
+          source={{ uri: listAllImages[imagePresent] }}
           style={_styles.imagePresent}
         />
         <TextViewBold
@@ -104,7 +104,7 @@ const _HappyPresent: React.FC<PropsType> = (props) => {
         />
         <Button
           title="Xác nhận"
-          uriImage={getUrlImage(listAllImages, BG_SIGNIN_CHECK)}
+          uriImage={listAllImages[BG_SIGNIN_CHECK]}
           sumPlay=""
           pressableStyle={{
             alignSelf: "center",

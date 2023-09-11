@@ -1,10 +1,4 @@
-import {
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  View,
-  Pressable,
-} from "react-native";
+import { SafeAreaView, StyleSheet, Text, View, Pressable } from "react-native";
 import React, { useState, useEffect } from "react";
 import {
   BACKGROUND_SIGNUP,
@@ -25,7 +19,7 @@ type PropsType = NativeStackScreenProps<HomeStackParamList, "ConfirmOTP">;
 
 const _ConfirmOTP: React.FC<PropsType> = (props) => {
   const { navigation } = props;
-  const listAllImages = useSelector<RootState, string[]>(
+  const listAllImages = useSelector<RootState, Record<string, string>>(
     (state) => state.storage.storage
   );
   const [code, setCode] = useState<string>("");
@@ -58,7 +52,7 @@ const _ConfirmOTP: React.FC<PropsType> = (props) => {
     setCode("");
   };
   return (
-    <BackgroundApp uri={getUrlImage(listAllImages, BACKGROUND_SIGNUP)}>
+    <BackgroundApp uri={listAllImages[BACKGROUND_SIGNUP]}>
       <SafeAreaView style={{ flex: 1 }}>
         <View style={_styles.headlineStyle}>
           <TextView title="Hey, mừng bạn đến với" />
@@ -100,7 +94,7 @@ const _ConfirmOTP: React.FC<PropsType> = (props) => {
         <View style={_styles.viewButton}>
           <Button
             title="Xác nhận"
-            uriImage={getUrlImage(listAllImages, backgroundConfirmOTP)}
+            uriImage={listAllImages[backgroundConfirmOTP]}
             sumPlay=""
             onPress={handleConfirmOTP}
           />

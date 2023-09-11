@@ -37,7 +37,7 @@ const _PopupSelectPlay: React.FC<Props> = (props) => {
     sumPlayFree,
     sumPlayExchange,
   } = props;
-  const listAllImages = useSelector<RootState, string[]>(
+  const listAllImages = useSelector<RootState, Record<string, string>>(
     (state) => state.storage.storage
   );
   let titleSum = "Bạn còn 3 lượt chơi";
@@ -47,13 +47,13 @@ const _PopupSelectPlay: React.FC<Props> = (props) => {
     <View style={_styles.centeredView}>
       <BackgroundModal />
       <ImageBackground
-        source={{ uri: getUrlImage(listAllImages, BACKGROUND_SELECT_PLAY) }}
+        source={{ uri: listAllImages[BACKGROUND_SELECT_PLAY] }}
         style={_styles.viewImageBackground}
       >
         <View style={_styles.viewPopup}>
           <Pressable onPress={onPressClose}>
             <Image
-              source={{ uri: getUrlImage(listAllImages, BUTTON_CLOSE) }}
+              source={{ uri: listAllImages[BUTTON_CLOSE] }}
               style={_styles.buttonClose}
             />
           </Pressable>
@@ -64,8 +64,8 @@ const _PopupSelectPlay: React.FC<Props> = (props) => {
             title="Lượt chơi miễn phí"
             uriImage={
               Number(sumPlayFree) == 0
-                ? getUrlImage(listAllImages, BUTTON_SELECT_ZERO)
-                : getUrlImage(listAllImages, BG_BUTTON_SELECT_PLAY)
+                ? listAllImages[BUTTON_SELECT_ZERO]
+                : listAllImages[BG_BUTTON_SELECT_PLAY]
             }
             sumPlay={sumPlayFree}
             pressableStyle={_styles.buttonFree}
@@ -77,8 +77,8 @@ const _PopupSelectPlay: React.FC<Props> = (props) => {
             title="Lượt chơi quy đổi"
             uriImage={
               Number(sumPlayExchange) == 0
-                ? getUrlImage(listAllImages, BUTTON_SELECT_ZERO)
-                : getUrlImage(listAllImages, BG_BUTTON_SELECT_PLAY)
+              ? listAllImages[BUTTON_SELECT_ZERO]
+              : listAllImages[BG_BUTTON_SELECT_PLAY]
             }
             sumPlay={sumPlayExchange}
             pressableStyle={_styles.buttonExchange}

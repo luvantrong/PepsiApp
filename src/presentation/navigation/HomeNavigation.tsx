@@ -1,14 +1,11 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-
-import { Test } from "../component/test";
 import { NavigationContainer } from "@react-navigation/native";
 import { SignUp, Rules, ConfirmOTP, SignIn } from "../container/sign-in";
 import { Home, Instruct, Play, HappyPresent } from "../container/home";
 
 type SignUpProps = {};
-type TestProps = {};
 type RulesProps = {};
 type ConfirmOTPProps = {};
 type HomeProps = {};
@@ -23,7 +20,6 @@ type HappyPresentProps = {};
 export type HomeStackParamList = {
   SignUp: SignUpProps | undefined;
   Rules: RulesProps | undefined;
-  Test: TestProps | undefined;
   ConfirmOTP: ConfirmOTPProps | undefined;
   Home: HomeProps | undefined;
   SignIn: SignInProps | undefined;
@@ -45,7 +41,6 @@ const _HomeNavigation = () => {
       >
         <Stack.Screen name="SignUp" component={SignUp} />
         <Stack.Screen name="Rules" component={Rules} />
-        <Stack.Screen name="Test" component={Test} />
         <Stack.Screen name="ConfirmOTP" component={ConfirmOTP} />
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="SignIn" component={SignIn} />

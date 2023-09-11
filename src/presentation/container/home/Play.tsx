@@ -31,7 +31,7 @@ const screenHeight = DimensionsStyle.height;
 
 const _Play: React.FC<PropsType> = (props) => {
   const { navigation, route } = props;
-  const listAllImages = useSelector<RootState, string[]>(
+  const listAllImages = useSelector<RootState, Record<string, string>>(
     (state) => state.storage.storage
   );
 
@@ -74,12 +74,12 @@ const _Play: React.FC<PropsType> = (props) => {
   ).current;
 
   return (
-    <BackgroundApp uri={getUrlImage(listAllImages, BACKGROUND_PLAY)}>
+    <BackgroundApp uri={listAllImages[BACKGROUND_PLAY]}>
       <SafeAreaView style={_styles.container}>
         <Header
-          iconLeft={getUrlImage(listAllImages, ICON_ARROW)}
+          iconLeft={listAllImages[ICON_ARROW]}
           titleCenter="Vuốt lên để chơi"
-          iconRight={getUrlImage(listAllImages, ICON_LOGOUT)}
+          iconRight={listAllImages[ICON_LOGOUT]}
           loginStatus={true}
           containerStyle={{ marginTop: 10 }}
           titleCenterStyle={{ textTransform: "uppercase" }}
@@ -93,11 +93,11 @@ const _Play: React.FC<PropsType> = (props) => {
           boldStyle={{ fontSize: 18 }}
         />
         <Image
-          source={{ uri: getUrlImage(listAllImages, IMAGE_TARGET) }}
+          source={{ uri: listAllImages[IMAGE_TARGET] }}
           style={[_styles.imageTarget, { opacity: opacityImageTarget }]}
         />
         <Image
-          source={{ uri: getUrlImage(listAllImages, IMAGE_CENTER_PLAY) }}
+          source={{ uri: listAllImages[IMAGE_CENTER_PLAY] }}
           style={_styles.imageCenter}
         />
         <Animated.View
@@ -108,7 +108,7 @@ const _Play: React.FC<PropsType> = (props) => {
           {...panResponder.panHandlers}
         >
           <Image
-            source={{ uri: getUrlImage(listAllImages, IMAGE_HOME) }}
+            source={{ uri: listAllImages[IMAGE_HOME] }}
             style={_styles.image}
           />
         </Animated.View>

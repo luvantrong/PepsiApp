@@ -11,12 +11,12 @@ if (!firebase.apps.length) {
 }
 
 export interface StorageState {
-  storage: string[];
+  storage: Record<string, string>;
   loading: boolean;
 }
 
 const initialState: StorageState = {
-  storage: [],
+  storage: {},
   loading: false,
 };
 
@@ -25,10 +25,12 @@ export const getAllImageUrls = createAsyncThunk(
   async () => {
     const result = await storage.ref().listAll();
     const imageRefs = result.items;
-    const imageUrls = await Promise.all(
+    const imageUrls: Record<string, string> = {};
+    await Promise.all(
       imageRefs.map(async (imageRef) => {
         const imageUrl = await imageRef.getDownloadURL();
-        return imageUrl;
+        const name = imageRef.name;
+        imageUrls[name] = imageUrl;
       })
     );
     return imageUrls;
@@ -47,7 +49,7 @@ const StorageSlice = createSlice({
       })
       .addCase(getAllImageUrls.rejected, (state) => {
         state.loading = false;
-        state.storage = [];
+        state.storage = {};
       })
       .addCase(getAllImageUrls.pending, (state) => {
         state.loading = true;

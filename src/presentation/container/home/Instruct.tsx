@@ -57,7 +57,7 @@ const Item = ({ item }: ItemProps) => (
 
 const _Instruct: React.FC<PropsType> = (props) => {
   const { navigation } = props;
-  const listAllImages = useSelector<RootState, string[]>(
+  const listAllImages = useSelector<RootState, Record<string, string>>(
     (state) => state.storage.storage
   );
   const [modalVisibleSignOut, setModalVisibleSignOut] = useState(false);
@@ -66,7 +66,7 @@ const _Instruct: React.FC<PropsType> = (props) => {
     setModalVisibleSignOut(true);
   };
   return (
-    <BackgroundApp uri={getUrlImage(listAllImages, BACKGROUND_PRESENT)}>
+    <BackgroundApp uri={listAllImages[BACKGROUND_PRESENT]}>
       <SafeAreaView style={{ flex: 1, marginBottom: -40 }}>
         <Modal
           animationType="slide"
@@ -86,9 +86,9 @@ const _Instruct: React.FC<PropsType> = (props) => {
           />
         </Modal>
         <Header
-          iconLeft={getUrlImage(listAllImages, ICON_ARROW)}
+          iconLeft={listAllImages[ICON_ARROW]}
           titleCenter="Hướng dẫn"
-          iconRight={getUrlImage(listAllImages, ICON_LOGOUT)}
+          iconRight={listAllImages[ICON_LOGOUT]}
           loginStatus={true}
           onPressLeft={handleGoToHome}
           onPressRight={handleShowPopupSignOut}

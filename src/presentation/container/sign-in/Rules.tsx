@@ -34,7 +34,7 @@ type PropsType = NativeStackScreenProps<HomeStackParamList, "Rules">;
 
 const _Rules: React.FC<PropsType> = (props) => {
   const { navigation } = props;
-  const listAllImages = useSelector<RootState, string[]>(
+  const listAllImages = useSelector<RootState, Record<string, string>>(
     (state) => state.storage.storage
   );
 
@@ -42,12 +42,12 @@ const _Rules: React.FC<PropsType> = (props) => {
     navigation.push("SignUp");
   };
   return (
-    <BackgroundApp uri={getUrlImage(listAllImages, BACKGROUND_RULES)}>
+    <BackgroundApp uri={listAllImages[BACKGROUND_RULES]}>
       <SafeAreaView style={{ flex: 1 }}>
         <Header
-          iconLeft={getUrlImage(listAllImages, ICON_ARROW)}
+          iconLeft={listAllImages[ICON_ARROW]}
           titleCenter="Thể lệ chương trình"
-          iconRight={getUrlImage(listAllImages, ICON_LOGOUT)}
+          iconRight={listAllImages[ICON_LOGOUT]}
           loginStatus={false}
           onPressLeft={handleGoBack}
         />

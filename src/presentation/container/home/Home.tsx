@@ -35,7 +35,7 @@ type PropsType = NativeStackScreenProps<HomeStackParamList, "Home">;
 
 const _Home: React.FC<PropsType> = (props) => {
   const { navigation } = props;
-  const listAllImages = useSelector<RootState, string[]>(
+  const listAllImages = useSelector<RootState, Record<string, string>>(
     (state) => state.storage.storage
   );
   const [modalVisibleSignOut, setModalVisibleSignOut] = useState(false);
@@ -56,7 +56,7 @@ const _Home: React.FC<PropsType> = (props) => {
   };
 
   return (
-    <BackgroundApp uri={getUrlImage(listAllImages, BACKGROUND_HOME)}>
+    <BackgroundApp uri={listAllImages[BACKGROUND_HOME]}>
       <SafeAreaView style={{ flex: 1 }}>
         <Modal
           animationType="slide"
@@ -97,9 +97,9 @@ const _Home: React.FC<PropsType> = (props) => {
           />
         </Modal>
         <Header
-          iconLeft={getUrlImage(listAllImages, ICON_ARROW)}
+          iconLeft={listAllImages[ICON_ARROW]}
           titleCenter="Thể lệ chương trình"
-          iconRight={getUrlImage(listAllImages, ICON_LOGOUT)}
+          iconRight={listAllImages[ICON_LOGOUT]}
           loginStatus={true}
           titleCenterStyle={{ opacity: 0 }}
           iconLeftStyle={{ opacity: 0 }}
@@ -107,7 +107,7 @@ const _Home: React.FC<PropsType> = (props) => {
           onPressRight={handleShowPopupSignOut}
         />
         <Image
-          source={{ uri: getUrlImage(listAllImages, IMAGE_HOME) }}
+          source={{ uri: listAllImages[IMAGE_HOME] }}
           style={_styles.imageCenter}
         />
         <View style={_styles.viewMenu}>
@@ -118,7 +118,7 @@ const _Home: React.FC<PropsType> = (props) => {
           <Button
             sumPlay={sumPlay}
             title="Chơi ngay"
-            uriImage={getUrlImage(listAllImages, BG_PLAY)}
+            uriImage={listAllImages[BG_PLAY]}
             pressableStyle={{
               height: 60,
             }}
@@ -128,21 +128,21 @@ const _Home: React.FC<PropsType> = (props) => {
           <Button
             sumPlay=""
             title="Quét mã"
-            uriImage={getUrlImage(listAllImages, BG_SIGNIN)}
+            uriImage={listAllImages[BG_SIGNIN]}
             textStyle={{ color: Colors.BLUE_2 }}
             pressableStyle={_styles.pressableStyle}
           />
           <Button
             sumPlay=""
             title="Bộ sưu tập"
-            uriImage={getUrlImage(listAllImages, BG_SIGNIN)}
+            uriImage={listAllImages[BG_SIGNIN]}
             textStyle={{ color: Colors.BLUE_2 }}
             pressableStyle={_styles.pressableStyle}
           />
           <Button
             sumPlay=""
             title="Chi tiết quà tặng"
-            uriImage={getUrlImage(listAllImages, BG_SIGNIN)}
+            uriImage={listAllImages[BG_SIGNIN]}
             textStyle={{ color: Colors.BLUE_2 }}
             pressableStyle={_styles.pressableStyle}
           />

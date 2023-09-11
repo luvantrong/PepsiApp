@@ -55,7 +55,7 @@ const _SignUp: React.FC<PropsType> = (props) => {
     (state) => state.storage.loading
   );
 
-  const listAllImages = useSelector<RootState, string[]>(
+  const listAllImages = useSelector<RootState, Record<string, string>>(
     (state) => state.storage.storage
   );
 
@@ -168,7 +168,7 @@ const _SignUp: React.FC<PropsType> = (props) => {
             <Button
               sumPlay=""
               title="Lấy mã OTP"
-              uriImage={getUrlImage(listAllImages, backgroundGetCode)}
+              uriImage={listAllImages[backgroundGetCode]}
               pressableStyle={{
                 borderColor:
                   backgroundGetCode == BG_SIGNIN_CHECK
@@ -181,7 +181,7 @@ const _SignUp: React.FC<PropsType> = (props) => {
             <Button
               sumPlay=""
               title="Đăng nhập"
-              uriImage={getUrlImage(listAllImages, BG_SIGNIN)}
+              uriImage={listAllImages[BG_SIGNIN]}
               textStyle={{ color: Colors.BLUE_2 }}
               pressableStyle={{
                 borderColor: Colors.YELLOW,

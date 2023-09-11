@@ -23,14 +23,14 @@ type Props = {
 
 const _PopupSignOut: React.FC<Props> = (props) => {
   const { onPressSignOut, onPressCancel } = props;
-  const listAllImages = useSelector<RootState, string[]>(
+  const listAllImages = useSelector<RootState, Record<string, string>>(
     (state) => state.storage.storage
   );
   return (
     <View style={_styles.centeredView}>
       <BackgroundModal />
       <ImageBackground
-        source={{ uri: getUrlImage(listAllImages, BACKGROUND_SIGNOUT) }}
+        source={{ uri: listAllImages[BACKGROUND_SIGNOUT] }}
         style={_styles.viewImageBackground}
       >
         <View style={_styles.viewPopup}>
@@ -42,7 +42,7 @@ const _PopupSignOut: React.FC<Props> = (props) => {
           />
           <Button
             title="Đăng xuất"
-            uriImage={getUrlImage(listAllImages, BUTTON_SIGNOUT)}
+            uriImage={listAllImages[BUTTON_SIGNOUT]}
             sumPlay=""
             pressableStyle={_styles.buttonSignout}
             textStyle={{ fontSize: 14 }}
@@ -50,7 +50,7 @@ const _PopupSignOut: React.FC<Props> = (props) => {
           />
           <Button
             title="Huỷ"
-            uriImage={getUrlImage(listAllImages, BG_CANCEL)}
+            uriImage={listAllImages[BG_CANCEL]}
             sumPlay=""
             pressableStyle={_styles.buttonCancel}
             textStyle={{ fontSize: 14, color: Colors.BLUE_2 }}

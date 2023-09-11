@@ -21,7 +21,7 @@ type PropsType = NativeStackScreenProps<HomeStackParamList, "SignIn">;
 const _SignIn: React.FC<PropsType> = (props) => {
   const { navigation } = props;
   const [phoneNumber, setPhoneNumber] = useState("");
-  const listAllImages = useSelector<RootState, string[]>(
+  const listAllImages = useSelector<RootState, Record<string, string>>(
     (state) => state.storage.storage
   );
 
@@ -52,7 +52,7 @@ const _SignIn: React.FC<PropsType> = (props) => {
     navigation.push("SignUp");
   };
   return (
-    <BackgroundApp uri={getUrlImage(listAllImages, BACKGROUND_SIGNUP)}>
+    <BackgroundApp uri={listAllImages[BACKGROUND_SIGNUP]}>
       <SafeAreaView style={{ flex: 1 }}>
         <View style={_styles.headlineStyle}>
           <TextView title="Hey, mừng bạn đến với" />
@@ -72,7 +72,7 @@ const _SignIn: React.FC<PropsType> = (props) => {
         />
 
         <Image
-          source={{ uri: getUrlImage(listAllImages, IMAGE_3_LON_1) }}
+          source={{ uri: listAllImages[IMAGE_3_LON_1] }}
           style={{
             width: DimensionsStyle.width * 0.5,
             height: DimensionsStyle.height * 0.22,
@@ -86,7 +86,7 @@ const _SignIn: React.FC<PropsType> = (props) => {
           <Button
             sumPlay=""
             title="Lấy mã OTP"
-            uriImage={getUrlImage(listAllImages, backgroundGetCode)}
+            uriImage={listAllImages[backgroundGetCode]}
             pressableStyle={{
               borderColor:
                 backgroundGetCode == BG_SIGNIN_CHECK
@@ -99,7 +99,7 @@ const _SignIn: React.FC<PropsType> = (props) => {
           <Button
             sumPlay=""
             title="Đăng ký"
-            uriImage={getUrlImage(listAllImages, BG_SIGNIN)}
+            uriImage={listAllImages[BG_SIGNIN]}
             textStyle={{ color: Colors.BLUE_2 }}
             pressableStyle={{
               borderColor: Colors.YELLOW,
