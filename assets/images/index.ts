@@ -31,3 +31,4 @@ export const BUTTON_HAPPY = "BUTTON_HAPPY.png";
 export const BILL_QR = "BILL_QR.png";
 export const BACKGROUND_ERROR_CODE = "BACKGROUND_ERROR_CODE.png";
 export const BACKGROUND_NOTIFICATION = "BACKGROUND_NOTIFICATION.png";
+export const IMAGE_TOP_NOTI = "IMAGE_TOP_NOTI.png";

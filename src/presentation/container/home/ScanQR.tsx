@@ -18,6 +18,7 @@ import {
   Header,
   PopupErrorQR,
   PopupSignOut,
+  PopupSucces,
   TextField,
   TextView,
 } from "@components";
@@ -62,6 +63,22 @@ const _ScanQR: React.FC<PropsType> = (props) => {
             onPress={() => {
               setModalVisibleError(!modalVisibleError);
             }}
+          />
+        </Modal>
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={modalVisibleSuccess}
+        >
+          <PopupSucces
+            onPressReScan={() => {
+              setModalVisibleSuccess(!modalVisibleSuccess);
+            }}
+            onPressPlay={() => {
+              setModalVisibleSuccess(!modalVisibleSuccess);
+              navigation.push("Play");
+            }}
+            sumPlay="8"
           />
         </Modal>
         <Modal

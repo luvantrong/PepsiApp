@@ -7,4 +7,5 @@ export const Colors = {
   BLUE_2: "rgba(0, 99, 167, 1)",
   RED: "rgba(208, 32, 39, 1)",
   BG_MODAL: "rgba(0, 0, 0, 0.7)",
+  BLUE_3: "rgba(0, 80, 130, 1)",
 };
