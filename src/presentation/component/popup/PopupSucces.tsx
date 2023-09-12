@@ -1,4 +1,11 @@
-import { StyleSheet, Text, View, ImageBackground, Image } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  ImageBackground,
+  Image,
+  Pressable,
+} from "react-native";
 import React from "react";
 import { Colors, DimensionsStyle } from "@resources";
 import { BackgroundModal } from "../backgroundModal";
@@ -7,6 +14,7 @@ import { RootState } from "@shared-state";
 import {
   BACKGROUND_ERROR_CODE,
   BACKGROUND_NOTIFICATION,
+  BUTTON_CLOSE,
   IMAGE_TOP_NOTI,
   fontFamily,
 } from "@assets";
@@ -32,6 +40,12 @@ const _PopupSucces: React.FC<Props> = (props) => {
         source={{ uri: listAllImages[BACKGROUND_NOTIFICATION] }}
         style={_styles.viewImageBackground}
       >
+        <Pressable onPress={onPressReScan}>
+          <Image
+            source={{ uri: listAllImages[BUTTON_CLOSE] }}
+            style={_styles.buttonClose}
+          />
+        </Pressable>
         <View style={_styles.viewPopup}>
           <Text style={_styles.textTitle}>Bạn nhận được</Text>
           <Text style={_styles.textCoint}>5</Text>
@@ -97,7 +111,7 @@ const _styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    paddingTop: 70,
+    marginTop: 70,
   },
 
   imageTopNoti: {
@@ -142,6 +156,14 @@ const _styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: Colors.YELLOW,
     marginVertical: 3,
+  },
+
+  buttonClose: {
+    width: 24,
+    height: 24,
+    position: "absolute",
+    right: 10,
+    top: 10,
   },
 });
 export const PopupSucces = React.memo(_PopupSucces);
