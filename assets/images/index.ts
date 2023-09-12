@@ -37,3 +37,5 @@ export const BACKGROUND_COLLECTION = "BACKGROUND_COLLECTION.png";
 export const C1 = "C1.png";
 export const C2 = "C2.png";
 export const C3 = "C3.png";
+export const IMAGE_BOX_1 = "IMAGE_BOX_1.png";
+export const BUTTON_CLOSE_WHITE = "BUTTON_CLOSE_WHITE.png";

@@ -18,6 +18,7 @@ import {
   Button,
   Header,
   PopupErrorQR,
+  PopupExchangeGift,
   PopupSignOut,
   PopupSucces,
   TextField,
@@ -47,6 +48,8 @@ type PropsType = NativeStackScreenProps<HomeStackParamList, "Collection">;
 const _Collection: React.FC<PropsType> = (props) => {
   const { navigation } = props;
   const [modalVisibleSignOut, setModalVisibleSignOut] = useState(false);
+  const [modalVisibleExchangeGift, setModalVisibleExchangeGift] =
+    useState(false);
   const listAllImages = useSelector<RootState, Record<string, string>>(
     (state) => state.storage.storage
   );
@@ -109,6 +112,17 @@ const _Collection: React.FC<PropsType> = (props) => {
   return (
     <BackgroundApp uri={listAllImages[BACKGROUND_COLLECTION]}>
       <SafeAreaView style={{ flex: 1 }}>
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={modalVisibleExchangeGift}
+        >
+          <PopupExchangeGift
+            onPressClose={() => setModalVisibleExchangeGift(false)}
+            onPressExchange={() => console.log("Exchange")}
+            sum={quantity}
+          />
+        </Modal>
         <Modal
           animationType="slide"
           transparent={true}
@@ -209,6 +223,7 @@ const _Collection: React.FC<PropsType> = (props) => {
               : listAllImages[BG_SIGNIN_CHECK]
           }
           pressableStyle={_styles.buttonConfirm}
+          onPress={() => setModalVisibleExchangeGift(true)}
         />
       </SafeAreaView>
     </BackgroundApp>
