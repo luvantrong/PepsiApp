@@ -6,7 +6,7 @@ import {
   Text,
   View,
 } from "react-native";
-import React from "react";
+import React, { useEffect } from "react";
 import { Colors, DimensionsStyle } from "@resources";
 import { BackgroundModal } from "../backgroundModal";
 import {
@@ -18,6 +18,7 @@ import {
   BG_CANCEL,
   IMAGE_BOX_1,
   BUTTON_CLOSE_WHITE,
+  BOX_GIFT_ONE,
 } from "@assets";
 import { TextViewBold } from "../textBold";
 import { Button } from "../button";
@@ -29,35 +30,51 @@ type Props = {
   onPressExchange: () => void;
   onPressClose: () => void;
   sum: number;
+  type: number;
 };
 
-const _PopupExchangeGift: React.FC<Props> = (props) => {
-  const { onPressClose, onPressExchange, sum } = props;
+const _PopupNotificationGift: React.FC<Props> = (props) => {
+  const { onPressClose, onPressExchange, sum, type } = props;
   const listAllImages = useSelector<RootState, Record<string, string>>(
     (state) => state.storage.storage
   );
-  const textNotification = `Bạn có chắc chắn muốn đổi \n ${sum} combo hay không?`;
+
+  const [typeGift, setTypeGift] = React.useState("300 coins");
+  useEffect(() => {
+    if (type == 0) {
+      setTypeGift("300 coins");
+    } else if (type == 1) {
+      setTypeGift("Pepsi Bucket Hat");
+    } else if (type == 2) {
+      setTypeGift("Pepsi Jacket");
+    } else if (type == 3) {
+      setTypeGift("Pepsi Tote Bag");
+    } else if (type == 4) {
+      setTypeGift("Pepsi Tumbler");
+    } else if (type == 5) {
+      setTypeGift("Airpod case (Black Pink)");
+    } else if (type == 6) {
+      setTypeGift("Electronic lunch bo");
+    } else if (type == 7) {
+      setTypeGift("Portable speaker");
+    }
+  }, []);
+  const textNotification = `Bạn nhận được \n ${typeGift}`;
   return (
     <View style={_styles.centeredView}>
       <BackgroundModal />
       <View style={_styles.viewPopup}>
         <Image
-          source={{ uri: listAllImages[IMAGE_BOX_1] }}
+          source={{ uri: listAllImages[BOX_GIFT_ONE] }}
           style={_styles.imageBox}
         />
         <TextViewBold
           text={textNotification}
-          boldTexts={[`${sum} combo`]}
+          boldTexts={[typeGift]}
           textStyle={{ fontSize: 18, textAlign: "center" }}
           boldStyle={{ fontSize: 18 }}
         />
-        <Button
-          title="Đổi quà"
-          uriImage={listAllImages[BUTTON_SIGNOUT]}
-          sumPlay=""
-          pressableStyle={_styles.buttonExchange}
-          textStyle={{ fontSize: 14 }}
-        />
+
         <Pressable onPress={onPressClose}>
           <Image
             source={{ uri: listAllImages[BUTTON_CLOSE_WHITE] }}
@@ -104,14 +121,6 @@ const _styles = StyleSheet.create({
     marginBottom: 10,
     marginTop: DimensionsStyle.height * 0.07,
   },
-
-  buttonExchange: {
-    width: DimensionsStyle.width * 0.28,
-    height: 36,
-    marginTop: DimensionsStyle.width * 0.08,
-    marginBottom: DimensionsStyle.width * 0.12,
-    borderRadius: 10,
-  },
 });
 
-export const PopupExchangeGift = React.memo(_PopupExchangeGift);
+export const PopupNotificationGift = React.memo(_PopupNotificationGift);
