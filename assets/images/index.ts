@@ -28,3 +28,6 @@ export const PRESENT_BLUE = "PRESENT_BLUE.png";
 export const PRESENT_ORANGE = "PRESENT_ORANGE.png";
 export const PRESENT_GREEN = "PRESENT_GREEN.png";
 export const BUTTON_HAPPY = "BUTTON_HAPPY.png";
+export const BILL_QR = "BILL_QR.png";
+export const BACKGROUND_ERROR_CODE = "BACKGROUND_ERROR_CODE.png";
+export const BACKGROUND_NOTIFICATION = "BACKGROUND_NOTIFICATION.png";

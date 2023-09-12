@@ -78,8 +78,8 @@ const _styles = StyleSheet.create({
   },
 
   iconLeft: {
-    width: 9,
-    height: 18,
+    width: 12,
+    height: 21,
     resizeMode: "stretch",
   },
 

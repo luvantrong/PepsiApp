@@ -29,7 +29,6 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { HomeStackParamList } from "@navigation";
 import { useSelector } from "react-redux";
 import { RootState } from "@shared-state";
-import { getUrlImage } from "../sign-in";
 
 type PropsType = NativeStackScreenProps<HomeStackParamList, "Home">;
 
@@ -131,6 +130,7 @@ const _Home: React.FC<PropsType> = (props) => {
             uriImage={listAllImages[BG_SIGNIN]}
             textStyle={{ color: Colors.BLUE_2 }}
             pressableStyle={_styles.pressableStyle}
+            onPress={() => navigation.push("ScanQR")}
           />
           <Button
             sumPlay=""

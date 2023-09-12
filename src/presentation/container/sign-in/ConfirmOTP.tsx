@@ -13,7 +13,6 @@ import { HomeStackParamList } from "@navigation";
 import OTPInputView from "@twotalltotems/react-native-otp-input";
 import { useSelector } from "react-redux";
 import { RootState, storage } from "@shared-state";
-import { getUrlImage } from "../sign-in";
 
 type PropsType = NativeStackScreenProps<HomeStackParamList, "ConfirmOTP">;
 

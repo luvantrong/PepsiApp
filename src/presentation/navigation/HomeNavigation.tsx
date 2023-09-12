@@ -3,7 +3,7 @@ import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { SignUp, Rules, ConfirmOTP, SignIn } from "../container/sign-in";
-import { Home, Instruct, Play, HappyPresent } from "../container/home";
+import { Home, Instruct, Play, HappyPresent, ScanQR } from "../container/home";
 
 type SignUpProps = {};
 type RulesProps = {};
@@ -16,6 +16,7 @@ type PlayProps = {
   sumPlay: string;
 };
 type HappyPresentProps = {};
+type ScanQRProps = {};
 
 export type HomeStackParamList = {
   SignUp: SignUpProps | undefined;
@@ -26,6 +27,7 @@ export type HomeStackParamList = {
   Instruct: InstructProps | undefined;
   Play: PlayProps | undefined;
   HappyPresent: HappyPresentProps | undefined;
+  ScanQR: ScanQRProps | undefined;
 };
 
 const Stack = createNativeStackNavigator<HomeStackParamList>();
@@ -47,6 +49,7 @@ const _HomeNavigation = () => {
         <Stack.Screen name="Instruct" component={Instruct} />
         <Stack.Screen name="Play" component={Play} />
         <Stack.Screen name="HappyPresent" component={HappyPresent} />
+        <Stack.Screen name="ScanQR" component={ScanQR} />
       </Stack.Navigator>
     </NavigationContainer>
   );
