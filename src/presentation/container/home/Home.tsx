@@ -138,6 +138,7 @@ const _Home: React.FC<PropsType> = (props) => {
             uriImage={listAllImages[BG_SIGNIN]}
             textStyle={{ color: Colors.BLUE_2 }}
             pressableStyle={_styles.pressableStyle}
+            onPress={() => navigation.push("Collection")}
           />
           <Button
             sumPlay=""

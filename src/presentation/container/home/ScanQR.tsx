@@ -134,7 +134,8 @@ const _styles = StyleSheet.create({
 
   buttonConfirm: {
     alignSelf: "center",
-    marginTop: 30,
+    position: "absolute",
+    bottom: DimensionsStyle.height * 0.085,
   },
 });
 export const ScanQR = React.memo(_ScanQR);
