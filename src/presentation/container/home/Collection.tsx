@@ -28,6 +28,8 @@ import {
   BACKGROUND_COLLECTION,
   BACKGROUND_SIGNUP,
   BG_BUTTON_SELECT_PLAY,
+  BG_GETCODE,
+  BG_SIGNIN,
   BG_SIGNIN_CHECK,
   BILL_QR,
   C1,
@@ -78,6 +80,11 @@ const _Collection: React.FC<PropsType> = (props) => {
     } else {
       setBackgroundRight(Colors.BLUE_3);
       setBackgroundLeft(Colors.RED);
+    }
+
+    if (quantity == 0) {
+      setBackgroundRight(Colors.BLUE_3);
+      setBackgroundLeft(Colors.BLUE_3);
     }
   }, [quantity]);
 
@@ -196,7 +203,11 @@ const _Collection: React.FC<PropsType> = (props) => {
         <Button
           sumPlay=""
           title="Đổi ngay"
-          uriImage={listAllImages[BG_SIGNIN_CHECK]}
+          uriImage={
+            quantity == 0
+              ? listAllImages[BG_GETCODE]
+              : listAllImages[BG_SIGNIN_CHECK]
+          }
           pressableStyle={_styles.buttonConfirm}
         />
       </SafeAreaView>
