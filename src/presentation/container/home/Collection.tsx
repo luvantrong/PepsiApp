@@ -50,6 +50,8 @@ const _Collection: React.FC<PropsType> = (props) => {
   const [modalVisibleSignOut, setModalVisibleSignOut] = useState(false);
   const [modalVisibleExchangeGift, setModalVisibleExchangeGift] =
     useState(false);
+  const [modalVisibleNotificationGift, setModalVisibleNotificationGift] =
+    useState(false);
   const listAllImages = useSelector<RootState, Record<string, string>>(
     (state) => state.storage.storage
   );
@@ -75,6 +77,8 @@ const _Collection: React.FC<PropsType> = (props) => {
   };
 
   const smallestNumber = findSmallestNumber(numbers);
+
+
 
   useEffect(() => {
     if (quantity < smallestNumber) {
@@ -123,6 +127,7 @@ const _Collection: React.FC<PropsType> = (props) => {
             sum={quantity}
           />
         </Modal>
+
         <Modal
           animationType="slide"
           transparent={true}

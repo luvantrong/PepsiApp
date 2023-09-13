@@ -47,3 +47,4 @@ export const GIFT_JACKET = "GIFT_JACKET.png";
 export const GIFT_SONY = "GIFT_SONY.png";
 export const GIFT_TUMBLER = "GIFT_TUMBLER.png";
 export const BOX_GIFT_ONE = "BOX_GIFT_ONE.png";
+export const GIFT_COIN = "GIFT_COIN.png";
