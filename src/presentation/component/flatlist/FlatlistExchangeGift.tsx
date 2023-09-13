@@ -6,6 +6,7 @@ import {
   Pressable,
   FlatList,
   ScrollView,
+  Modal,
 } from "react-native";
 import React, { useMemo, useState } from "react";
 import { useSelector } from "react-redux";
@@ -21,11 +22,11 @@ import {
   fontFamily,
 } from "@assets";
 import { Colors, DimensionsStyle } from "@resources";
-import { DATAGIFT } from "../popup";
-import { Gift } from "@domain";
+import { DATAGIFT, PopupEnterInfo } from "../popup";
+import { Gift, User } from "@domain";
 import { Button } from "../button";
 
-type Props = {};
+type Props = { user: User };
 
 type ItemProps = {
   item: Gift;
@@ -107,6 +108,7 @@ const Item = ({ item, onPress, listImages }: ItemProps) => (
 );
 
 const _FlatlistExchangeGift: React.FC<Props> = (props) => {
+  const { user } = props;
   const [modalVisible, setModalVisible] = useState(false);
   const newArray = DATAGIFT.filter((item) => item.name !== "300 coins");
   const [gift, setGift] = useState<Gift>(DATAGIFT[0]);
@@ -118,8 +120,6 @@ const _FlatlistExchangeGift: React.FC<Props> = (props) => {
   const column1Data = newArray.slice(0, halfwayIndex);
   const column2Data = newArray.slice(halfwayIndex);
 
-  console.log(gift.name);
-
   const renderItem = useMemo(
     () =>
       ({ item }: { item: Gift }) => {
@@ -129,6 +129,7 @@ const _FlatlistExchangeGift: React.FC<Props> = (props) => {
             listImages={listAllImages}
             onPress={() => {
               setGift(item);
+              setModalVisible(true);
             }}
             key={item.key}
           />
@@ -166,6 +167,18 @@ const _FlatlistExchangeGift: React.FC<Props> = (props) => {
             </View>
           }
         </View>
+        <Modal animationType="slide" transparent={true} visible={modalVisible}>
+          <PopupEnterInfo
+            onPressClose={() => {
+              setModalVisible(!modalVisible);
+            }}
+            onPressConfirm={() => {
+              console.log("confirm");
+            }}
+            item={gift}
+            user={user}
+          />
+        </Modal>
       </ScrollView>
     </View>
   );

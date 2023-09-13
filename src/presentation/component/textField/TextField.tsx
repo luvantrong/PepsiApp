@@ -18,10 +18,11 @@ export type TextFieldProps = {
   onChange?: (text: string) => void;
   textStyle?: StyleProp<TextStyle>;
   value: string;
+  type?: boolean;
 };
 
 const _TextField: React.FC<TextFieldProps> = (props) => {
-  const { placeholder, onChange, value } = props;
+  const { placeholder, onChange, value, type } = props;
   return (
     <View style={[{ marginHorizontal: 20 }, props.viewStyle]}>
       <TextInput
@@ -30,6 +31,7 @@ const _TextField: React.FC<TextFieldProps> = (props) => {
         placeholderTextColor={Colors.BLACK_PLA}
         onChangeText={onChange}
         value={value}
+        multiline={type == true ? true : false}
       />
     </View>
   );

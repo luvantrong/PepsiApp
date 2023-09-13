@@ -1,4 +1,11 @@
-import { SafeAreaView, StyleSheet, Text, View, Image } from "react-native";
+import {
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TextInput,
+} from "react-native";
 import React, { useState, useEffect } from "react";
 import {
   BACKGROUND_SIGNUP,

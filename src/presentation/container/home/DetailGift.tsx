@@ -42,6 +42,11 @@ type PropsType = NativeStackScreenProps<HomeStackParamList, "DetailGift">;
 
 const _DetailGift: React.FC<PropsType> = (props) => {
   const { navigation } = props;
+  const [user, setUser] = useState({
+    key: "1",
+    name: "Nguyễn Văn A",
+    phone: "0123456789",
+  });
   const listAllImages = useSelector<RootState, Record<string, string>>(
     (state) => state.storage.storage
   );
@@ -132,7 +137,11 @@ const _DetailGift: React.FC<PropsType> = (props) => {
           </Pressable>
         </View>
         <View style={_styles.viewFlatlist}>
-          {typeShow ? <FlatlistExchangeGift /> : <Text>Quà của tôi</Text>}
+          {typeShow ? (
+            <FlatlistExchangeGift user={user} />
+          ) : (
+            <Text>Quà của tôi</Text>
+          )}
         </View>
       </SafeAreaView>
     </BackgroundApp>
