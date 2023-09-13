@@ -8,4 +8,7 @@ export const Colors = {
   RED: "rgba(208, 32, 39, 1)",
   BG_MODAL: "rgba(0, 0, 0, 0.7)",
   BLUE_3: "rgba(0, 80, 130, 1)",
+  WHITE_2: "#FFFFFF",
+  GRAY: "#ACACAC",
+  GRAY_2: "#E7E7E7",
 };

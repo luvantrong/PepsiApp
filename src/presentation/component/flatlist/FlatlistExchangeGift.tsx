@@ -11,6 +11,8 @@ import React, { useMemo, useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState, storage } from "@shared-state";
 import {
+  BG_COIN_WARNING,
+  BG_EXCHANGE_WARNING,
   BG_GETCODE,
   BUTTON_CLOSE,
   BUTTON_EXCHANGE,
@@ -32,20 +34,38 @@ type ItemProps = {
 };
 
 const Item = ({ item, onPress, listImages }: ItemProps) => (
-  <View style={_styles.containerItem}>
+  <View
+    style={[
+      _styles.containerItem,
+      {
+        backgroundColor: item.quantity <= 5 ? Colors.WHITE_2 : Colors.WHITE,
+        display: item.quantity == 0 ? "none" : "flex",
+      },
+    ]}
+  >
     <Image source={{ uri: listImages[item.image] }} style={_styles.imageItem} />
 
     <Image
-      source={{ uri: listImages[IMAGE_COIN_EXCHANGE] }}
+      source={{
+        uri:
+          item.quantity <= 5
+            ? listImages[BG_COIN_WARNING]
+            : listImages[IMAGE_COIN_EXCHANGE],
+      }}
       style={_styles.imageCoinExchange}
     />
 
     <Text style={_styles.textCoinExchange}>{item.coinExchange}</Text>
 
-    <View style={_styles.containerViewContent}>
+    <View
+      style={[
+        _styles.containerViewContent,
+        { backgroundColor: item.quantity <= 5 ? Colors.GRAY : Colors.RED },
+      ]}
+    >
       <Text
         style={{
-          color: Colors.YELLOW,
+          color: item.quantity <= 5 ? Colors.WHITE : Colors.YELLOW,
           fontFamily: fontFamily.Black721,
           fontSize: 14,
         }}
@@ -64,14 +84,23 @@ const Item = ({ item, onPress, listImages }: ItemProps) => (
       <Button
         sumPlay=""
         title="Đổi quà"
-        uriImage={listImages[BUTTON_EXCHANGE]}
+        uriImage={
+          item.quantity <= 5
+            ? listImages[BG_EXCHANGE_WARNING]
+            : listImages[BUTTON_EXCHANGE]
+        }
         pressableStyle={{
           marginVertical: 7,
           height: 37,
           width: DimensionsStyle.width * 0.3,
+          backgroundColor: "transparent",
+          borderColor: "transparent",
         }}
         onPress={onPress}
-        textStyle={{ fontSize: 14, color: Colors.BLUE_2 }}
+        textStyle={{
+          fontSize: 14,
+          color: item.quantity <= 5 ? Colors.WHITE : Colors.BLUE_2,
+        }}
       />
     </View>
   </View>
@@ -209,14 +238,14 @@ const _styles = StyleSheet.create({
     height: "15%",
     resizeMode: "stretch",
     position: "absolute",
-    right: -5,
+    right: -4,
     top: 10,
   },
 
   textCoinExchange: {
     position: "absolute",
-    right: 10,
-    top: 21,
+    right: 9,
+    top: 20.5,
     fontFamily: fontFamily.Black721,
     fontSize: 18,
     color: Colors.WHITE,

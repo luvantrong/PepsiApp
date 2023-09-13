@@ -101,7 +101,7 @@ export const DATAGIFT: Gift[] = [
     key: "4",
     image: GIFT_SONY,
     name: "Portable speaker",
-    quantity: 100,
+    quantity: 3,
     coinExchange: 50,
   },
   {
@@ -122,7 +122,7 @@ export const DATAGIFT: Gift[] = [
     key: "7",
     image: GIFT_HAT,
     name: "Pepsi Bucket Hat",
-    quantity: 100,
+    quantity: 5,
     coinExchange: 80,
   },
 ];
