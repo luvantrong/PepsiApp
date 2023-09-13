@@ -3,4 +3,5 @@ export interface Gift {
   image: string;
   name: string;
   quantity: number;
+  coinExchange: number;
 }

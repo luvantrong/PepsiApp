@@ -68,54 +68,62 @@ const getElements = (array: Gift[], indexes: number[], n: number) => {
   return result;
 };
 
-const DATAGIFT: Gift[] = [
+export const DATAGIFT: Gift[] = [
   {
     key: "0",
     image: GIFT_COIN,
     name: "300 coins",
     quantity: 100,
+    coinExchange: 100,
   },
   {
     key: "1",
     image: GIFT_ELECTRONIC,
     name: "Electronic lunch bo",
     quantity: 100,
+    coinExchange: 100,
   },
   {
     key: "2",
     image: GIFT_AIRPORT,
     name: "Airpod case",
     quantity: 100,
+    coinExchange: 100,
   },
   {
     key: "3",
     image: GIFT_BAG,
     name: "Pepsi Tote Bag",
     quantity: 100,
+    coinExchange: 100,
   },
   {
     key: "4",
     image: GIFT_SONY,
     name: "Portable speaker",
     quantity: 100,
+    coinExchange: 50,
   },
   {
     key: "5",
     image: GIFT_TUMBLER,
     name: "Pepsi Tumbler",
     quantity: 100,
+    coinExchange: 100,
   },
   {
     key: "6",
     image: GIFT_JACKET,
     name: "Pepsi Jacket",
     quantity: 100,
+    coinExchange: 100,
   },
   {
     key: "7",
     image: GIFT_HAT,
     name: "Pepsi Bucket Hat",
     quantity: 100,
+    coinExchange: 80,
   },
 ];
 

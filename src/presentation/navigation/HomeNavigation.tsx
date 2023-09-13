@@ -10,6 +10,7 @@ import {
   HappyPresent,
   ScanQR,
   Collection,
+  DetailGift,
 } from "../container/home";
 
 type SignUpProps = {};
@@ -25,6 +26,7 @@ type PlayProps = {
 type HappyPresentProps = {};
 type ScanQRProps = {};
 type CollectionProps = {};
+type DetailGiftProps = {};
 
 export type HomeStackParamList = {
   SignUp: SignUpProps | undefined;
@@ -37,6 +39,7 @@ export type HomeStackParamList = {
   HappyPresent: HappyPresentProps | undefined;
   ScanQR: ScanQRProps | undefined;
   Collection: CollectionProps | undefined;
+  DetailGift: DetailGiftProps | undefined;
 };
 
 const Stack = createNativeStackNavigator<HomeStackParamList>();
@@ -60,6 +63,7 @@ const _HomeNavigation = () => {
         <Stack.Screen name="HappyPresent" component={HappyPresent} />
         <Stack.Screen name="ScanQR" component={ScanQR} />
         <Stack.Screen name="Collection" component={Collection} />
+        <Stack.Screen name="DetailGift" component={DetailGift} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -43,7 +43,7 @@ const _Rules: React.FC<PropsType> = (props) => {
   };
   return (
     <BackgroundApp uri={listAllImages[BACKGROUND_RULES]}>
-      <SafeAreaView style={{ flex: 1 }}>
+      <SafeAreaView style={{ flex: 1, marginBottom: -40 }}>
         <Header
           iconLeft={listAllImages[ICON_ARROW]}
           titleCenter="Thể lệ chương trình"
@@ -62,7 +62,9 @@ const _Rules: React.FC<PropsType> = (props) => {
           <Text style={_styles.contentRulesStyle}>{contentRules_4}</Text>
           <Text style={_styles.contentRulesStyle}>{contentRules_5}</Text>
           <Text style={_styles.contentRulesStyle}>{contentRules_6}</Text>
-          <Text style={_styles.contentRulesStyle}>{contentRules_7}</Text>
+          <Text style={[_styles.contentRulesStyle, { marginBottom: 40 }]}>
+            {contentRules_7}
+          </Text>
         </ScrollView>
       </SafeAreaView>
     </BackgroundApp>

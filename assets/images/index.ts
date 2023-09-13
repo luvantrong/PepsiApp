@@ -48,3 +48,7 @@ export const GIFT_SONY = "GIFT_SONY.png";
 export const GIFT_TUMBLER = "GIFT_TUMBLER.png";
 export const BOX_GIFT_ONE = "BOX_GIFT_ONE.png";
 export const GIFT_COIN = "GIFT_COIN.png";
+export const BACKGROUND_DETAIL = "BACKGROUND_DETAIL.png";
+export const BUTTON_EXCHANGE = "BUTTON_EXCHANGE.png";
+export const IMAGE_COIN_EXCHANGE = "IMAGE_COIN_EXCHANGE.png";
+export const BACKGROUND_ENTER_INFO = "BACKGROUND_ENTER_INFO.png";
