@@ -359,7 +359,7 @@ const _styles = StyleSheet.create({
     height: DimensionsStyle.width * 0.8,
     resizeMode: "stretch",
     alignSelf: "center",
-    marginStart: -DimensionsStyle.width * 0.05,
+    marginStart: -DimensionsStyle.width * 0.02,
   },
 
   imageBoxGift: {
