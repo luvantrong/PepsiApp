@@ -115,6 +115,7 @@ const _FlatlistExchangeGift: React.FC<Props> = (props) => {
   const listAllImages = useSelector<RootState, Record<string, string>>(
     (state) => state.storage.storage
   );
+  const [type, setType] = useState(false);
 
   const halfwayIndex = Math.ceil(newArray.length / 2);
   const column1Data = newArray.slice(0, halfwayIndex);
@@ -171,12 +172,14 @@ const _FlatlistExchangeGift: React.FC<Props> = (props) => {
           <PopupEnterInfo
             onPressClose={() => {
               setModalVisible(!modalVisible);
+              if (type) setType(!type);
             }}
             onPressConfirm={() => {
-              console.log("confirm");
+              setType(!type);
             }}
             item={gift}
             user={user}
+            type={type}
           />
         </Modal>
       </ScrollView>

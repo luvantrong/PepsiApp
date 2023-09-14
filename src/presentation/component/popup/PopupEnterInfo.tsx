@@ -18,6 +18,8 @@ import {
   BUTTON_SELECT_ZERO,
   BACKGROUND_ENTER_INFO,
   BUTTON_SIGNOUT,
+  BACKGROUND_SUCCES_EXCHANGE,
+  BUTTON_CLOSE_WHITE,
 } from "@assets";
 import { Button } from "../button";
 import { getUrlImage } from "@containers";
@@ -25,16 +27,18 @@ import { useSelector } from "react-redux";
 import { RootState } from "@shared-state";
 import { Gift, User } from "@domain";
 import { TextField } from "../textField";
+import { TextViewBold } from "../textBold";
 
 type Props = {
   onPressClose: () => void;
   onPressConfirm: () => void;
   item: Gift;
   user: User;
+  type: boolean;
 };
 
 const _PopupEnterInfo: React.FC<Props> = (props) => {
-  const { onPressClose, onPressConfirm, item, user } = props;
+  const { onPressClose, onPressConfirm, item, user, type } = props;
   const listAllImages = useSelector<RootState, Record<string, string>>(
     (state) => state.storage.storage
   );
@@ -65,6 +69,7 @@ const _PopupEnterInfo: React.FC<Props> = (props) => {
   const handleConfirm = () => {
     if (address) {
       setBorderColor(Colors.WHITE);
+      onPressConfirm();
     } else {
       setBorderColor(Colors.RED);
       setDisplay("flex");
@@ -76,101 +81,173 @@ const _PopupEnterInfo: React.FC<Props> = (props) => {
     setDisplay("none");
   }, [address]);
 
+  useEffect(() => {
+    if (type == true) {
+      const setTiomeoutPopupTimeout = setTimeout(() => {
+        onPressClose();
+      }, 2000);
+
+      return () => {
+        clearTimeout(setTiomeoutPopupTimeout);
+      };
+    }
+  }, [type]);
+
   return (
     <View style={_styles.centeredView}>
       <BackgroundModal />
-      <ImageBackground
-        source={{ uri: listAllImages[BACKGROUND_ENTER_INFO] }}
-        style={_styles.viewImageBackground}
-      >
-        <View style={_styles.viewPopup}>
+      {type ? (
+        <View
+          style={{
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            marginTop: DimensionsStyle.height * 0.06,
+          }}
+        >
+          <ImageBackground
+            source={{ uri: listAllImages[BACKGROUND_SUCCES_EXCHANGE] }}
+            style={{
+              width: DimensionsStyle.width * 0.7,
+              height: DimensionsStyle.height * 0.13,
+              borderRadius: 24,
+              overflow: "hidden",
+            }}
+          >
+            <View
+              style={[
+                _styles.viewPopup,
+                {
+                  paddingTop: "8%",
+                },
+              ]}
+            >
+              <Text
+                style={{
+                  fontSize: 20,
+                  fontFamily: fontFamily.Black721,
+                  color: Colors.YELLOW,
+                  textTransform: "uppercase",
+                  marginBottom: 5,
+                }}
+              >
+                Thành công
+              </Text>
+              <TextViewBold
+                text={`Chúc mừng bạn nhận được quà từ\n Pepsi Tết`}
+                boldTexts={["Pepsi Tết"]}
+                textStyle={{ textAlign: "center", fontSize: 14 }}
+                boldStyle={{ color: Colors.WHITE, fontSize: 16 }}
+              />
+            </View>
+          </ImageBackground>
           <Pressable onPress={onPressClose}>
             <Image
-              source={{ uri: listAllImages[BUTTON_CLOSE] }}
-              style={_styles.buttonClose}
+              source={{ uri: listAllImages[BUTTON_CLOSE_WHITE] }}
+              style={{
+                width: 24,
+                height: 24,
+                marginTop: DimensionsStyle.height * 0.08,
+              }}
             />
           </Pressable>
-          <Text style={_styles.textSelect}>Thông tin nhận quà</Text>
         </View>
-        <View style={{ marginHorizontal: 20 }}>
-          <Text style={_styles.textName}>
-            Quà của bạn:
-            <Text style={[_styles.textName, { color: Colors.RED }]}>
-              {" "}
-              {item.name}
+      ) : (
+        <ImageBackground
+          source={{ uri: listAllImages[BACKGROUND_ENTER_INFO] }}
+          style={_styles.viewImageBackground}
+        >
+          <View style={_styles.viewPopup}>
+            <Pressable onPress={onPressClose}>
+              <Image
+                source={{ uri: listAllImages[BUTTON_CLOSE] }}
+                style={_styles.buttonClose}
+              />
+            </Pressable>
+            <Text style={_styles.textSelect}>Thông tin nhận quà</Text>
+          </View>
+          <View style={{ marginHorizontal: 20 }}>
+            <Text style={_styles.textName}>
+              Quà của bạn:
+              <Text style={[_styles.textName, { color: Colors.RED }]}>
+                {" "}
+                {item.name}
+              </Text>
             </Text>
-          </Text>
-          <View>
-            <Text style={[_styles.textName, { fontSize: 14 }]}>Họ và tên</Text>
-            <TextField
-              placeholder="Nhập họ và tên"
-              value={name}
-              onChange={handleNameTextChange}
-              textStyle={{ marginTop: 10 }}
-              viewStyle={{ marginHorizontal: 0 }}
-            />
+            <View>
+              <Text style={[_styles.textName, { fontSize: 14 }]}>
+                Họ và tên
+              </Text>
+              <TextField
+                placeholder="Nhập họ và tên"
+                value={name}
+                onChange={handleNameTextChange}
+                textStyle={{ marginTop: 10 }}
+                viewStyle={{ marginHorizontal: 0 }}
+              />
+            </View>
+            <View>
+              <Text style={[_styles.textName, { fontSize: 14 }]}>
+                Số điện thoại
+              </Text>
+              <TextField
+                placeholder="Nhập số điện thoại"
+                value={phoneNumber}
+                onChange={handlePhoneNumberTextChange}
+                textStyle={{ marginTop: 10 }}
+                viewStyle={{ marginHorizontal: 0 }}
+              />
+            </View>
+            <View>
+              <Text style={[_styles.textName, { fontSize: 14 }]}>Địa chỉ</Text>
+              <TextField
+                placeholder="Nhập địa chỉ của bạn"
+                value={address}
+                onChange={handleAddressTextChange}
+                textStyle={{
+                  marginTop: 10,
+                  height: 72,
+                  paddingTop: 10,
+                  borderWidth: 1,
+                  borderColor: borderColor,
+                }}
+                viewStyle={{ marginHorizontal: 0 }}
+                type={true}
+              />
+              <Text style={[_styles.textError, { display: display }]}>
+                Vui lòng nhập địa chỉ của bạn
+              </Text>
+            </View>
+            <View>
+              <Text style={[_styles.textName, { fontSize: 14 }]}>Ghi chú</Text>
+              <TextField
+                placeholder="Nhập ghi chú (nếu có)"
+                value={note}
+                onChange={handleNoteTextChange}
+                textStyle={{
+                  marginTop: 10,
+                  height: 92,
+                  paddingTop: 10,
+                }}
+                viewStyle={{ marginHorizontal: 0 }}
+                type={true}
+              />
+            </View>
           </View>
-          <View>
-            <Text style={[_styles.textName, { fontSize: 14 }]}>
-              Số điện thoại
-            </Text>
-            <TextField
-              placeholder="Nhập số điện thoại"
-              value={phoneNumber}
-              onChange={handlePhoneNumberTextChange}
-              textStyle={{ marginTop: 10 }}
-              viewStyle={{ marginHorizontal: 0 }}
-            />
-          </View>
-          <View>
-            <Text style={[_styles.textName, { fontSize: 14 }]}>Địa chỉ</Text>
-            <TextField
-              placeholder="Nhập địa chỉ của bạn"
-              value={address}
-              onChange={handleAddressTextChange}
-              textStyle={{
-                marginTop: 10,
-                height: 72,
-                paddingTop: 10,
-                borderWidth: 1,
-                borderColor: borderColor,
-              }}
-              viewStyle={{ marginHorizontal: 0 }}
-              type={true}
-            />
-            <Text style={[_styles.textError, { display: display }]}>
-              Vui lòng nhập địa chỉ của bạn
-            </Text>
-          </View>
-          <View>
-            <Text style={[_styles.textName, { fontSize: 14 }]}>Ghi chú</Text>
-            <TextField
-              placeholder="Nhập ghi chú (nếu có)"
-              value={note}
-              onChange={handleNoteTextChange}
-              textStyle={{
-                marginTop: 10,
-                height: 92,
-                paddingTop: 10,
-              }}
-              viewStyle={{ marginHorizontal: 0 }}
-              type={true}
-            />
-          </View>
-        </View>
-        <Button
-          sumPlay=""
-          uriImage={listAllImages[BUTTON_SIGNOUT]}
-          title="Xác nhận"
-          pressableStyle={{
-            width: DimensionsStyle.width * 0.3,
-            alignSelf: "center",
-            position: "absolute",
-            bottom: 40,
-          }}
-          onPress={handleConfirm}
-        />
-      </ImageBackground>
+          <Button
+            sumPlay=""
+            uriImage={listAllImages[BUTTON_SIGNOUT]}
+            title="Xác nhận"
+            pressableStyle={{
+              width: DimensionsStyle.width * 0.3,
+              alignSelf: "center",
+              position: "absolute",
+              bottom: 40,
+            }}
+            onPress={handleConfirm}
+          />
+        </ImageBackground>
+      )}
     </View>
   );
 };
