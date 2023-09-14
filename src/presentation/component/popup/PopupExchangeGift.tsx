@@ -31,10 +31,10 @@ import {
 import { TextViewBold } from "../textBold";
 import { Button } from "../button";
 import { getUrlImage } from "@containers";
-import { useSelector } from "react-redux";
 import { RootState } from "@shared-state";
 import { Gift } from "@domain";
 import Swiper from "react-native-swiper";
+import { useSelector } from "react-redux";
 
 type Props = {
   onPressExchange: () => void;
@@ -68,64 +68,64 @@ const getElements = (array: Gift[], indexes: number[], n: number) => {
   return result;
 };
 
-export const DATAGIFT: Gift[] = [
-  {
-    key: "0",
-    image: GIFT_COIN,
-    name: "300 coins",
-    quantity: 100,
-    coinExchange: 100,
-  },
-  {
-    key: "1",
-    image: GIFT_ELECTRONIC,
-    name: "Electronic lunch bo",
-    quantity: 10,
-    coinExchange: 100,
-  },
-  {
-    key: "2",
-    image: GIFT_AIRPORT,
-    name: "Airpod case",
-    quantity: 100,
-    coinExchange: 100,
-  },
-  {
-    key: "3",
-    image: GIFT_BAG,
-    name: "Pepsi Tote Bag",
-    quantity: 100,
-    coinExchange: 100,
-  },
-  {
-    key: "4",
-    image: GIFT_SONY,
-    name: "Portable speaker",
-    quantity: 3,
-    coinExchange: 50,
-  },
-  {
-    key: "5",
-    image: GIFT_TUMBLER,
-    name: "Pepsi Tumbler",
-    quantity: 100,
-    coinExchange: 100,
-  },
-  {
-    key: "6",
-    image: GIFT_JACKET,
-    name: "Pepsi Jacket",
-    quantity: 100,
-    coinExchange: 100,
-  },
-  {
-    key: "7",
-    image: GIFT_HAT,
-    name: "Pepsi Bucket Hat",
-    quantity: 5,
-    coinExchange: 80,
-  },
-];
+// export const DATAGIFT: Gift[] = [
+//   {
+//     key: "0",
+//     image: GIFT_COIN,
+//     name: "300 coins",
+//     quantity: 100,
+//     coinExchange: 100,
+//   },
+//   {
+//     key: "1",
+//     image: GIFT_ELECTRONIC,
+//     name: "Electronic lunch bo",
+//     quantity: 10,
+//     coinExchange: 100,
+//   },
+//   {
+//     key: "2",
+//     image: GIFT_AIRPORT,
+//     name: "Airpod case",
+//     quantity: 100,
+//     coinExchange: 100,
+//   },
+//   {
+//     key: "3",
+//     image: GIFT_BAG,
+//     name: "Pepsi Tote Bag",
+//     quantity: 100,
+//     coinExchange: 100,
+//   },
+//   {
+//     key: "4",
+//     image: GIFT_SONY,
+//     name: "Portable speaker",
+//     quantity: 3,
+//     coinExchange: 50,
+//   },
+//   {
+//     key: "5",
+//     image: GIFT_TUMBLER,
+//     name: "Pepsi Tumbler",
+//     quantity: 100,
+//     coinExchange: 100,
+//   },
+//   {
+//     key: "6",
+//     image: GIFT_JACKET,
+//     name: "Pepsi Jacket",
+//     quantity: 100,
+//     coinExchange: 100,
+//   },
+//   {
+//     key: "7",
+//     image: GIFT_HAT,
+//     name: "Pepsi Bucket Hat",
+//     quantity: 5,
+//     coinExchange: 80,
+//   },
+// ];
 
 const _PopupExchangeGift: React.FC<Props> = (props) => {
   const { onPressClose, onPressExchange, sum } = props;
@@ -139,14 +139,19 @@ const _PopupExchangeGift: React.FC<Props> = (props) => {
   const listAllImages = useSelector<RootState, Record<string, string>>(
     (state) => state.storage.storage
   );
+
+  const exchangeGifts = useSelector<RootState, Gift[]>(
+    (state) => state.exchangeGift.exchangeGifts
+  );
+
   const textNotification = `Bạn có chắc chắn muốn đổi \n ${sum} combo hay không?`;
   useEffect(() => {
     setQuantityGift(randomNumbers(sum));
   }, []);
 
-  const [datagift, setDatagift] = React.useState<Gift[]>(DATAGIFT);
+  const [datagift, setDatagift] = React.useState<Gift[]>(exchangeGifts);
 
-  const textBoldOne = `Bạn nhận được \n ${DATAGIFT[quantityGift[0]].name}`;
+  const textBoldOne = `Bạn nhận được \n ${datagift[quantityGift[0]].name}`;
 
   const elements = getElements(datagift, quantityGift, sum);
 
@@ -195,7 +200,7 @@ const _PopupExchangeGift: React.FC<Props> = (props) => {
               />
               <TextViewBold
                 text={textBoldOne}
-                boldTexts={[`${DATAGIFT[quantityGift[0]].name}`]}
+                boldTexts={[`${datagift[quantityGift[0]].name}`]}
                 textStyle={{ fontSize: 18, textAlign: "center" }}
                 boldStyle={{ fontSize: 18 }}
                 viewStyle={{
@@ -204,7 +209,7 @@ const _PopupExchangeGift: React.FC<Props> = (props) => {
                 }}
               />
               <Image
-                source={{ uri: listAllImages[DATAGIFT[quantityGift[0]].image] }}
+                source={{ uri: listAllImages[datagift[quantityGift[0]].image] }}
                 style={_styles.imageBoxGift}
               />
             </View>

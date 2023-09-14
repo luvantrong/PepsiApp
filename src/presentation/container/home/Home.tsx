@@ -7,7 +7,7 @@ import {
   Pressable,
   Modal,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   BackgroundApp,
   Button,
@@ -28,7 +28,7 @@ import { Colors, DimensionsStyle } from "@resources";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { HomeStackParamList } from "@navigation";
 import { useSelector } from "react-redux";
-import { RootState } from "@shared-state";
+import { RootState, useAppDispatch, getAllExchangeGift } from "@shared-state";
 
 type PropsType = NativeStackScreenProps<HomeStackParamList, "Home">;
 
@@ -37,6 +37,7 @@ const _Home: React.FC<PropsType> = (props) => {
   const listAllImages = useSelector<RootState, Record<string, string>>(
     (state) => state.storage.storage
   );
+  const dispatch = useAppDispatch();
   const [modalVisibleSignOut, setModalVisibleSignOut] = useState(false);
   const [modalVisibleSelectPlay, setModalVisibleSelectPlay] = useState(false);
   let titleSum = "Bạn có tổng cộng 3 lượt chơi";
@@ -53,6 +54,10 @@ const _Home: React.FC<PropsType> = (props) => {
   const handleShowPopupSelectPlay = () => {
     setModalVisibleSelectPlay(true);
   };
+
+  useEffect(() => {
+    dispatch(getAllExchangeGift());
+  }, []);
 
   return (
     <BackgroundApp uri={listAllImages[BACKGROUND_HOME]}>

@@ -38,6 +38,7 @@ import {
   fontFamily,
 } from "@assets";
 import { Colors, DimensionsStyle } from "@resources";
+import { Gift } from "@domain";
 
 type PropsType = NativeStackScreenProps<HomeStackParamList, "DetailGift">;
 
@@ -50,6 +51,9 @@ const _DetailGift: React.FC<PropsType> = (props) => {
   });
   const listAllImages = useSelector<RootState, Record<string, string>>(
     (state) => state.storage.storage
+  );
+  const exchangeGifts = useSelector<RootState, Gift[]>(
+    (state) => state.exchangeGift.exchangeGifts
   );
   const [modalVisibleSignOut, setModalVisibleSignOut] = useState(false);
   const [backgroundColorExchagne, setBackgroundColorExchagne] = useState(
@@ -139,7 +143,7 @@ const _DetailGift: React.FC<PropsType> = (props) => {
         </View>
         <View style={_styles.viewFlatlist}>
           {typeShow ? (
-            <FlatlistExchangeGift user={user} />
+            <FlatlistExchangeGift user={user} exchangeGifts={exchangeGifts} />
           ) : (
             <FlatlistGiftOfMe />
           )}

@@ -22,11 +22,11 @@ import {
   fontFamily,
 } from "@assets";
 import { Colors, DimensionsStyle } from "@resources";
-import { DATAGIFT, PopupEnterInfo } from "../popup";
+import { PopupEnterInfo } from "../popup";
 import { Gift, User } from "@domain";
 import { Button } from "../button";
 
-type Props = { user: User };
+type Props = { user: User; exchangeGifts: Gift[] };
 
 type ItemProps = {
   item: Gift;
@@ -108,19 +108,19 @@ const Item = ({ item, onPress, listImages }: ItemProps) => (
 );
 
 const _FlatlistExchangeGift: React.FC<Props> = (props) => {
-  const { user } = props;
+  const { user, exchangeGifts } = props;
   const [modalVisible, setModalVisible] = useState(false);
-  const [newArray, setNewArray] = useState<Gift[]>(DATAGIFT);
+  const [newArray, setNewArray] = useState<Gift[]>(exchangeGifts);
 
   useEffect(() => {
     setNewArray(
-      DATAGIFT.filter((item) => {
+      exchangeGifts.filter((item) => {
         return item.name !== "300 coins" && item.quantity !== 0;
       })
     );
-  }, [DATAGIFT]);
+  }, [exchangeGifts]);
 
-  const [gift, setGift] = useState<Gift>(DATAGIFT[0]);
+  const [gift, setGift] = useState<Gift>(exchangeGifts[0]);
   const listAllImages = useSelector<RootState, Record<string, string>>(
     (state) => state.storage.storage
   );

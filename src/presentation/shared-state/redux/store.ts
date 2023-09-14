@@ -1,10 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { useDispatch } from "react-redux";
-import { storageReducer } from "./reducers";
+import { storageReducer, exchangeGiftReducer } from "./reducers";
 
 export const store = configureStore({
   reducer: {
     storage: storageReducer,
+    exchangeGift: exchangeGiftReducer,
   },
 });
 

@@ -1,13 +1,16 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import firebase from "firebase/compat/app";
 import "firebase/compat/storage";
+import "firebase/compat/firestore";
 import { firebaseConfig } from "@core";
 
 export let storage: firebase.storage.Storage;
+export let firestore: firebase.firestore.Firestore;
 
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
   storage = firebase.storage();
+  firestore = firebase.firestore();
 }
 
 export interface StorageState {
