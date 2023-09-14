@@ -1,36 +1,16 @@
-import {
-  Image,
-  ImageBackground,
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import React, { useEffect } from "react";
 import { Colors, DimensionsStyle } from "@resources";
 import { BackgroundModal } from "../backgroundModal";
 import {
-  BG_SIGNIN,
-  BACKGROUND_SIGNOUT,
-  BACKGROUND_SIGNUP,
   BUTTON_SIGNOUT,
   fontFamily,
-  BG_CANCEL,
   IMAGE_BOX_1,
   BUTTON_CLOSE_WHITE,
   BOX_GIFT_ONE,
-  GIFT_AIRPORT,
-  GIFT_COIN,
-  GIFT_BAG,
-  GIFT_ELECTRONIC,
-  GIFT_SONY,
-  GIFT_TUMBLER,
-  GIFT_JACKET,
-  GIFT_HAT,
 } from "@assets";
 import { TextViewBold } from "../textBold";
 import { Button } from "../button";
-import { getUrlImage } from "@containers";
 import { RootState } from "@shared-state";
 import { Gift } from "@domain";
 import Swiper from "react-native-swiper";
@@ -68,65 +48,6 @@ const getElements = (array: Gift[], indexes: number[], n: number) => {
   return result;
 };
 
-// export const DATAGIFT: Gift[] = [
-//   {
-//     key: "0",
-//     image: GIFT_COIN,
-//     name: "300 coins",
-//     quantity: 100,
-//     coinExchange: 100,
-//   },
-//   {
-//     key: "1",
-//     image: GIFT_ELECTRONIC,
-//     name: "Electronic lunch bo",
-//     quantity: 10,
-//     coinExchange: 100,
-//   },
-//   {
-//     key: "2",
-//     image: GIFT_AIRPORT,
-//     name: "Airpod case",
-//     quantity: 100,
-//     coinExchange: 100,
-//   },
-//   {
-//     key: "3",
-//     image: GIFT_BAG,
-//     name: "Pepsi Tote Bag",
-//     quantity: 100,
-//     coinExchange: 100,
-//   },
-//   {
-//     key: "4",
-//     image: GIFT_SONY,
-//     name: "Portable speaker",
-//     quantity: 3,
-//     coinExchange: 50,
-//   },
-//   {
-//     key: "5",
-//     image: GIFT_TUMBLER,
-//     name: "Pepsi Tumbler",
-//     quantity: 100,
-//     coinExchange: 100,
-//   },
-//   {
-//     key: "6",
-//     image: GIFT_JACKET,
-//     name: "Pepsi Jacket",
-//     quantity: 100,
-//     coinExchange: 100,
-//   },
-//   {
-//     key: "7",
-//     image: GIFT_HAT,
-//     name: "Pepsi Bucket Hat",
-//     quantity: 5,
-//     coinExchange: 80,
-//   },
-// ];
-
 const _PopupExchangeGift: React.FC<Props> = (props) => {
   const { onPressClose, onPressExchange, sum } = props;
   const [quantityGift, setQuantityGift] = React.useState([0]);
@@ -149,11 +70,9 @@ const _PopupExchangeGift: React.FC<Props> = (props) => {
     setQuantityGift(randomNumbers(sum));
   }, []);
 
-  const [datagift, setDatagift] = React.useState<Gift[]>(exchangeGifts);
+  const textBoldOne = `Bạn nhận được \n ${exchangeGifts[quantityGift[0]].name}`;
 
-  const textBoldOne = `Bạn nhận được \n ${datagift[quantityGift[0]].name}`;
-
-  const elements = getElements(datagift, quantityGift, sum);
+  const elements = getElements(exchangeGifts, quantityGift, sum);
 
   return (
     <View style={_styles.centeredView}>
@@ -200,7 +119,7 @@ const _PopupExchangeGift: React.FC<Props> = (props) => {
               />
               <TextViewBold
                 text={textBoldOne}
-                boldTexts={[`${datagift[quantityGift[0]].name}`]}
+                boldTexts={[`${exchangeGifts[quantityGift[0]].name}`]}
                 textStyle={{ fontSize: 18, textAlign: "center" }}
                 boldStyle={{ fontSize: 18 }}
                 viewStyle={{
@@ -209,7 +128,9 @@ const _PopupExchangeGift: React.FC<Props> = (props) => {
                 }}
               />
               <Image
-                source={{ uri: listAllImages[datagift[quantityGift[0]].image] }}
+                source={{
+                  uri: listAllImages[exchangeGifts[quantityGift[0]].image],
+                }}
                 style={_styles.imageBoxGift}
               />
             </View>
