@@ -6,10 +6,11 @@ import {
   Modal,
   Image,
   Pressable,
+  TouchableOpacity,
 } from "react-native";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { RootState, storage } from "@shared-state";
+import { RootState, storage, updateCoins } from "@shared-state";
 import { getUrlImage } from "../sign-in";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { HomeStackParamList } from "@navigation";
@@ -41,15 +42,24 @@ import { Colors, DimensionsStyle } from "@resources";
 import { Gift, User } from "@domain";
 import { AppContext } from "@shared-state";
 import { UseSelector } from "react-redux/es/hooks/useSelector";
+import { TextInput } from "react-native-gesture-handler";
+import { DataUpdateCoins } from "@shared-state";
+import { useAppDispatch, getAllExchangeGift } from "@shared-state";
+import { connect } from "react-redux";
 
 type PropsType = NativeStackScreenProps<HomeStackParamList, "DetailGift">;
 
 const _DetailGift: React.FC<PropsType> = (props) => {
   const { navigation } = props;
   const { dataUser, setDataUser, setLoggedIn } = React.useContext(AppContext);
+  const dispatch = useAppDispatch();
 
   const listAllImages = useSelector<RootState, Record<string, string>>(
     (state) => state.storage.storage
+  );
+
+  const userDataa = useSelector<RootState, User>(
+    (state) => state.user.dataUsers
   );
   const exchangeGifts = useSelector<RootState, Gift[]>(
     (state) => state.exchangeGift.exchangeGifts
@@ -77,6 +87,16 @@ const _DetailGift: React.FC<PropsType> = (props) => {
     setBackgroundColorGift(Colors.RED);
     setColorGift(Colors.WHITE);
     setTypeShow(false);
+  };
+
+  const handleUpdateCoin = () => {
+    const coins = 1200;
+    const dataUpdateCoins: DataUpdateCoins = {
+      key: dataUser.key,
+      coins: coins,
+    };
+    dispatch(updateCoins(dataUpdateCoins));
+    console.log("coin", coins);
   };
 
   return (
@@ -108,6 +128,11 @@ const _DetailGift: React.FC<PropsType> = (props) => {
           onPressRight={() => setModalVisibleSignOut(true)}
           onPressLeft={() => navigation.push("Home")}
         />
+        <View>
+          <TouchableOpacity onPress={handleUpdateCoin}>
+            <Text>abc</Text>
+          </TouchableOpacity>
+        </View>
         <View style={_styles.viewTopTabs}>
           <Pressable
             style={[
@@ -140,10 +165,11 @@ const _DetailGift: React.FC<PropsType> = (props) => {
             </Text>
           </Pressable>
         </View>
+
         <View style={_styles.viewFlatlist}>
           {typeShow ? (
             <FlatlistExchangeGift
-              user={dataUser}
+              user={userDataa}
               exchangeGifts={exchangeGifts}
             />
           ) : (

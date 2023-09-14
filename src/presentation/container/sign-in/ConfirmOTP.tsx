@@ -12,9 +12,15 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { HomeStackParamList } from "@navigation";
 import OTPInputView from "@twotalltotems/react-native-otp-input";
 import { useSelector } from "react-redux";
-import { RootState, firestore, storage } from "@shared-state";
+import {
+  RootState,
+  firestore,
+  getAllExchangeGift,
+  getDataUserRedux,
+  storage,
+} from "@shared-state";
 import { User } from "@domain";
-import { AppContext } from "@shared-state";
+import { AppContext, useAppDispatch } from "@shared-state";
 
 type PropsType = NativeStackScreenProps<HomeStackParamList, "ConfirmOTP">;
 
@@ -23,9 +29,14 @@ const _ConfirmOTP: React.FC<PropsType> = (props) => {
   const phoneNumber = route.params?.phoneNumber;
   const type = route.params?.type;
   const phone = phoneNumber + "";
+
+  const dispatch = useAppDispatch();
   const { setLoggedIn, setDataUser, isLoggedIn } = React.useContext(AppContext);
   const listAllImages = useSelector<RootState, Record<string, string>>(
     (state) => state.storage.storage
+  );
+  const userData = useSelector<RootState, User>(
+    (state) => state.user.dataUsers
   );
   const [code, setCode] = useState<string>("");
   const [borderColorOTP, setBorderColorOTP] = useState<string>(Colors.WHITE);
@@ -70,6 +81,7 @@ const _ConfirmOTP: React.FC<PropsType> = (props) => {
   const handleConfirmOTP = () => {
     if (code === codeOTP && validate) {
       if (type) {
+        dispatch(getDataUserRedux(phone));
         getDataUser();
         setLoggedIn(true);
         navigation.push("Home");
