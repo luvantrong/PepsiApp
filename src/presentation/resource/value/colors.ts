@@ -11,4 +11,6 @@ export const Colors = {
   WHITE_2: "#FFFFFF",
   GRAY: "#ACACAC",
   GRAY_2: "#E7E7E7",
+  GREEN: "rgba(0, 166, 27, 1)",
+  RADIAL_YELLOW: "rgba(255, 215, 108, 1)",
 };

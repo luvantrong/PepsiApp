@@ -17,6 +17,7 @@ import {
   BackgroundApp,
   Button,
   FlatlistExchangeGift,
+  FlatlistGiftOfMe,
   Header,
   PopupErrorQR,
   PopupSignOut,
@@ -77,7 +78,7 @@ const _DetailGift: React.FC<PropsType> = (props) => {
 
   return (
     <BackgroundApp uri={listAllImages[BACKGROUND_DETAIL]}>
-      <SafeAreaView style={{ flex: 1, marginBottom: -40 }}>
+      <SafeAreaView style={{ flex: 1, marginBottom: -35 }}>
         <Modal
           animationType="slide"
           transparent={true}
@@ -140,7 +141,7 @@ const _DetailGift: React.FC<PropsType> = (props) => {
           {typeShow ? (
             <FlatlistExchangeGift user={user} />
           ) : (
-            <Text>Quà của tôi</Text>
+            <FlatlistGiftOfMe />
           )}
         </View>
       </SafeAreaView>

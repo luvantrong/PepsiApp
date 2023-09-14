@@ -8,7 +8,7 @@ import {
   ScrollView,
   Modal,
 } from "react-native";
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState, storage } from "@shared-state";
 import {
@@ -110,7 +110,16 @@ const Item = ({ item, onPress, listImages }: ItemProps) => (
 const _FlatlistExchangeGift: React.FC<Props> = (props) => {
   const { user } = props;
   const [modalVisible, setModalVisible] = useState(false);
-  const newArray = DATAGIFT.filter((item) => item.name !== "300 coins");
+  const [newArray, setNewArray] = useState<Gift[]>(DATAGIFT);
+
+  useEffect(() => {
+    setNewArray(
+      DATAGIFT.filter((item) => {
+        return item.name !== "300 coins" && item.quantity !== 0;
+      })
+    );
+  }, [DATAGIFT]);
+
   const [gift, setGift] = useState<Gift>(DATAGIFT[0]);
   const listAllImages = useSelector<RootState, Record<string, string>>(
     (state) => state.storage.storage

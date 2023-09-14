@@ -80,7 +80,7 @@ export const DATAGIFT: Gift[] = [
     key: "1",
     image: GIFT_ELECTRONIC,
     name: "Electronic lunch bo",
-    quantity: 100,
+    quantity: 10,
     coinExchange: 100,
   },
   {
