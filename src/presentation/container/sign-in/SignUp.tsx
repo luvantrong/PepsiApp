@@ -98,7 +98,7 @@ const _SignUp: React.FC<PropsType> = (props) => {
 
   const handleGoToConfirmOTP = () => {
     if (validate) {
-      navigation.push("ConfirmOTP");
+      navigation.push("ConfirmOTP", { phoneNumber: phoneNumber, type: false });
     }
   };
 

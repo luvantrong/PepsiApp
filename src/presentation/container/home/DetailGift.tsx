@@ -38,17 +38,16 @@ import {
   fontFamily,
 } from "@assets";
 import { Colors, DimensionsStyle } from "@resources";
-import { Gift } from "@domain";
+import { Gift, User } from "@domain";
+import { AppContext } from "@shared-state";
+import { UseSelector } from "react-redux/es/hooks/useSelector";
 
 type PropsType = NativeStackScreenProps<HomeStackParamList, "DetailGift">;
 
 const _DetailGift: React.FC<PropsType> = (props) => {
   const { navigation } = props;
-  const [user, setUser] = useState({
-    key: "1",
-    name: "Nguyễn Văn A",
-    phone: "0123456789",
-  });
+  const { dataUser, setDataUser, setLoggedIn } = React.useContext(AppContext);
+
   const listAllImages = useSelector<RootState, Record<string, string>>(
     (state) => state.storage.storage
   );
@@ -91,8 +90,8 @@ const _DetailGift: React.FC<PropsType> = (props) => {
           <PopupSignOut
             onPressSignOut={() => {
               setModalVisibleSignOut(!modalVisibleSignOut);
-              // setLoggedIn(false);
-              // setDataUser({} as User);
+              setLoggedIn(false);
+              setDataUser({} as User);
               navigation.push("SignIn");
             }}
             onPressCancel={() => {
@@ -143,7 +142,10 @@ const _DetailGift: React.FC<PropsType> = (props) => {
         </View>
         <View style={_styles.viewFlatlist}>
           {typeShow ? (
-            <FlatlistExchangeGift user={user} exchangeGifts={exchangeGifts} />
+            <FlatlistExchangeGift
+              user={dataUser}
+              exchangeGifts={exchangeGifts}
+            />
           ) : (
             <FlatlistGiftOfMe />
           )}

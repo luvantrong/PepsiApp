@@ -163,7 +163,7 @@ const _FlatlistExchangeGift: React.FC<Props> = (props) => {
             style={_styles.imageCoin}
           />
           <Text style={_styles.textCoinNow}>Số coins hiện tại của bạn</Text>
-          <Text style={_styles.textCoin}>700</Text>
+          <Text style={_styles.textCoin}>{user.coins}</Text>
         </View>
         <View>
           {

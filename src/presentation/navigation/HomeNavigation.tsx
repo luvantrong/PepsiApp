@@ -15,7 +15,10 @@ import {
 
 type SignUpProps = {};
 type RulesProps = {};
-type ConfirmOTPProps = {};
+type ConfirmOTPProps = {
+  phoneNumber: string | undefined;
+  type: boolean;
+};
 type HomeProps = {};
 type SignInProps = {};
 type InstructProps = {};

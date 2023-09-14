@@ -5,6 +5,7 @@ import {
   View,
   Image,
   TextInput,
+  Alert,
 } from "react-native";
 import React, { useState, useEffect } from "react";
 import {
@@ -22,6 +23,7 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { HomeStackParamList } from "@navigation";
 import { useSelector } from "react-redux";
 import { getUrlImage } from "./SignUp";
+import { firestore } from "@shared-state";
 
 type PropsType = NativeStackScreenProps<HomeStackParamList, "SignIn">;
 
@@ -49,9 +51,28 @@ const _SignIn: React.FC<PropsType> = (props) => {
     }
   }, [phoneNumber]);
 
-  const handleGoToConfirmOTP = () => {
+  const handleGoToConfirmOTP = async (phoneNumber: string) => {
     if (validate) {
-      navigation.push("ConfirmOTP");
+      if (phoneNumber && !Number.isInteger(Number(phoneNumber))) {
+        Alert.alert("Số điện thoại không hợp lệ");
+        return;
+      }
+      if (phoneNumber.length > 10 || phoneNumber.length < 10) {
+        Alert.alert("Số điện thoại phải có 10 số");
+        return;
+      }
+
+      const snapshot = await firestore
+        .collection("users")
+        .where("phone", "==", phoneNumber)
+        .get();
+      if (!snapshot.empty) {
+        // Số điện thoại đã tồn tại trong Firestore
+        navigation.push("ConfirmOTP", { phoneNumber: phoneNumber, type: true });
+      } else {
+        // Số điện thoại không tồn tại trong Firestore
+        Alert.alert("Tài khoản không tồn tại");
+      }
     }
   };
 
@@ -100,7 +121,7 @@ const _SignIn: React.FC<PropsType> = (props) => {
                   ? Colors.YELLOW
                   : Colors.WHITE,
             }}
-            onPress={handleGoToConfirmOTP}
+            onPress={() => handleGoToConfirmOTP(phoneNumber)}
           />
           <Text style={_styles.textOrStyle}>Hoặc</Text>
           <Button

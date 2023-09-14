@@ -12,12 +12,18 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { HomeStackParamList } from "@navigation";
 import OTPInputView from "@twotalltotems/react-native-otp-input";
 import { useSelector } from "react-redux";
-import { RootState, storage } from "@shared-state";
+import { RootState, firestore, storage } from "@shared-state";
+import { User } from "@domain";
+import { AppContext } from "@shared-state";
 
 type PropsType = NativeStackScreenProps<HomeStackParamList, "ConfirmOTP">;
 
 const _ConfirmOTP: React.FC<PropsType> = (props) => {
-  const { navigation } = props;
+  const { navigation, route } = props;
+  const phoneNumber = route.params?.phoneNumber;
+  const type = route.params?.type;
+  const phone = phoneNumber + "";
+  const { setLoggedIn, setDataUser, isLoggedIn } = React.useContext(AppContext);
   const listAllImages = useSelector<RootState, Record<string, string>>(
     (state) => state.storage.storage
   );
@@ -38,11 +44,42 @@ const _ConfirmOTP: React.FC<PropsType> = (props) => {
     }
   }, [code]);
 
+  const getDataUser = async () => {
+    try {
+      const snapshot = await firestore
+        .collection("users")
+        .where("phone", "==", phone)
+        .get();
+      if (!snapshot.empty) {
+        const userDoc = snapshot.docs[0];
+        const user = userDoc.data();
+        const key = userDoc.id;
+        const userWithKey: User = {
+          key: key,
+          name: user.name,
+          phone: user.phone,
+          coins: user.coins,
+        };
+        setDataUser(userWithKey);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   const handleConfirmOTP = () => {
     if (code === codeOTP && validate) {
-      navigation.push("Home");
+      if (type) {
+        getDataUser();
+        setLoggedIn(true);
+        navigation.push("Home");
+      } else {
+        console.log("SignUp", "SignUp");
+        navigation.push("Home");
+      }
     } else {
       setBorderColorOTP(Colors.RED);
+      return false;
     }
   };
 
