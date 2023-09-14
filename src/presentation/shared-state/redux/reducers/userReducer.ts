@@ -60,6 +60,8 @@ export const updateCoins = createAsyncThunk(
       .collection("users")
       .doc(key)
       .update({ coins });
+    console.log("docRef", docRef);
+    return coins;
   }
 );
 
@@ -83,6 +85,7 @@ const userSlice = createSlice({
       })
       .addCase(updateCoins.fulfilled, (state, action) => {
         state.updateCoins = true;
+        state.dataUsers.coins = action.payload;
       })
       .addCase(updateCoins.rejected, (state, action) => {
         state.updateCoins = false;

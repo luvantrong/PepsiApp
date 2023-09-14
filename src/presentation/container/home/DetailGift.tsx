@@ -10,7 +10,12 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { RootState, storage, updateCoins } from "@shared-state";
+import {
+  RootState,
+  getDataUserRedux,
+  storage,
+  updateCoins,
+} from "@shared-state";
 import { getUrlImage } from "../sign-in";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { HomeStackParamList } from "@navigation";
@@ -90,13 +95,12 @@ const _DetailGift: React.FC<PropsType> = (props) => {
   };
 
   const handleUpdateCoin = () => {
-    const coins = 1200;
+    const coins = Math.floor(Math.random() * 1000);
     const dataUpdateCoins: DataUpdateCoins = {
       key: dataUser.key,
       coins: coins,
     };
     dispatch(updateCoins(dataUpdateCoins));
-    console.log("coin", coins);
   };
 
   return (
