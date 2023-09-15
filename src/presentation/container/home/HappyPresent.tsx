@@ -28,14 +28,20 @@ import {
   PRESENT_ORANGE,
 } from "@assets";
 import { useSelector } from "react-redux";
-import { RootState } from "@shared-state";
+import {
+  DataUpdateCansAndCoins,
+  RootState,
+  updateCansAndCoins,
+  useAppDispatch,
+} from "@shared-state";
 import { getUrlImage } from "../sign-in";
-import { Present, User } from "@domain";
+import { Cans, Present, User } from "@domain";
 import { Button } from "@components";
 type PropsType = NativeStackScreenProps<HomeStackParamList, "HappyPresent">;
 
 const _HappyPresent: React.FC<PropsType> = (props) => {
   const { navigation, route } = props;
+  const dispatch = useAppDispatch();
   const dataPresent: Present[] = [
     {
       key: "1",
@@ -60,7 +66,7 @@ const _HappyPresent: React.FC<PropsType> = (props) => {
     (state) => state.storage.storage
   );
 
-  const userData = useSelector<RootState, User>(
+  const dataUser = useSelector<RootState, User>(
     (state) => state.user.dataUsers
   );
 
@@ -76,6 +82,36 @@ const _HappyPresent: React.FC<PropsType> = (props) => {
     " ứng với " +
     dataPresent[randomNumber].point +
     " coins";
+
+  const handleGoToHome = () => {
+    let cans: Cans = {
+      blue: 0,
+      green: 0,
+      orange: 0,
+    };
+
+    if (dataPresent[randomNumber].key == "1") {
+      cans.blue = dataUser.cans.blue + 1;
+      cans.green = dataUser.cans.green;
+      cans.orange = dataUser.cans.orange;
+    } else if (dataPresent[randomNumber].key == "2") {
+      cans.blue = dataUser.cans.blue;
+      cans.green = dataUser.cans.green + 1;
+      cans.orange = dataUser.cans.orange;
+    } else if (dataPresent[randomNumber].key == "3") {
+      cans.blue = dataUser.cans.blue;
+      cans.green = dataUser.cans.green;
+      cans.orange = dataUser.cans.orange + 1;
+    }
+
+    const dataUpdate: DataUpdateCansAndCoins = {
+      key: dataUser.key,
+      cans: cans,
+      coins: dataPresent[randomNumber].point + dataUser.coins,
+    };
+    dispatch(updateCansAndCoins(dataUpdate));
+    navigation.push("Home");
+  };
 
   return (
     <BackgroundApp uri={listAllImages[BACKGROUND_HAPPY]}>
@@ -116,7 +152,7 @@ const _HappyPresent: React.FC<PropsType> = (props) => {
             marginTop: 30,
             width: DimensionsStyle.width * 0.45,
           }}
-          onPress={() => navigation.push("Home")}
+          onPress={handleGoToHome}
         />
       </SafeAreaView>
     </BackgroundApp>
