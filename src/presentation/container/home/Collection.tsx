@@ -69,9 +69,9 @@ const _Collection: React.FC<PropsType> = (props) => {
   );
   const [backgroundLeft, setBackgroundLeft] = useState(Colors.BLUE_3);
   const [backgroundRight, setBackgroundRight] = useState(Colors.BLUE_3);
-  const [sumPepsi, setSumPepsi] = useState(4);
-  const [sum7Up, setSum7Up] = useState(5);
-  const [sumMirinda, setSumMirinda] = useState(2);
+  const [sumPepsi, setSumPepsi] = useState(userData.cans.blue);
+  const [sum7Up, setSum7Up] = useState(userData.cans.green);
+  const [sumMirinda, setSumMirinda] = useState(userData.cans.orange);
   const [quantity, setQuantity] = useState(1);
 
   const numbers: number[] = [sumPepsi, sum7Up, sumMirinda];

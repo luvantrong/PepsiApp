@@ -14,6 +14,7 @@ MERGED from [:react-native-community_masked-view] /Users/tronglv/Documents/GitHu
 MERGED from [:react-native-firebase_firestore] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/@react-native-firebase/firestore/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:react-native-firebase_app] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-30:12
 MERGED from [:react-native-gesture-handler] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/react-native-gesture-handler/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:react-native-linear-gradient] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/react-native-linear-gradient/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:react-native-reanimated] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/react-native-reanimated/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:react-native-safe-area-context] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/react-native-safe-area-context/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:react-native-screens] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/react-native-screens/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
@@ -229,6 +230,8 @@ MERGED from [:react-native-firebase_app] /Users/tronglv/Documents/GitHub/PepsiAp
 MERGED from [:react-native-firebase_app] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:6:5-44
 MERGED from [:react-native-gesture-handler] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/react-native-gesture-handler/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:react-native-gesture-handler] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/react-native-gesture-handler/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:react-native-linear-gradient] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/react-native-linear-gradient/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:react-native-linear-gradient] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/react-native-linear-gradient/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:react-native-reanimated] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/react-native-reanimated/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:react-native-reanimated] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/react-native-reanimated/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:react-native-safe-area-context] /Users/tronglv/Documents/GitHub/PepsiApp/node_modules/react-native-safe-area-context/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44

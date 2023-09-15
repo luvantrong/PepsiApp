@@ -70,6 +70,7 @@ const _ConfirmOTP: React.FC<PropsType> = (props) => {
           name: user.name,
           phone: user.phone,
           coins: user.coins,
+          cans: user.cans,
         };
         setDataUser(userWithKey);
       }

@@ -23,6 +23,8 @@ import io.invertase.firebase.app.ReactNativeFirebaseAppPackage;
 import io.invertase.firebase.firestore.ReactNativeFirebaseFirestorePackage;
 // react-native-gesture-handler
 import com.swmansion.gesturehandler.RNGestureHandlerPackage;
+// react-native-linear-gradient
+import com.BV.LinearGradient.LinearGradientPackage;
 // react-native-reanimated
 import com.swmansion.reanimated.ReanimatedPackage;
 // react-native-safe-area-context
@@ -80,6 +82,7 @@ public class PackageList {
       new ReactNativeFirebaseAppPackage(),
       new ReactNativeFirebaseFirestorePackage(),
       new RNGestureHandlerPackage(),
+      new LinearGradientPackage(),
       new ReanimatedPackage(),
       new SafeAreaContextPackage(),
       new RNScreensPackage()

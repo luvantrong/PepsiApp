@@ -30,7 +30,7 @@ import {
 import { useSelector } from "react-redux";
 import { RootState } from "@shared-state";
 import { getUrlImage } from "../sign-in";
-import { Present } from "@domain";
+import { Present, User } from "@domain";
 import { Button } from "@components";
 type PropsType = NativeStackScreenProps<HomeStackParamList, "HappyPresent">;
 
@@ -58,6 +58,10 @@ const _HappyPresent: React.FC<PropsType> = (props) => {
   ];
   const listAllImages = useSelector<RootState, Record<string, string>>(
     (state) => state.storage.storage
+  );
+
+  const userData = useSelector<RootState, User>(
+    (state) => state.user.dataUsers
   );
 
   const randomNumber = Math.floor(Math.random() * 3);
