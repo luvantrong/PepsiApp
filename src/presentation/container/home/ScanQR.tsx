@@ -31,6 +31,7 @@ import {
   ICON_LOGOUT,
 } from "@assets";
 import { DimensionsStyle } from "@resources";
+import { User } from "@domain";
 
 type PropsType = NativeStackScreenProps<HomeStackParamList, "ScanQR">;
 
@@ -39,6 +40,13 @@ const _ScanQR: React.FC<PropsType> = (props) => {
   const listAllImages = useSelector<RootState, Record<string, string>>(
     (state) => state.storage.storage
   );
+
+  const dataUser = useSelector<RootState, User>(
+    (state) => state.user.dataUsers
+  );
+
+  // let sumPlay = `${dataUser.turn.free + dataUser.turn.exchange}`;
+
   const [modalVisibleSignOut, setModalVisibleSignOut] = useState(false);
   const [modalVisibleError, setModalVisibleError] = useState(false);
   const [modalVisibleSuccess, setModalVisibleSuccess] = useState(false);
@@ -78,7 +86,7 @@ const _ScanQR: React.FC<PropsType> = (props) => {
               setModalVisibleSuccess(!modalVisibleSuccess);
               navigation.push("Play");
             }}
-            sumPlay="8"
+            sumPlay={`8`}
           />
         </Modal>
         <Modal

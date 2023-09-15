@@ -14,7 +14,21 @@ const initialState: UserState = {
   users: [],
   loading: false,
   updateCoins: false,
-  dataUsers: {} as User,
+  dataUsers: {
+    key: "",
+    name: "",
+    phone: "",
+    coins: 0,
+    cans: {
+      blue: 0,
+      green: 0,
+      orange: 0,
+    },
+    turn: {
+      free: 0,
+      exchange: 0,
+    },
+  },
 };
 
 export const signUp = createAsyncThunk(
@@ -41,8 +55,15 @@ export const getDataUserRedux = createAsyncThunk(
         name: user.name,
         phone: user.phone,
         coins: user.coins,
-        cans: user.cans,
-        turn: user.turn,
+        cans: {
+          blue: user.cans.blue,
+          green: user.cans.green,
+          orange: user.cans.orange,
+        },
+        turn: {
+          free: user.turn.free,
+          exchange: user.turn.exchange,
+        },
       };
     }
     return userWithKey;
@@ -80,7 +101,6 @@ export const updateCansAndCoins = createAsyncThunk(
       .collection("users")
       .doc(key)
       .update({ coins, cans });
-
     return { cans, coins };
   }
 );

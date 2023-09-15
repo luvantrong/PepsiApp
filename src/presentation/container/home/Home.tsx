@@ -47,8 +47,17 @@ const _Home: React.FC<PropsType> = (props) => {
   const [modalVisibleSignOut, setModalVisibleSignOut] = useState(false);
   const [modalVisibleSelectPlay, setModalVisibleSelectPlay] = useState(false);
   let titleSum = "Bạn có tổng cộng 3 lượt chơi";
-  let sumPlay = `${dataUser.turn.free + dataUser.turn.exchange}`;
-  let newTitleSum = titleSum.replace("3", sumPlay);
+
+  const [sumPlayFree, setSumPlayFree] = useState(0);
+  const [sumPlayExchange, setSumPlayExchange] = useState(0);
+
+  useEffect(() => {
+    setSumPlayFree(dataUser.turn.free);
+    setSumPlayExchange(dataUser.turn.exchange);
+  }, [dataUser]);
+
+  const sumPlay = sumPlayFree + sumPlayExchange;
+  let newTitleSum = titleSum.replace("3", sumPlay.toString());
   const handleGoToInstruct = () => {
     navigation.push("Instruct");
   };
@@ -91,8 +100,10 @@ const _Home: React.FC<PropsType> = (props) => {
           visible={modalVisibleSelectPlay}
         >
           <PopupSelectPlay
-            sumPlayFree={`${dataUser.turn.free}`}
-            sumPlayExchange={`${dataUser.turn.exchange}`}
+            // sumPlayFree={`${dataUser.turn.free}`}
+            // sumPlayExchange={`${dataUser.turn.exchange}`}
+            sumPlayFree={`5`}
+            sumPlayExchange={`4`}
             onPressClose={() => {
               setModalVisibleSelectPlay(!modalVisibleSelectPlay);
             }}
@@ -126,7 +137,7 @@ const _Home: React.FC<PropsType> = (props) => {
           </Pressable>
 
           <Button
-            sumPlay={sumPlay}
+            sumPlay={sumPlay.toString()}
             title="Chơi ngay"
             uriImage={listAllImages[BG_PLAY]}
             pressableStyle={{

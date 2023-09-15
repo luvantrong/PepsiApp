@@ -71,6 +71,7 @@ const _ConfirmOTP: React.FC<PropsType> = (props) => {
           phone: user.phone,
           coins: user.coins,
           cans: user.cans,
+          turn: user.turn,
         };
         setDataUser(userWithKey);
       }
@@ -83,7 +84,7 @@ const _ConfirmOTP: React.FC<PropsType> = (props) => {
     if (code === codeOTP && validate) {
       if (type) {
         dispatch(getDataUserRedux(phone));
-        getDataUser();
+        // getDataUser();
         setLoggedIn(true);
         navigation.push("Home");
       } else {
