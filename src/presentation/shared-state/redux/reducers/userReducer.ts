@@ -42,6 +42,7 @@ export const getDataUserRedux = createAsyncThunk(
         phone: user.phone,
         coins: user.coins,
         cans: user.cans,
+        turn: user.turn,
       };
     }
     return userWithKey;

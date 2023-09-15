@@ -29,6 +29,7 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { HomeStackParamList } from "@navigation";
 import { useSelector } from "react-redux";
 import { RootState, useAppDispatch, getAllExchangeGift } from "@shared-state";
+import { User } from "@domain";
 
 type PropsType = NativeStackScreenProps<HomeStackParamList, "Home">;
 
@@ -37,11 +38,16 @@ const _Home: React.FC<PropsType> = (props) => {
   const listAllImages = useSelector<RootState, Record<string, string>>(
     (state) => state.storage.storage
   );
+
+  const dataUser = useSelector<RootState, User>(
+    (state) => state.user.dataUsers
+  );
+
   const dispatch = useAppDispatch();
   const [modalVisibleSignOut, setModalVisibleSignOut] = useState(false);
   const [modalVisibleSelectPlay, setModalVisibleSelectPlay] = useState(false);
   let titleSum = "Bạn có tổng cộng 3 lượt chơi";
-  let sumPlay = "8";
+  let sumPlay = `${dataUser.turn.free + dataUser.turn.exchange}`;
   let newTitleSum = titleSum.replace("3", sumPlay);
   const handleGoToInstruct = () => {
     navigation.push("Instruct");
@@ -85,8 +91,8 @@ const _Home: React.FC<PropsType> = (props) => {
           visible={modalVisibleSelectPlay}
         >
           <PopupSelectPlay
-            sumPlayFree="3"
-            sumPlayExchange="1"
+            sumPlayFree={`${dataUser.turn.free}`}
+            sumPlayExchange={`${dataUser.turn.exchange}`}
             onPressClose={() => {
               setModalVisibleSelectPlay(!modalVisibleSelectPlay);
             }}
