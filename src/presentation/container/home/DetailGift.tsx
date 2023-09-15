@@ -94,14 +94,14 @@ const _DetailGift: React.FC<PropsType> = (props) => {
     setTypeShow(false);
   };
 
-  const handleUpdateCoin = () => {
-    const coins = Math.floor(Math.random() * 1000);
-    const dataUpdateCoins: DataUpdateCoins = {
-      key: dataUser.key,
-      coins: coins,
-    };
-    dispatch(updateCoins(dataUpdateCoins));
-  };
+  // const handleUpdateCoin = () => {
+  //   const coins = Math.floor(Math.random() * 1000);
+  //   const dataUpdateCoins: DataUpdateCoins = {
+  //     key: userDataa.key,
+  //     coins: coins,
+  //   };
+  //   dispatch(updateCoins(dataUpdateCoins));
+  // };
 
   return (
     <BackgroundApp uri={listAllImages[BACKGROUND_DETAIL]}>
@@ -132,11 +132,6 @@ const _DetailGift: React.FC<PropsType> = (props) => {
           onPressRight={() => setModalVisibleSignOut(true)}
           onPressLeft={() => navigation.push("Home")}
         />
-        <View>
-          <TouchableOpacity onPress={handleUpdateCoin}>
-            <Text>abc</Text>
-          </TouchableOpacity>
-        </View>
         <View style={_styles.viewTopTabs}>
           <Pressable
             style={[

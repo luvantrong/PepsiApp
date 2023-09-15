@@ -74,6 +74,15 @@ const _PopupExchangeGift: React.FC<Props> = (props) => {
 
   const elements = getElements(exchangeGifts, quantityGift, sum);
 
+  const handleExchangeGift = () => {
+    for (let i = 0; i < elements.length; i++) {
+      console.log(elements[i].name);
+      if (elements[i].name == "300 coins") {
+        onPressExchange();
+      }
+    }
+  };
+
   return (
     <View style={_styles.centeredView}>
       <BackgroundModal />
@@ -98,7 +107,7 @@ const _PopupExchangeGift: React.FC<Props> = (props) => {
             onPress={() => {
               setDisplayNotification("none");
               setDisplayGift("flex");
-              onPressExchange();
+              handleExchangeGift();
             }}
           />
         </View>

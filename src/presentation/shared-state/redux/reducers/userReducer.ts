@@ -60,7 +60,6 @@ export const updateCoins = createAsyncThunk(
       .collection("users")
       .doc(key)
       .update({ coins });
-    console.log("docRef", docRef);
     return coins;
   }
 );

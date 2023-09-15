@@ -9,7 +9,13 @@ import {
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { RootState, storage } from "@shared-state";
+import {
+  DataUpdateCoins,
+  RootState,
+  storage,
+  updateCoins,
+  useAppDispatch,
+} from "@shared-state";
 import { getUrlImage } from "../sign-in";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { HomeStackParamList } from "@navigation";
@@ -42,11 +48,13 @@ import {
   fontFamily,
 } from "@assets";
 import { Colors, DimensionsStyle } from "@resources";
+import { User } from "@domain";
 
 type PropsType = NativeStackScreenProps<HomeStackParamList, "Collection">;
 
 const _Collection: React.FC<PropsType> = (props) => {
   const { navigation } = props;
+  const dispatch = useAppDispatch();
   const [modalVisibleSignOut, setModalVisibleSignOut] = useState(false);
   const [modalVisibleExchangeGift, setModalVisibleExchangeGift] =
     useState(false);
@@ -54,6 +62,10 @@ const _Collection: React.FC<PropsType> = (props) => {
     useState(false);
   const listAllImages = useSelector<RootState, Record<string, string>>(
     (state) => state.storage.storage
+  );
+
+  const userData = useSelector<RootState, User>(
+    (state) => state.user.dataUsers
   );
   const [backgroundLeft, setBackgroundLeft] = useState(Colors.BLUE_3);
   const [backgroundRight, setBackgroundRight] = useState(Colors.BLUE_3);
@@ -77,8 +89,6 @@ const _Collection: React.FC<PropsType> = (props) => {
   };
 
   const smallestNumber = findSmallestNumber(numbers);
-
-
 
   useEffect(() => {
     if (quantity < smallestNumber) {
@@ -113,6 +123,15 @@ const _Collection: React.FC<PropsType> = (props) => {
     }
   };
 
+  const handleUpdateCoin = () => {
+    const coins = 300;
+    const dataUpdateCoins: DataUpdateCoins = {
+      key: userData.key,
+      coins: userData.coins + coins,
+    };
+    dispatch(updateCoins(dataUpdateCoins));
+  };
+
   return (
     <BackgroundApp uri={listAllImages[BACKGROUND_COLLECTION]}>
       <SafeAreaView style={{ flex: 1 }}>
@@ -123,7 +142,7 @@ const _Collection: React.FC<PropsType> = (props) => {
         >
           <PopupExchangeGift
             onPressClose={() => setModalVisibleExchangeGift(false)}
-            onPressExchange={() => console.log("Exchange")}
+            onPressExchange={handleUpdateCoin}
             sum={quantity}
           />
         </Modal>
@@ -160,7 +179,7 @@ const _Collection: React.FC<PropsType> = (props) => {
             style={_styles.imageCoin}
           />
           <Text style={_styles.textCoinNow}>Số coins hiện tại của bạn</Text>
-          <Text style={_styles.textCoin}>700</Text>
+          <Text style={_styles.textCoin}>{userData.coins}</Text>
         </View>
         <View style={_styles.viewImageCenter}>
           <View style={_styles.viewChildImageCenter}>
