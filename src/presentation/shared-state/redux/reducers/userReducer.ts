@@ -93,6 +93,8 @@ export interface DataUpdateCansAndCoins {
   cans: Cans;
 }
 
+
+
 export const updateCansAndCoins = createAsyncThunk(
   "user/updateCansAndCoins",
   async (dataUpdateCansAndCoins: DataUpdateCansAndCoins) => {

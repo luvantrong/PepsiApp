@@ -11,13 +11,18 @@ import {
 } from "@assets";
 import { TextViewBold } from "../textBold";
 import { Button } from "../button";
-import { RootState } from "@shared-state";
-import { Gift } from "@domain";
+import {
+  RootState,
+  updateCansAndCoins,
+  updateCoins,
+  useAppDispatch,
+} from "@shared-state";
+import { Gift, User } from "@domain";
 import Swiper from "react-native-swiper";
 import { useSelector } from "react-redux";
 
 type Props = {
-  onPressExchange: () => void;
+  onPressExchange?: () => void;
   onPressClose: () => void;
   sum: number;
 };
@@ -50,6 +55,7 @@ const getElements = (array: Gift[], indexes: number[], n: number) => {
 
 const _PopupExchangeGift: React.FC<Props> = (props) => {
   const { onPressClose, onPressExchange, sum } = props;
+  const dispatch = useAppDispatch();
   const [quantityGift, setQuantityGift] = React.useState([0]);
   const [displayNotification, setDisplayNotification] = React.useState<
     "flex" | "none" | undefined
@@ -59,6 +65,10 @@ const _PopupExchangeGift: React.FC<Props> = (props) => {
   >("none");
   const listAllImages = useSelector<RootState, Record<string, string>>(
     (state) => state.storage.storage
+  );
+
+  const userData = useSelector<RootState, User>(
+    (state) => state.user.dataUsers
   );
 
   const exchangeGifts = useSelector<RootState, Gift[]>(
@@ -78,7 +88,28 @@ const _PopupExchangeGift: React.FC<Props> = (props) => {
     for (let i = 0; i < elements.length; i++) {
       console.log(elements[i].name);
       if (elements[i].name == "300 coins") {
-        onPressExchange();
+        const dataUpdateCoinAndCans = {
+          key: userData.key,
+          coins: userData.coins + 300,
+          cans: {
+            blue: userData.cans.blue - 1,
+            green: userData.cans.green - 1,
+            orange: userData.cans.orange - 1,
+          },
+        };
+        dispatch(updateCansAndCoins(dataUpdateCoinAndCans));
+      } else {
+        console.log("khong co 300 coins");
+        const dataUpdateCoinAndCans = {
+          key: userData.key,
+          coins: userData.coins,
+          cans: {
+            blue: userData.cans.blue - 1,
+            green: userData.cans.green - 1,
+            orange: userData.cans.orange - 1,
+          },
+        };
+        dispatch(updateCansAndCoins(dataUpdateCoinAndCans));
       }
     }
   };

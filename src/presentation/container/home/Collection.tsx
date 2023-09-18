@@ -11,6 +11,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import {
   DataUpdateCoins,
+  ExchangeGiftState,
   RootState,
   storage,
   updateCoins,
@@ -48,7 +49,7 @@ import {
   fontFamily,
 } from "@assets";
 import { Colors, DimensionsStyle } from "@resources";
-import { User } from "@domain";
+import { Gift, User } from "@domain";
 
 type PropsType = NativeStackScreenProps<HomeStackParamList, "Collection">;
 
@@ -64,17 +65,13 @@ const _Collection: React.FC<PropsType> = (props) => {
     (state) => state.storage.storage
   );
 
+  const gifts = useSelector<RootState, Gift[]>(
+    (state) => state.exchangeGift.exchangeGifts
+  );
+
   const userData = useSelector<RootState, User>(
     (state) => state.user.dataUsers
   );
-
-  const [sumPlayFree, setSumPlayFree] = useState(0);
-  const [sumPlayExchange, setSumPlayExchange] = useState(0);
-
-  useEffect(() => {
-    setSumPlayFree(userData.turn.free);
-    setSumPlayExchange(userData.turn.exchange);
-  }, [userData]);
 
   const [backgroundLeft, setBackgroundLeft] = useState(Colors.BLUE_3);
   const [backgroundRight, setBackgroundRight] = useState(Colors.BLUE_3);
@@ -82,8 +79,13 @@ const _Collection: React.FC<PropsType> = (props) => {
   const [sum7Up, setSum7Up] = useState(userData.cans.green);
   const [sumMirinda, setSumMirinda] = useState(userData.cans.orange);
   const [quantity, setQuantity] = useState(1);
+  const [smallestNumber, setSmallestNumber] = useState(1);
 
-  const numbers: number[] = [sumPepsi, sum7Up, sumMirinda];
+  useEffect(() => {
+    setSumPepsi(userData.cans.blue);
+    setSum7Up(userData.cans.green);
+    setSumMirinda(userData.cans.orange);
+  }, [userData]);
 
   const findSmallestNumber = (nums: number[]): number => {
     let smallestNumber = nums[0];
@@ -93,11 +95,12 @@ const _Collection: React.FC<PropsType> = (props) => {
         smallestNumber = nums[i];
       }
     }
-
     return smallestNumber;
   };
 
-  const smallestNumber = findSmallestNumber(numbers);
+  useEffect(() => {
+    setSmallestNumber(findSmallestNumber([sumPepsi, sum7Up, sumMirinda]));
+  }, [userData, sum7Up, sumMirinda, sumPepsi]);
 
   useEffect(() => {
     if (quantity < smallestNumber) {
@@ -118,7 +121,7 @@ const _Collection: React.FC<PropsType> = (props) => {
     if (smallestNumber == 0) {
       setQuantity(0);
     }
-  }, [sumPepsi, sum7Up, sumMirinda]);
+  }, [userData, smallestNumber]);
 
   const handlePressLeft = () => {
     if (quantity > 1) {
@@ -132,15 +135,6 @@ const _Collection: React.FC<PropsType> = (props) => {
     }
   };
 
-  const handleUpdateCoin = () => {
-    const coins = 300;
-    const dataUpdateCoins: DataUpdateCoins = {
-      key: userData.key,
-      coins: userData.coins + coins,
-    };
-    dispatch(updateCoins(dataUpdateCoins));
-  };
-
   return (
     <BackgroundApp uri={listAllImages[BACKGROUND_COLLECTION]}>
       <SafeAreaView style={{ flex: 1 }}>
@@ -151,7 +145,6 @@ const _Collection: React.FC<PropsType> = (props) => {
         >
           <PopupExchangeGift
             onPressClose={() => setModalVisibleExchangeGift(false)}
-            onPressExchange={handleUpdateCoin}
             sum={quantity}
           />
         </Modal>
@@ -256,7 +249,10 @@ const _Collection: React.FC<PropsType> = (props) => {
               : listAllImages[BG_SIGNIN_CHECK]
           }
           pressableStyle={_styles.buttonConfirm}
-          onPress={() => setModalVisibleExchangeGift(true)}
+          onPress={() => {
+            if (quantity == 0) return;
+            setModalVisibleExchangeGift(true);
+          }}
         />
       </SafeAreaView>
     </BackgroundApp>
