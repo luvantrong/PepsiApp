@@ -40,7 +40,7 @@ import {
   BACKGROUND_OF_ME,
 } from "@assets";
 import { Colors, DimensionsStyle } from "@resources";
-import { DATAGIFT, PopupEnterInfo } from "../popup";
+import { PopupEnterInfo } from "../popup";
 import { Gift, User, GiftOfMe } from "@domain";
 import { Button } from "../button";
 import LinearGradient from "react-native-linear-gradient";
@@ -109,9 +109,10 @@ type Props = {};
 type ItemProps = {
   item: GiftOfMe;
   listImages: Record<string, string>;
+  listGiftOfMe: GiftOfMe[];
 };
 
-const Item = ({ item, listImages }: ItemProps) => {
+const Item = ({ item, listImages, listGiftOfMe }: ItemProps) => {
   const [status, setStatus] = useState("Đã nhận");
   const [color, setColor] = useState(Colors.GREEN);
   useEffect(() => {
@@ -122,7 +123,7 @@ const Item = ({ item, listImages }: ItemProps) => {
       setStatus("Đã nhận");
       setColor(Colors.GREEN);
     }
-  }, [DATAGIFTOFME, item.status, item.quantity]);
+  }, [listGiftOfMe, item.status, item.quantity]);
 
   return (
     <View style={[_styles.containerItem]}>
@@ -192,15 +193,18 @@ const Item = ({ item, listImages }: ItemProps) => {
 };
 
 const _FlatlistGiftOfMe: React.FC<Props> = (props) => {
-  const [newArray, setNewArray] = useState<GiftOfMe[]>(DATAGIFTOFME);
+  const userData = useSelector<RootState, User>(
+    (state) => state.user.dataUsers
+  );
+  const [newArray, setNewArray] = useState<GiftOfMe[]>(userData.giftOfMe);
 
   useEffect(() => {
     setNewArray(
-      DATAGIFTOFME.filter((item) => {
+      userData.giftOfMe.filter((item) => {
         return item.name !== "300 coins" && item.quantity !== 0;
       })
     );
-  }, [DATAGIFTOFME]);
+  }, [userData.giftOfMe]);
 
   const listAllImages = useSelector<RootState, Record<string, string>>(
     (state) => state.storage.storage
@@ -213,27 +217,40 @@ const _FlatlistGiftOfMe: React.FC<Props> = (props) => {
   const renderItem = useMemo(
     () =>
       ({ item }: { item: GiftOfMe }) => {
-        return <Item item={item} listImages={listAllImages} key={item.key} />;
+        return (
+          <Item
+            item={item}
+            listImages={listAllImages}
+            key={item.key}
+            listGiftOfMe={userData.giftOfMe}
+          />
+        );
       },
     []
   );
 
   return (
     <View style={_styles.container}>
-      <ScrollView>
+      {newArray.length == 0 ? (
         <View>
-          {
-            <View style={_styles.containerFlatlist}>
-              <View>
-                {column1Data.map((item, index) => renderItem({ item: item }))}
-              </View>
-              <View>
-                {column2Data.map((item, index) => renderItem({ item: item }))}
-              </View>
-            </View>
-          }
+          <Text>bạn chưa có qùa tặng</Text>
         </View>
-      </ScrollView>
+      ) : (
+        <ScrollView>
+          <View>
+            {
+              <View style={_styles.containerFlatlist}>
+                <View>
+                  {column1Data.map((item, index) => renderItem({ item: item }))}
+                </View>
+                <View>
+                  {column2Data.map((item, index) => renderItem({ item: item }))}
+                </View>
+              </View>
+            }
+          </View>
+        </ScrollView>
+      )}
     </View>
   );
 };

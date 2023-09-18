@@ -103,11 +103,15 @@ const _Collection: React.FC<PropsType> = (props) => {
   }, [userData, sum7Up, sumMirinda, sumPepsi]);
 
   useEffect(() => {
-    if (quantity < smallestNumber) {
+    if (quantity < smallestNumber && quantity >= 1) {
       setBackgroundRight(Colors.RED);
-      setBackgroundLeft(Colors.BLUE_3);
-    } else {
+    } else if (quantity == smallestNumber) {
       setBackgroundRight(Colors.BLUE_3);
+    }
+
+    if (quantity < smallestNumber && quantity == 1) {
+      setBackgroundLeft(Colors.BLUE_3);
+    } else if (quantity < smallestNumber && quantity > 1) {
       setBackgroundLeft(Colors.RED);
     }
 
@@ -115,7 +119,7 @@ const _Collection: React.FC<PropsType> = (props) => {
       setBackgroundRight(Colors.BLUE_3);
       setBackgroundLeft(Colors.BLUE_3);
     }
-  }, [quantity]);
+  }, [quantity, smallestNumber]);
 
   useEffect(() => {
     if (smallestNumber == 0) {
@@ -134,6 +138,12 @@ const _Collection: React.FC<PropsType> = (props) => {
       setQuantity(quantity + 1);
     }
   };
+
+  useEffect(() => {
+    if (quantity > smallestNumber) {
+      setQuantity(smallestNumber);
+    }
+  }, [quantity, smallestNumber]);
 
   return (
     <BackgroundApp uri={listAllImages[BACKGROUND_COLLECTION]}>

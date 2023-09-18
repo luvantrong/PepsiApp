@@ -92,9 +92,9 @@ const _PopupExchangeGift: React.FC<Props> = (props) => {
           key: userData.key,
           coins: userData.coins + 300,
           cans: {
-            blue: userData.cans.blue - 1,
-            green: userData.cans.green - 1,
-            orange: userData.cans.orange - 1,
+            blue: userData.cans.blue - sum,
+            green: userData.cans.green - sum,
+            orange: userData.cans.orange - sum,
           },
         };
         dispatch(updateCansAndCoins(dataUpdateCoinAndCans));
@@ -104,9 +104,9 @@ const _PopupExchangeGift: React.FC<Props> = (props) => {
           key: userData.key,
           coins: userData.coins,
           cans: {
-            blue: userData.cans.blue - 1,
-            green: userData.cans.green - 1,
-            orange: userData.cans.orange - 1,
+            blue: userData.cans.blue - sum,
+            green: userData.cans.green - sum,
+            orange: userData.cans.orange - sum,
           },
         };
         dispatch(updateCansAndCoins(dataUpdateCoinAndCans));

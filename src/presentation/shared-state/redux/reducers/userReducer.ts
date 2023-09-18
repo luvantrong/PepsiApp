@@ -28,6 +28,7 @@ const initialState: UserState = {
       free: 0,
       exchange: 0,
     },
+    giftOfMe: [],
   },
 };
 
@@ -64,6 +65,7 @@ export const getDataUserRedux = createAsyncThunk(
           free: user.turn.free,
           exchange: user.turn.exchange,
         },
+        giftOfMe: user.giftOfMe,
       };
     }
     return userWithKey;
@@ -92,8 +94,6 @@ export interface DataUpdateCansAndCoins {
   coins: number;
   cans: Cans;
 }
-
-
 
 export const updateCansAndCoins = createAsyncThunk(
   "user/updateCansAndCoins",

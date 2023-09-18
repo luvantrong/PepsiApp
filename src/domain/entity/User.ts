@@ -1,3 +1,5 @@
+import { GiftOfMe } from "./GiftOfMe";
+
 export interface Cans {
   blue: number;
   green: number;
@@ -16,4 +18,5 @@ export interface User {
   coins: number;
   cans: Cans;
   turn: Turn;
+  giftOfMe: GiftOfMe[];
 }
