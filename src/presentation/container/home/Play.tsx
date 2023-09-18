@@ -7,12 +7,13 @@ import {
   Dimensions,
   SafeAreaView,
   Text,
+  Modal,
 } from "react-native";
 import React, { useEffect, useRef, useState } from "react";
 import { DimensionsStyle } from "@resources";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { HomeStackParamList } from "@navigation";
-import { BackgroundApp, Header, TextViewBold } from "@components";
+import { BackgroundApp, Header, PopupSignOut, TextViewBold } from "@components";
 import {
   BACKGROUND_PLAY,
   ICON_ARROW,
@@ -34,6 +35,7 @@ const _Play: React.FC<PropsType> = (props) => {
   const listAllImages = useSelector<RootState, Record<string, string>>(
     (state) => state.storage.storage
   );
+  const [modalVisibleSignOut, setModalVisibleSignOut] = useState(false);
 
   const type = route.params?.type;
   const sumPlay = route.params?.sumPlay;
@@ -62,7 +64,7 @@ const _Play: React.FC<PropsType> = (props) => {
       },
       onPanResponderRelease: (_, gesture) => {
         if (gesture.dy < -screenHeight / 5) {
-          navigation.push("HappyPresent");
+          navigation.push("HappyPresent", { type: type });
         } else {
           Animated.spring(pan, {
             toValue: { x: 0, y: 0 },
@@ -83,7 +85,28 @@ const _Play: React.FC<PropsType> = (props) => {
           loginStatus={true}
           containerStyle={{ marginTop: 10 }}
           titleCenterStyle={{ textTransform: "uppercase" }}
+          onPressLeft={() => navigation.push("Home")}
+          onPressRight={() => {
+            setModalVisibleSignOut(true);
+          }}
         />
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={modalVisibleSignOut}
+        >
+          <PopupSignOut
+            onPressSignOut={() => {
+              setModalVisibleSignOut(!modalVisibleSignOut);
+              // setLoggedIn(false);
+              // setDataUser({} as User);
+              navigation.push("SignIn");
+            }}
+            onPressCancel={() => {
+              setModalVisibleSignOut(!modalVisibleSignOut);
+            }}
+          />
+        </Modal>
         <TextViewBold
           text={textContentPlay}
           boldTexts={[sumPlay + ""]}

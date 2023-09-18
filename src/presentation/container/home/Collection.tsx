@@ -76,8 +76,6 @@ const _Collection: React.FC<PropsType> = (props) => {
     setSumPlayExchange(userData.turn.exchange);
   }, [userData]);
 
-  console.log("sumPlayFree", sumPlayFree);
-  console.log("sumPlayExchange", sumPlayExchange);
   const [backgroundLeft, setBackgroundLeft] = useState(Colors.BLUE_3);
   const [backgroundRight, setBackgroundRight] = useState(Colors.BLUE_3);
   const [sumPepsi, setSumPepsi] = useState(userData.cans.blue);

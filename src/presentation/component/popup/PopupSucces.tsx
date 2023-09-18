@@ -30,6 +30,8 @@ type Props = {
 const _PopupSucces: React.FC<Props> = (props) => {
   const { onPressPlay, onPressReScan, sumPlay } = props;
   const textBold = `Bạn có tổng cộng 0${sumPlay} lượt chơi`;
+  const textBold2 = `Bạn có tổng cộng ${sumPlay} lượt chơi`;
+
   const listAllImages = useSelector<RootState, Record<string, string>>(
     (state) => state.storage.storage
   );
@@ -51,8 +53,8 @@ const _PopupSucces: React.FC<Props> = (props) => {
           <Text style={_styles.textCoint}>5</Text>
           <Text style={_styles.textTitle}>Lượt chơi</Text>
           <TextViewBold
-            text={textBold}
-            boldTexts={[`0${sumPlay}`]}
+            text={Number(sumPlay) < 10 ? textBold : textBold2}
+            boldTexts={[`0${sumPlay}`, sumPlay]}
             textStyle={_styles.textSumBold}
             boldStyle={_styles.textBold}
           />

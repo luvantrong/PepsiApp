@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { Cans, Gift, Present, User } from "@domain";
+import { Cans, Gift, Present, Turn, User } from "@domain";
 import { firestore } from "./storageReducer";
 import React from "react";
 
@@ -75,12 +75,6 @@ export interface DataUpdateCoins {
   coins: number;
 }
 
-export interface DataUpdateCansAndCoins {
-  key: string;
-  coins: number;
-  cans: Cans;
-}
-
 export const updateCoins = createAsyncThunk(
   "user/updateCoins",
   async (dataUpdateCoins: DataUpdateCoins) => {
@@ -93,6 +87,12 @@ export const updateCoins = createAsyncThunk(
   }
 );
 
+export interface DataUpdateCansAndCoins {
+  key: string;
+  coins: number;
+  cans: Cans;
+}
+
 export const updateCansAndCoins = createAsyncThunk(
   "user/updateCansAndCoins",
   async (dataUpdateCansAndCoins: DataUpdateCansAndCoins) => {
@@ -102,6 +102,23 @@ export const updateCansAndCoins = createAsyncThunk(
       .doc(key)
       .update({ coins, cans });
     return { cans, coins };
+  }
+);
+
+export interface DataUpdateTurn {
+  key: string;
+  turn: Turn;
+}
+
+export const updateTurn = createAsyncThunk(
+  "user/updateTurn",
+  async (dataUpdateTurn: DataUpdateTurn) => {
+    const { key, turn } = dataUpdateTurn;
+    const docRef = await firestore
+      .collection("users")
+      .doc(key)
+      .update({ turn });
+    return turn;
   }
 );
 
@@ -149,6 +166,16 @@ const userSlice = createSlice({
         state.dataUsers.cans = action.payload.cans;
       })
       .addCase(updateCansAndCoins.rejected, (state, action) => {
+        state.loading = false;
+      })
+      .addCase(updateTurn.pending, (state, action) => {
+        state.loading = true;
+      })
+      .addCase(updateTurn.fulfilled, (state, action) => {
+        state.loading = false;
+        state.dataUsers.turn = action.payload;
+      })
+      .addCase(updateTurn.rejected, (state, action) => {
         state.loading = false;
       });
   },

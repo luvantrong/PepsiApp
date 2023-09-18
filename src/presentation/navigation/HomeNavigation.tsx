@@ -26,7 +26,9 @@ type PlayProps = {
   type: boolean;
   sumPlay: string;
 };
-type HappyPresentProps = {};
+type HappyPresentProps = {
+  type: boolean | undefined;
+};
 type ScanQRProps = {};
 type CollectionProps = {};
 type DetailGiftProps = {};

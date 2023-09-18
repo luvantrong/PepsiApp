@@ -30,8 +30,10 @@ import {
 import { useSelector } from "react-redux";
 import {
   DataUpdateCansAndCoins,
+  DataUpdateTurn,
   RootState,
   updateCansAndCoins,
+  updateTurn,
   useAppDispatch,
 } from "@shared-state";
 import { getUrlImage } from "../sign-in";
@@ -41,6 +43,7 @@ type PropsType = NativeStackScreenProps<HomeStackParamList, "HappyPresent">;
 
 const _HappyPresent: React.FC<PropsType> = (props) => {
   const { navigation, route } = props;
+  const type = route.params?.type;
   const dispatch = useAppDispatch();
   const dataPresent: Present[] = [
     {
@@ -109,7 +112,25 @@ const _HappyPresent: React.FC<PropsType> = (props) => {
       cans: cans,
       coins: dataPresent[randomNumber].point + dataUser.coins,
     };
+
+    let turns = {
+      free: dataUser.turn.free,
+      exchange: dataUser.turn.exchange,
+    };
+
+    if (type == true) {
+      turns.free = dataUser.turn.free - 1;
+    } else {
+      turns.exchange = dataUser.turn.exchange - 1;
+    }
+
+    const dataUpdateTurn: DataUpdateTurn = {
+      key: dataUser.key,
+      turn: turns,
+    };
+
     dispatch(updateCansAndCoins(dataUpdate));
+    dispatch(updateTurn(dataUpdateTurn));
     navigation.push("Home");
   };
 

@@ -8,7 +8,13 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { RootState, storage } from "@shared-state";
+import {
+  DataUpdateTurn,
+  RootState,
+  storage,
+  updateTurn,
+  useAppDispatch,
+} from "@shared-state";
 import { getUrlImage } from "../sign-in";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { HomeStackParamList } from "@navigation";
@@ -37,6 +43,7 @@ type PropsType = NativeStackScreenProps<HomeStackParamList, "ScanQR">;
 
 const _ScanQR: React.FC<PropsType> = (props) => {
   const { navigation } = props;
+  const dispatch = useAppDispatch();
   const listAllImages = useSelector<RootState, Record<string, string>>(
     (state) => state.storage.storage
   );
@@ -45,20 +52,35 @@ const _ScanQR: React.FC<PropsType> = (props) => {
     (state) => state.user.dataUsers
   );
 
-  // let sumPlay = `${dataUser.turn.free + dataUser.turn.exchange}`;
+  let sumPlay = `${dataUser.turn.free + dataUser.turn.exchange}`;
 
   const [modalVisibleSignOut, setModalVisibleSignOut] = useState(false);
   const [modalVisibleError, setModalVisibleError] = useState(false);
   const [modalVisibleSuccess, setModalVisibleSuccess] = useState(false);
 
+  const handleUpdateTurn = () => {
+    let turns = {
+      free: dataUser.turn.free,
+      exchange: dataUser.turn.exchange,
+    };
+    turns.exchange = dataUser.turn.exchange + 5;
+    const dataUpdateTurn: DataUpdateTurn = {
+      key: dataUser.key,
+      turn: turns,
+    };
+    dispatch(updateTurn(dataUpdateTurn));
+  };
+
   const handleNotification = () => {
     const randomBoolean = Math.random() < 0.5;
     if (randomBoolean) {
+      handleUpdateTurn();
       setModalVisibleSuccess(true);
     } else {
       setModalVisibleError(true);
     }
   };
+
   return (
     <BackgroundApp uri={listAllImages[BACKGROUND_SIGNUP]}>
       <SafeAreaView style={{ flex: 1 }}>
@@ -84,9 +106,13 @@ const _ScanQR: React.FC<PropsType> = (props) => {
             }}
             onPressPlay={() => {
               setModalVisibleSuccess(!modalVisibleSuccess);
-              navigation.push("Play");
+
+              navigation.push("Play", {
+                type: false,
+                sumPlay: `${dataUser.turn.exchange}`,
+              });
             }}
-            sumPlay={`8`}
+            sumPlay={sumPlay}
           />
         </Modal>
         <Modal

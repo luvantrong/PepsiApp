@@ -100,20 +100,24 @@ const _Home: React.FC<PropsType> = (props) => {
           visible={modalVisibleSelectPlay}
         >
           <PopupSelectPlay
-            // sumPlayFree={`${dataUser.turn.free}`}
-            // sumPlayExchange={`${dataUser.turn.exchange}`}
-            sumPlayFree={`5`}
-            sumPlayExchange={`4`}
+            sumPlayFree={`${dataUser.turn.free}`}
+            sumPlayExchange={`${dataUser.turn.exchange}`}
             onPressClose={() => {
               setModalVisibleSelectPlay(!modalVisibleSelectPlay);
             }}
             onPressFree={() => {
               setModalVisibleSelectPlay(!modalVisibleSelectPlay);
-              navigation.push("Play", { type: true, sumPlay: "3" });
+              navigation.push("Play", {
+                type: true,
+                sumPlay: `${dataUser.turn.free}`,
+              });
             }}
             onPressExchange={() => {
               setModalVisibleSelectPlay(!modalVisibleSelectPlay);
-              navigation.push("Play", { type: false, sumPlay: "1" });
+              navigation.push("Play", {
+                type: false,
+                sumPlay: `${dataUser.turn.exchange}`,
+              });
             }}
           />
         </Modal>
