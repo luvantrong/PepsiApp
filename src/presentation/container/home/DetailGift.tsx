@@ -94,15 +94,6 @@ const _DetailGift: React.FC<PropsType> = (props) => {
     setTypeShow(false);
   };
 
-  // const handleUpdateCoin = () => {
-  //   const coins = Math.floor(Math.random() * 1000);
-  //   const dataUpdateCoins: DataUpdateCoins = {
-  //     key: userDataa.key,
-  //     coins: coins,
-  //   };
-  //   dispatch(updateCoins(dataUpdateCoins));
-  // };
-
   return (
     <BackgroundApp uri={listAllImages[BACKGROUND_DETAIL]}>
       <SafeAreaView style={{ flex: 1, marginBottom: -35 }}>

@@ -201,7 +201,7 @@ const _FlatlistGiftOfMe: React.FC<Props> = (props) => {
 
   useEffect(() => {
     const listGiftOfMe: GiftOfMe[] = userData.giftOfMe;
-    console.log("listGiftOfMe", listGiftOfMe);
+
     setNewArray(
       listGiftOfMe.filter((item) => {
         return item.name !== "300 coins" && item.quantity !== 0;
