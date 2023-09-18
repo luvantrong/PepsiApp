@@ -114,15 +114,19 @@ const _PopupExchangeGift: React.FC<Props> = (props) => {
         if (elements[i].name == "Electronic lunch bo") {
           quantity = userData.giftOfMe[1].quantity + 1;
           let dataUserUpdate = userData;
+          var updatedGiftOfMe = dataUserUpdate.giftOfMe.map((item, i) => {
+            if (item.name == "Electronic lunch bo") {
+              return {
+                ...item,
+                quantity: quantity,
+              };
+            }
+            return item;
+          });
+
           dataUserUpdate = {
             ...dataUserUpdate,
-            giftOfMe: {
-              ...dataUserUpdate.giftOfMe,
-              1: {
-                ...dataUserUpdate.giftOfMe[1],
-                quantity: quantity,
-              },
-            },
+            giftOfMe: updatedGiftOfMe,
           };
 
           const dataUpdateGiftOfMe: DataUpdateGiftOfMe = {

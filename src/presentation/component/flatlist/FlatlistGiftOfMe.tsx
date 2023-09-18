@@ -196,11 +196,14 @@ const _FlatlistGiftOfMe: React.FC<Props> = (props) => {
   const userData = useSelector<RootState, User>(
     (state) => state.user.dataUsers
   );
-  const [newArray, setNewArray] = useState<GiftOfMe[]>(userData.giftOfMe);
+
+  const [newArray, setNewArray] = useState<GiftOfMe[]>([]);
 
   useEffect(() => {
+    const listGiftOfMe: GiftOfMe[] = userData.giftOfMe;
+    console.log("listGiftOfMe", listGiftOfMe);
     setNewArray(
-      userData.giftOfMe.filter((item) => {
+      listGiftOfMe.filter((item) => {
         return item.name !== "300 coins" && item.quantity !== 0;
       })
     );
@@ -210,14 +213,9 @@ const _FlatlistGiftOfMe: React.FC<Props> = (props) => {
     (state) => state.storage.storage
   );
 
-  console.log("newArray", newArray.length);
-
   const halfwayIndex = Math.ceil(newArray.length / 2);
   const column1Data = newArray.slice(0, halfwayIndex);
   const column2Data = newArray.slice(halfwayIndex);
-
-  console.log("column1Data", column1Data.length);
-  console.log("column2Data", column2Data.length);
 
   const renderItem = useMemo(
     () =>
