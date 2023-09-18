@@ -74,8 +74,6 @@ const _Home: React.FC<PropsType> = (props) => {
     dispatch(getAllExchangeGift());
   }, []);
 
-  console.log("dataUser", dataUser);
-
   return (
     <BackgroundApp uri={listAllImages[BACKGROUND_HOME]}>
       <SafeAreaView style={{ flex: 1 }}>

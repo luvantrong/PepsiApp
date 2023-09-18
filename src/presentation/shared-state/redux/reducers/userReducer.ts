@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { Cans, Gift, Present, Turn, User } from "@domain";
+import { Cans, Gift, GiftOfMe, Present, Turn, User } from "@domain";
 import { firestore } from "./storageReducer";
 import React from "react";
 
@@ -28,7 +28,7 @@ const initialState: UserState = {
       free: 0,
       exchange: 0,
     },
-    giftOfMe: [],
+    giftOfMe: [] as GiftOfMe[],
   },
 };
 
@@ -124,6 +124,20 @@ export const updateTurn = createAsyncThunk(
   }
 );
 
+export interface DataUpdateGiftOfMe {
+  key: string;
+  data: User;
+}
+
+export const DataUpdateGiftOfMe = createAsyncThunk(
+  "user/updateGiftOfMe",
+  async (dataUpdateGiftOfMe: DataUpdateGiftOfMe) => {
+    const { key, data } = dataUpdateGiftOfMe;
+    const docRef = await firestore.collection("users").doc(key).update(data);
+    return data;
+  }
+);
+
 const userSlice = createSlice({
   name: "user",
   initialState: initialState,
@@ -178,6 +192,16 @@ const userSlice = createSlice({
         state.dataUsers.turn = action.payload;
       })
       .addCase(updateTurn.rejected, (state, action) => {
+        state.loading = false;
+      })
+      .addCase(DataUpdateGiftOfMe.pending, (state, action) => {
+        state.loading = true;
+      })
+      .addCase(DataUpdateGiftOfMe.fulfilled, (state, action) => {
+        state.loading = false;
+        state.dataUsers = action.payload;
+      })
+      .addCase(DataUpdateGiftOfMe.rejected, (state, action) => {
         state.loading = false;
       });
   },

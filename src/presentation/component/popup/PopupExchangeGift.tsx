@@ -12,6 +12,8 @@ import {
 import { TextViewBold } from "../textBold";
 import { Button } from "../button";
 import {
+  DataUpdateCansAndCoins,
+  DataUpdateGiftOfMe,
   RootState,
   updateCansAndCoins,
   updateCoins,
@@ -86,9 +88,8 @@ const _PopupExchangeGift: React.FC<Props> = (props) => {
 
   const handleExchangeGift = () => {
     for (let i = 0; i < elements.length; i++) {
-      console.log(elements[i].name);
       if (elements[i].name == "300 coins") {
-        const dataUpdateCoinAndCans = {
+        const dataUpdateCoinAndCans: DataUpdateCansAndCoins = {
           key: userData.key,
           coins: userData.coins + 300,
           cans: {
@@ -99,7 +100,6 @@ const _PopupExchangeGift: React.FC<Props> = (props) => {
         };
         dispatch(updateCansAndCoins(dataUpdateCoinAndCans));
       } else {
-        console.log("khong co 300 coins");
         const dataUpdateCoinAndCans = {
           key: userData.key,
           coins: userData.coins,
@@ -109,6 +109,29 @@ const _PopupExchangeGift: React.FC<Props> = (props) => {
             orange: userData.cans.orange - sum,
           },
         };
+
+        let quantity = 0;
+        if (elements[i].name == "Electronic lunch bo") {
+          quantity = userData.giftOfMe[1].quantity + 1;
+          let dataUserUpdate = userData;
+          dataUserUpdate = {
+            ...dataUserUpdate,
+            giftOfMe: {
+              ...dataUserUpdate.giftOfMe,
+              1: {
+                ...dataUserUpdate.giftOfMe[1],
+                quantity: quantity,
+              },
+            },
+          };
+
+          const dataUpdateGiftOfMe: DataUpdateGiftOfMe = {
+            key: userData.key,
+            data: dataUserUpdate,
+          };
+          dispatch(DataUpdateGiftOfMe(dataUpdateGiftOfMe));
+        }
+
         dispatch(updateCansAndCoins(dataUpdateCoinAndCans));
       }
     }

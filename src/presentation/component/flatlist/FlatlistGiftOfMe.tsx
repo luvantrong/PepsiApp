@@ -204,15 +204,20 @@ const _FlatlistGiftOfMe: React.FC<Props> = (props) => {
         return item.name !== "300 coins" && item.quantity !== 0;
       })
     );
-  }, [userData.giftOfMe]);
+  }, [userData]);
 
   const listAllImages = useSelector<RootState, Record<string, string>>(
     (state) => state.storage.storage
   );
 
+  console.log("newArray", newArray.length);
+
   const halfwayIndex = Math.ceil(newArray.length / 2);
   const column1Data = newArray.slice(0, halfwayIndex);
   const column2Data = newArray.slice(halfwayIndex);
+
+  console.log("column1Data", column1Data.length);
+  console.log("column2Data", column2Data.length);
 
   const renderItem = useMemo(
     () =>
