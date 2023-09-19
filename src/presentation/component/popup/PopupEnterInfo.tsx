@@ -24,7 +24,7 @@ import {
 import { Button } from "../button";
 import { getUrlImage } from "@containers";
 import { useSelector } from "react-redux";
-import { RootState } from "@shared-state";
+import { DataUpdateGiftOfMe, RootState, useAppDispatch } from "@shared-state";
 import { Gift, User } from "@domain";
 import { TextField } from "../textField";
 import { TextViewBold } from "../textBold";
@@ -39,6 +39,7 @@ type Props = {
 
 const _PopupEnterInfo: React.FC<Props> = (props) => {
   const { onPressClose, onPressConfirm, item, user, type } = props;
+  const dispatch = useAppDispatch();
   const listAllImages = useSelector<RootState, Record<string, string>>(
     (state) => state.storage.storage
   );
@@ -66,9 +67,183 @@ const _PopupEnterInfo: React.FC<Props> = (props) => {
     setNote(text);
   };
 
+  const handleExchangeGift = () => {
+    let quantity = 0;
+    if (item.name == "Electronic lunch bo") {
+      quantity = user.giftOfMe[1].quantity + 1;
+      let dataUserUpdate = user;
+      var updatedGiftOfMe = dataUserUpdate.giftOfMe.map((item, index) => {
+        if (item.name == "Electronic lunch bo") {
+          return {
+            ...item,
+            quantity: quantity,
+            status: true,
+          };
+        }
+        return item;
+      });
+
+      dataUserUpdate = {
+        ...dataUserUpdate,
+        giftOfMe: updatedGiftOfMe,
+      };
+
+      const dataUpdateGiftOfMe: DataUpdateGiftOfMe = {
+        key: user.key,
+        data: dataUserUpdate,
+      };
+      dispatch(DataUpdateGiftOfMe(dataUpdateGiftOfMe));
+    } else if (item.name == "Airpod case") {
+      quantity = user.giftOfMe[2].quantity + 1;
+      let dataUserUpdate = user;
+      var updatedGiftOfMe = dataUserUpdate.giftOfMe.map((item, index) => {
+        if (item.name == "Airpod case") {
+          return {
+            ...item,
+            quantity: quantity,
+            status: true,
+          };
+        }
+        return item;
+      });
+
+      dataUserUpdate = {
+        ...dataUserUpdate,
+        giftOfMe: updatedGiftOfMe,
+      };
+
+      const dataUpdateGiftOfMe: DataUpdateGiftOfMe = {
+        key: user.key,
+        data: dataUserUpdate,
+      };
+      dispatch(DataUpdateGiftOfMe(dataUpdateGiftOfMe));
+    } else if (item.name == "Pepsi Tote Bag") {
+      quantity = user.giftOfMe[3].quantity + 1;
+      let dataUserUpdate = user;
+      var updatedGiftOfMe = dataUserUpdate.giftOfMe.map((item, index) => {
+        if (item.name == "Pepsi Tote Bag") {
+          return {
+            ...item,
+            quantity: quantity,
+            status: true,
+          };
+        }
+        return item;
+      });
+
+      dataUserUpdate = {
+        ...dataUserUpdate,
+        giftOfMe: updatedGiftOfMe,
+      };
+
+      const dataUpdateGiftOfMe: DataUpdateGiftOfMe = {
+        key: user.key,
+        data: dataUserUpdate,
+      };
+      dispatch(DataUpdateGiftOfMe(dataUpdateGiftOfMe));
+    } else if (item.name == "Portable speaker") {
+      quantity = user.giftOfMe[4].quantity + 1;
+      let dataUserUpdate = user;
+      var updatedGiftOfMe = dataUserUpdate.giftOfMe.map((item, index) => {
+        if (item.name == "Portable speaker") {
+          return {
+            ...item,
+            quantity: quantity,
+            status: true,
+          };
+        }
+        return item;
+      });
+
+      dataUserUpdate = {
+        ...dataUserUpdate,
+        giftOfMe: updatedGiftOfMe,
+      };
+
+      const dataUpdateGiftOfMe: DataUpdateGiftOfMe = {
+        key: user.key,
+        data: dataUserUpdate,
+      };
+      dispatch(DataUpdateGiftOfMe(dataUpdateGiftOfMe));
+    } else if (item.name == "Pepsi Tumbler") {
+      quantity = user.giftOfMe[5].quantity + 1;
+      let dataUserUpdate = user;
+      var updatedGiftOfMe = dataUserUpdate.giftOfMe.map((item, index) => {
+        if (item.name == "Pepsi Tumbler") {
+          return {
+            ...item,
+            quantity: quantity,
+            status: true,
+          };
+        }
+        return item;
+      });
+
+      dataUserUpdate = {
+        ...dataUserUpdate,
+        giftOfMe: updatedGiftOfMe,
+      };
+
+      const dataUpdateGiftOfMe: DataUpdateGiftOfMe = {
+        key: user.key,
+        data: dataUserUpdate,
+      };
+      dispatch(DataUpdateGiftOfMe(dataUpdateGiftOfMe));
+    } else if (item.name == "Pepsi Jacket") {
+      quantity = user.giftOfMe[6].quantity + 1;
+      let dataUserUpdate = user;
+      var updatedGiftOfMe = dataUserUpdate.giftOfMe.map((item, index) => {
+        if (item.name == "Pepsi Jacket") {
+          return {
+            ...item,
+            quantity: quantity,
+            status: true,
+          };
+        }
+        return item;
+      });
+
+      dataUserUpdate = {
+        ...dataUserUpdate,
+        giftOfMe: updatedGiftOfMe,
+      };
+
+      const dataUpdateGiftOfMe: DataUpdateGiftOfMe = {
+        key: user.key,
+        data: dataUserUpdate,
+      };
+      dispatch(DataUpdateGiftOfMe(dataUpdateGiftOfMe));
+    } else if (item.name == "Pepsi Bucket Hat") {
+      quantity = user.giftOfMe[7].quantity + 1;
+      let dataUserUpdate = user;
+      var updatedGiftOfMe = dataUserUpdate.giftOfMe.map((item, index) => {
+        if (item.name == "Pepsi Bucket Hat") {
+          return {
+            ...item,
+            quantity: quantity,
+            status: true,
+          };
+        }
+        return item;
+      });
+
+      dataUserUpdate = {
+        ...dataUserUpdate,
+        giftOfMe: updatedGiftOfMe,
+      };
+
+      const dataUpdateGiftOfMe: DataUpdateGiftOfMe = {
+        key: user.key,
+        data: dataUserUpdate,
+      };
+      dispatch(DataUpdateGiftOfMe(dataUpdateGiftOfMe));
+    }
+  };
+
   const handleConfirm = () => {
     if (address) {
       setBorderColor(Colors.WHITE);
+      handleExchangeGift();
       onPressConfirm();
     } else {
       setBorderColor(Colors.RED);
