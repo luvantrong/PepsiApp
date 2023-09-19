@@ -24,12 +24,14 @@ import { HomeStackParamList } from "@navigation";
 import { useSelector } from "react-redux";
 import { getUrlImage } from "./SignUp";
 import { firestore } from "@shared-state";
+import { User } from "@domain";
 
 type PropsType = NativeStackScreenProps<HomeStackParamList, "SignIn">;
 
 const _SignIn: React.FC<PropsType> = (props) => {
   const { navigation } = props;
   const [phoneNumber, setPhoneNumber] = useState("");
+
   const listAllImages = useSelector<RootState, Record<string, string>>(
     (state) => state.storage.storage
   );

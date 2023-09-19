@@ -34,6 +34,7 @@ import {
   DataUpdateCansAndCoins,
   DataUpdateTurn,
   RootState,
+  signOut,
   updateCansAndCoins,
   updateTurn,
   useAppDispatch,
@@ -185,6 +186,7 @@ const _HappyPresent: React.FC<PropsType> = (props) => {
     dispatch(updateCansAndCoins(dataUpdate));
     dispatch(updateTurn(dataUpdateTurn));
     setLoggedIn(false);
+    dispatch(signOut());
     navigation.push("SignIn");
   };
 

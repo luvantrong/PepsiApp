@@ -33,6 +33,7 @@ import {
   useAppDispatch,
   getAllExchangeGift,
   AppContext,
+  signOut,
 } from "@shared-state";
 import { User } from "@domain";
 
@@ -93,7 +94,7 @@ const _Home: React.FC<PropsType> = (props) => {
             onPressSignOut={() => {
               setModalVisibleSignOut(!modalVisibleSignOut);
               setLoggedIn(false);
-              // setDataUser({} as User);
+              dispatch(signOut());
               navigation.push("SignIn");
             }}
             onPressCancel={() => {

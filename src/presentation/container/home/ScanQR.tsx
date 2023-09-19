@@ -12,6 +12,7 @@ import {
   AppContext,
   DataUpdateTurn,
   RootState,
+  signOut,
   storage,
   updateTurn,
   useAppDispatch,
@@ -127,7 +128,7 @@ const _ScanQR: React.FC<PropsType> = (props) => {
             onPressSignOut={() => {
               setModalVisibleSignOut(!modalVisibleSignOut);
               setLoggedIn(false);
-              // setDataUser({} as User);
+              dispatch(signOut());
               navigation.push("SignIn");
             }}
             onPressCancel={() => {

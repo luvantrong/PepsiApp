@@ -23,7 +23,7 @@ import {
   IMAGE_TARGET,
 } from "@assets";
 import { useSelector } from "react-redux";
-import { AppContext, RootState } from "@shared-state";
+import { AppContext, RootState, signOut, useAppDispatch } from "@shared-state";
 import { getUrlImage } from "../sign-in";
 
 type PropsType = NativeStackScreenProps<HomeStackParamList, "Play">;
@@ -35,6 +35,7 @@ const _Play: React.FC<PropsType> = (props) => {
   const listAllImages = useSelector<RootState, Record<string, string>>(
     (state) => state.storage.storage
   );
+  const dispatch = useAppDispatch();
   const [modalVisibleSignOut, setModalVisibleSignOut] = useState(false);
   const { isLoggedIn, setLoggedIn } = React.useContext(AppContext);
   const type = route.params?.type;
@@ -99,7 +100,7 @@ const _Play: React.FC<PropsType> = (props) => {
             onPressSignOut={() => {
               setModalVisibleSignOut(!modalVisibleSignOut);
               setLoggedIn(false);
-              // setDataUser({} as User);
+              dispatch(signOut());
               navigation.push("SignIn");
             }}
             onPressCancel={() => {

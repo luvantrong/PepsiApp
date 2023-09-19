@@ -22,7 +22,7 @@ import {
 } from "@assets";
 import { IInstruct } from "@domain";
 import { useSelector } from "react-redux";
-import { AppContext, RootState } from "@shared-state";
+import { AppContext, RootState, signOut, useAppDispatch } from "@shared-state";
 import { getUrlImage } from "../sign-in";
 
 type PropsType = NativeStackScreenProps<HomeStackParamList, "Instruct">;
@@ -60,6 +60,7 @@ const _Instruct: React.FC<PropsType> = (props) => {
   const listAllImages = useSelector<RootState, Record<string, string>>(
     (state) => state.storage.storage
   );
+  const dispatch = useAppDispatch();
   const { isLoggedIn, setLoggedIn } = React.useContext(AppContext);
   const [modalVisibleSignOut, setModalVisibleSignOut] = useState(false);
   const handleGoToHome = () => navigation.push("Home");
@@ -78,7 +79,7 @@ const _Instruct: React.FC<PropsType> = (props) => {
             onPressSignOut={() => {
               setModalVisibleSignOut(!modalVisibleSignOut);
               setLoggedIn(false);
-              // setDataUser({} as User);
+              dispatch(signOut());
               navigation.push("SignIn");
             }}
             onPressCancel={() => {

@@ -13,6 +13,7 @@ import { useSelector } from "react-redux";
 import {
   RootState,
   getDataUserRedux,
+  signOut,
   storage,
   updateCoins,
 } from "@shared-state";
@@ -106,6 +107,7 @@ const _DetailGift: React.FC<PropsType> = (props) => {
             onPressSignOut={() => {
               setModalVisibleSignOut(!modalVisibleSignOut);
               setLoggedIn(false);
+              dispatch(signOut());
               navigation.push("SignIn");
             }}
             onPressCancel={() => {

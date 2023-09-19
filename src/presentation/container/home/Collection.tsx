@@ -14,6 +14,7 @@ import {
   DataUpdateCoins,
   ExchangeGiftState,
   RootState,
+  signOut,
   storage,
   updateCoins,
   useAppDispatch,
@@ -170,7 +171,7 @@ const _Collection: React.FC<PropsType> = (props) => {
             onPressSignOut={() => {
               setModalVisibleSignOut(!modalVisibleSignOut);
               setLoggedIn(false);
-              // setDataUser({} as User);
+              dispatch(signOut());
               navigation.push("SignIn");
             }}
             onPressCancel={() => {

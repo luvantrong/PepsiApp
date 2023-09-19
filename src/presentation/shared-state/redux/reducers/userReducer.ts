@@ -10,26 +10,28 @@ export interface UserState {
   dataUsers: User;
 }
 
+export const DataUser: User = {
+  key: "",
+  name: "",
+  phone: "",
+  coins: 0,
+  cans: {
+    blue: 0,
+    green: 0,
+    orange: 0,
+  },
+  turn: {
+    free: 0,
+    exchange: 0,
+  },
+  giftOfMe: [] as GiftOfMe[],
+};
+
 const initialState: UserState = {
   users: [],
   loading: false,
   updateCoins: false,
-  dataUsers: {
-    key: "",
-    name: "",
-    phone: "",
-    coins: 0,
-    cans: {
-      blue: 0,
-      green: 0,
-      orange: 0,
-    },
-    turn: {
-      free: 0,
-      exchange: 0,
-    },
-    giftOfMe: [] as GiftOfMe[],
-  },
+  dataUsers: DataUser,
 };
 
 export const signUp = createAsyncThunk(
@@ -141,7 +143,11 @@ export const DataUpdateGiftOfMe = createAsyncThunk(
 const userSlice = createSlice({
   name: "user",
   initialState: initialState,
-  reducers: {},
+  reducers: {
+    signOut: (state) => {
+      state.dataUsers = DataUser;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(signUp.pending, (state, action) => {
@@ -207,5 +213,5 @@ const userSlice = createSlice({
   },
 });
 
-export const {} = userSlice.actions;
+export const { signOut } = userSlice.actions;
 export const userReducer = userSlice.reducer;
