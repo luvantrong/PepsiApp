@@ -1,4 +1,11 @@
-import { SafeAreaView, StyleSheet, Text, View, Pressable } from "react-native";
+import {
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View,
+  Pressable,
+  Alert,
+} from "react-native";
 import React, { useState, useEffect } from "react";
 import {
   BACKGROUND_SIGNUP,
@@ -8,7 +15,7 @@ import {
   ICON_CHECK,
   fontFamily,
 } from "@assets";
-import { RootState, storage } from "@shared-state";
+import { RootState, firestore, storage } from "@shared-state";
 import {
   BackgroundApp,
   Button,
@@ -96,9 +103,43 @@ const _SignUp: React.FC<PropsType> = (props) => {
     }
   }, [phoneNumber, userName, checkboxState]);
 
-  const handleGoToConfirmOTP = () => {
+  const handleGoToConfirmOTP = async () => {
     if (validate) {
-      navigation.push("ConfirmOTP", { phoneNumber: phoneNumber, type: false });
+      if (phoneNumber && !Number.isInteger(Number(phoneNumber))) {
+        Alert.alert("Số điện thoại không hợp lệ");
+        return;
+      }
+      if (phoneNumber.length > 10 || phoneNumber.length < 10) {
+        Alert.alert("Số điện thoại phải có 10 số");
+        return;
+      }
+
+      const nameRegex = "[a-zA-Z\\s\\u00C0-\\u1EF9]+";
+      if (!userName) {
+        Alert.alert("Bạn chưa nhập họ tên");
+        return;
+      }
+
+      if (!userName.match(nameRegex)) {
+        Alert.alert("Họ tên không hợp lệ");
+        return;
+      }
+
+      const snapshot = await firestore
+        .collection("users")
+        .where("phone", "==", phoneNumber)
+        .get();
+      if (!snapshot.empty) {
+        // Số điện thoại đã tồn tại trong Firestore
+        Alert.alert("Số điện thoại này đã được đăng ký");
+      } else {
+        // Số điện thoại không tồn tại trong Firestore
+        navigation.push("ConfirmOTP", {
+          phoneNumber: phoneNumber,
+          name: userName,
+          type: false,
+        });
+      }
     }
   };
 

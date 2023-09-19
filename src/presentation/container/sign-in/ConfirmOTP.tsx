@@ -4,6 +4,14 @@ import {
   BACKGROUND_SIGNUP,
   BG_GETCODE,
   BG_SIGNIN_CHECK,
+  GIFT_AIRPORT,
+  GIFT_BAG,
+  GIFT_COIN,
+  GIFT_ELECTRONIC,
+  GIFT_HAT,
+  GIFT_JACKET,
+  GIFT_SONY,
+  GIFT_TUMBLER,
   fontFamily,
 } from "@assets";
 import { BackgroundApp, Button, TextField, TextView } from "@components";
@@ -17,6 +25,7 @@ import {
   firestore,
   getAllExchangeGift,
   getDataUserRedux,
+  signUp,
   storage,
 } from "@shared-state";
 import { User } from "@domain";
@@ -29,6 +38,9 @@ const _ConfirmOTP: React.FC<PropsType> = (props) => {
   const phoneNumber = route.params?.phoneNumber;
   const type = route.params?.type;
   const phone = phoneNumber + "";
+  const name = route.params?.name;
+
+  const nameSignUp = name + "";
 
   const dispatch = useAppDispatch();
   const { setLoggedIn, setDataUser, isLoggedIn } = React.useContext(AppContext);
@@ -62,7 +74,81 @@ const _ConfirmOTP: React.FC<PropsType> = (props) => {
         setLoggedIn(true);
         navigation.push("Home");
       } else {
-        console.log("SignUp", "SignUp");
+        const UserSignUp: Omit<User, "key"> = {
+          name: nameSignUp,
+          phone: phone,
+          coins: 0,
+          cans: {
+            blue: 0,
+            green: 0,
+            orange: 0,
+          },
+          turn: {
+            free: 3,
+            exchange: 0,
+          },
+          giftOfMe: [
+            {
+              key: "0",
+              image: GIFT_COIN,
+              name: "300 coins",
+              quantity: 0,
+              status: false,
+            },
+            {
+              key: "1",
+              image: GIFT_ELECTRONIC,
+              name: "Electronic lunch bo",
+              quantity: 0,
+              status: false,
+            },
+            {
+              key: "2",
+              image: GIFT_AIRPORT,
+              name: "Airpod case",
+              quantity: 0,
+              status: false,
+            },
+            {
+              key: "3",
+              image: GIFT_BAG,
+              name: "Pepsi Tote Bag",
+              quantity: 0,
+              status: false,
+            },
+            {
+              key: "4",
+              image: GIFT_SONY,
+              name: "Portable speaker",
+              quantity: 0,
+              status: false,
+            },
+            {
+              key: "5",
+              image: GIFT_TUMBLER,
+              name: "Pepsi Tumbler",
+              quantity: 0,
+              status: false,
+            },
+            {
+              key: "6",
+              image: GIFT_JACKET,
+              name: "Pepsi Jacket",
+              quantity: 0,
+              status: false,
+            },
+            {
+              key: "7",
+              image: GIFT_HAT,
+              name: "Pepsi Bucket Hat",
+              quantity: 0,
+              status: false,
+            },
+          ],
+        };
+        dispatch(signUp(UserSignUp));
+        dispatch(getDataUserRedux(phone));
+        setLoggedIn(true);
         navigation.push("Home");
       }
     } else {

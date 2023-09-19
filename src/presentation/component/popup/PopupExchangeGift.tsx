@@ -99,6 +99,7 @@ const _PopupExchangeGift: React.FC<Props> = (props) => {
           },
         };
         dispatch(updateCansAndCoins(dataUpdateCoinAndCans));
+        console.log("300 coins");
       } else {
         const dataUpdateCoinAndCans = {
           key: userData.key,
@@ -114,7 +115,7 @@ const _PopupExchangeGift: React.FC<Props> = (props) => {
         if (elements[i].name == "Electronic lunch bo") {
           quantity = userData.giftOfMe[1].quantity + 1;
           let dataUserUpdate = userData;
-          var updatedGiftOfMe = dataUserUpdate.giftOfMe.map((item, i) => {
+          var updatedGiftOfMe = dataUserUpdate.giftOfMe.map((item, index) => {
             if (item.name == "Electronic lunch bo") {
               return {
                 ...item,
@@ -273,7 +274,6 @@ const _PopupExchangeGift: React.FC<Props> = (props) => {
           };
           dispatch(DataUpdateGiftOfMe(dataUpdateGiftOfMe));
         }
-
         dispatch(updateCansAndCoins(dataUpdateCoinAndCans));
       }
     }

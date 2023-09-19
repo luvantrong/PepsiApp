@@ -70,20 +70,20 @@ const _PopupSelectPlay: React.FC<Props> = (props) => {
             sumPlay={sumPlayFree}
             pressableStyle={_styles.buttonFree}
             textStyle={{ fontSize: 18, color: Colors.WHITE }}
-            onPress={onPressFree}
+            onPress={Number(sumPlayFree) == 0 ? () => {} : onPressFree}
             titleSmall={newTitleSumFree}
           />
           <Button
             title="Lượt chơi quy đổi"
             uriImage={
               Number(sumPlayExchange) == 0
-              ? listAllImages[BUTTON_SELECT_ZERO]
-              : listAllImages[BG_BUTTON_SELECT_PLAY]
+                ? listAllImages[BUTTON_SELECT_ZERO]
+                : listAllImages[BG_BUTTON_SELECT_PLAY]
             }
             sumPlay={sumPlayExchange}
             pressableStyle={_styles.buttonExchange}
             textStyle={{ fontSize: 18, color: Colors.WHITE }}
-            onPress={onPressExchange}
+            onPress={Number(sumPlayExchange) == 0 ? () => {} : onPressExchange}
             titleSmall={newTitleSumExchange}
           />
         </View>

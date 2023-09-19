@@ -38,71 +38,13 @@ import {
   GIFT_JACKET,
   GIFT_HAT,
   BACKGROUND_OF_ME,
+  BOX_NONE,
 } from "@assets";
 import { Colors, DimensionsStyle } from "@resources";
 import { PopupEnterInfo } from "../popup";
 import { Gift, User, GiftOfMe } from "@domain";
 import { Button } from "../button";
 import LinearGradient from "react-native-linear-gradient";
-
-const DATAGIFTOFME: GiftOfMe[] = [
-  {
-    key: "0",
-    image: GIFT_COIN,
-    name: "300 coins",
-    quantity: 0,
-    status: false,
-  },
-  {
-    key: "1",
-    image: GIFT_ELECTRONIC,
-    name: "Electronic lunch bo",
-    quantity: 0,
-    status: true,
-  },
-  {
-    key: "2",
-    image: GIFT_AIRPORT,
-    name: "Airpod case",
-    quantity: 2,
-    status: false,
-  },
-  {
-    key: "3",
-    image: GIFT_BAG,
-    name: "Pepsi Tote Bag",
-    quantity: 0,
-    status: false,
-  },
-  {
-    key: "4",
-    image: GIFT_SONY,
-    name: "Portable speaker",
-    quantity: 0,
-    status: false,
-  },
-  {
-    key: "5",
-    image: GIFT_TUMBLER,
-    name: "Pepsi Tumbler",
-    quantity: 1,
-    status: false,
-  },
-  {
-    key: "6",
-    image: GIFT_JACKET,
-    name: "Pepsi Jacket",
-    quantity: 0,
-    status: false,
-  },
-  {
-    key: "7",
-    image: GIFT_HAT,
-    name: "Pepsi Bucket Hat",
-    quantity: 1,
-    status: false,
-  },
-];
 
 type Props = {};
 
@@ -235,8 +177,26 @@ const _FlatlistGiftOfMe: React.FC<Props> = (props) => {
   return (
     <View style={_styles.container}>
       {newArray.length == 0 ? (
-        <View>
-          <Text>bạn chưa có qùa tặng</Text>
+        <View
+          style={{
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            height: DimensionsStyle.height * 0.65,
+          }}
+        >
+          <Image
+            source={{ uri: listAllImages[BOX_NONE] }}
+            style={{
+              width: DimensionsStyle.width * 0.4,
+              height: DimensionsStyle.width * 0.35,
+              resizeMode: "stretch",
+              alignSelf: "center",
+            }}
+          />
+          <Text
+            style={_styles.textNone}
+          >{`Kho quà còn trống! \n Hãy dùng coins của bạn để đổi quà`}</Text>
         </View>
       ) : (
         <ScrollView>
@@ -348,6 +308,14 @@ const _styles = StyleSheet.create({
     width: "100%",
     borderBottomLeftRadius: 12,
     borderBottomRightRadius: 12,
+  },
+
+  textNone: {
+    fontSize: 16,
+    fontFamily: fontFamily.medium,
+    color: Colors.WHITE,
+    marginTop: 5,
+    textAlign: "center",
   },
 });
 export const FlatlistGiftOfMe = React.memo(_FlatlistGiftOfMe);

@@ -18,6 +18,7 @@ type RulesProps = {};
 type ConfirmOTPProps = {
   phoneNumber: string | undefined;
   type: boolean;
+  name?: string;
 };
 type HomeProps = {};
 type SignInProps = {};
