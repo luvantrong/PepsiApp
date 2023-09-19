@@ -28,7 +28,12 @@ import { Colors, DimensionsStyle } from "@resources";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { HomeStackParamList } from "@navigation";
 import { useSelector } from "react-redux";
-import { RootState, useAppDispatch, getAllExchangeGift } from "@shared-state";
+import {
+  RootState,
+  useAppDispatch,
+  getAllExchangeGift,
+  AppContext,
+} from "@shared-state";
 import { User } from "@domain";
 
 type PropsType = NativeStackScreenProps<HomeStackParamList, "Home">;
@@ -42,6 +47,8 @@ const _Home: React.FC<PropsType> = (props) => {
   const dataUser = useSelector<RootState, User>(
     (state) => state.user.dataUsers
   );
+
+  const { isLoggedIn, setLoggedIn } = React.useContext(AppContext);
 
   const dispatch = useAppDispatch();
   const [modalVisibleSignOut, setModalVisibleSignOut] = useState(false);
@@ -85,7 +92,7 @@ const _Home: React.FC<PropsType> = (props) => {
           <PopupSignOut
             onPressSignOut={() => {
               setModalVisibleSignOut(!modalVisibleSignOut);
-              // setLoggedIn(false);
+              setLoggedIn(false);
               // setDataUser({} as User);
               navigation.push("SignIn");
             }}
@@ -125,7 +132,7 @@ const _Home: React.FC<PropsType> = (props) => {
           iconLeft={listAllImages[ICON_ARROW]}
           titleCenter="Thể lệ chương trình"
           iconRight={listAllImages[ICON_LOGOUT]}
-          loginStatus={true}
+          loginStatus={isLoggedIn}
           titleCenterStyle={{ opacity: 0 }}
           iconLeftStyle={{ opacity: 0 }}
           containerStyle={{ marginTop: 10 }}

@@ -9,6 +9,7 @@ import {
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import {
+  AppContext,
   DataUpdateTurn,
   RootState,
   storage,
@@ -51,6 +52,8 @@ const _ScanQR: React.FC<PropsType> = (props) => {
   const dataUser = useSelector<RootState, User>(
     (state) => state.user.dataUsers
   );
+
+  const { isLoggedIn, setLoggedIn } = React.useContext(AppContext);
 
   let sumPlay = `${dataUser.turn.free + dataUser.turn.exchange}`;
 
@@ -123,7 +126,7 @@ const _ScanQR: React.FC<PropsType> = (props) => {
           <PopupSignOut
             onPressSignOut={() => {
               setModalVisibleSignOut(!modalVisibleSignOut);
-              // setLoggedIn(false);
+              setLoggedIn(false);
               // setDataUser({} as User);
               navigation.push("SignIn");
             }}
@@ -136,7 +139,7 @@ const _ScanQR: React.FC<PropsType> = (props) => {
           iconLeft={listAllImages[ICON_ARROW]}
           titleCenter="Quét mã"
           iconRight={listAllImages[ICON_LOGOUT]}
-          loginStatus={true}
+          loginStatus={isLoggedIn}
           containerStyle={{ marginTop: 10 }}
           onPressRight={() => setModalVisibleSignOut(true)}
           onPressLeft={() => navigation.push("Home")}

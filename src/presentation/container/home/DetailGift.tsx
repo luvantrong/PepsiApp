@@ -56,7 +56,7 @@ type PropsType = NativeStackScreenProps<HomeStackParamList, "DetailGift">;
 
 const _DetailGift: React.FC<PropsType> = (props) => {
   const { navigation } = props;
-  const { dataUser, setDataUser, setLoggedIn } = React.useContext(AppContext);
+  const { setLoggedIn, isLoggedIn } = React.useContext(AppContext);
   const dispatch = useAppDispatch();
 
   const listAllImages = useSelector<RootState, Record<string, string>>(
@@ -106,7 +106,6 @@ const _DetailGift: React.FC<PropsType> = (props) => {
             onPressSignOut={() => {
               setModalVisibleSignOut(!modalVisibleSignOut);
               setLoggedIn(false);
-              setDataUser({} as User);
               navigation.push("SignIn");
             }}
             onPressCancel={() => {
@@ -118,7 +117,7 @@ const _DetailGift: React.FC<PropsType> = (props) => {
           iconLeft={listAllImages[ICON_ARROW]}
           titleCenter="Chi tiết quà tặng"
           iconRight={listAllImages[ICON_LOGOUT]}
-          loginStatus={true}
+          loginStatus={isLoggedIn}
           containerStyle={{ marginTop: 10 }}
           onPressRight={() => setModalVisibleSignOut(true)}
           onPressLeft={() => navigation.push("Home")}

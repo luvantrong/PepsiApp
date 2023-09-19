@@ -22,7 +22,7 @@ import {
 } from "@assets";
 import { IInstruct } from "@domain";
 import { useSelector } from "react-redux";
-import { RootState } from "@shared-state";
+import { AppContext, RootState } from "@shared-state";
 import { getUrlImage } from "../sign-in";
 
 type PropsType = NativeStackScreenProps<HomeStackParamList, "Instruct">;
@@ -60,6 +60,7 @@ const _Instruct: React.FC<PropsType> = (props) => {
   const listAllImages = useSelector<RootState, Record<string, string>>(
     (state) => state.storage.storage
   );
+  const { isLoggedIn, setLoggedIn } = React.useContext(AppContext);
   const [modalVisibleSignOut, setModalVisibleSignOut] = useState(false);
   const handleGoToHome = () => navigation.push("Home");
   const handleShowPopupSignOut = () => {
@@ -76,7 +77,7 @@ const _Instruct: React.FC<PropsType> = (props) => {
           <PopupSignOut
             onPressSignOut={() => {
               setModalVisibleSignOut(!modalVisibleSignOut);
-              // setLoggedIn(false);
+              setLoggedIn(false);
               // setDataUser({} as User);
               navigation.push("SignIn");
             }}
@@ -89,7 +90,7 @@ const _Instruct: React.FC<PropsType> = (props) => {
           iconLeft={listAllImages[ICON_ARROW]}
           titleCenter="Hướng dẫn"
           iconRight={listAllImages[ICON_LOGOUT]}
-          loginStatus={true}
+          loginStatus={isLoggedIn}
           onPressLeft={handleGoToHome}
           onPressRight={handleShowPopupSignOut}
         />

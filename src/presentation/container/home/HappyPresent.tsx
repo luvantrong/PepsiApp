@@ -7,12 +7,13 @@ import {
   Dimensions,
   SafeAreaView,
   Text,
+  Modal,
 } from "react-native";
 import React, { useRef, useState } from "react";
 import { DimensionsStyle } from "@resources";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { HomeStackParamList } from "@navigation";
-import { BackgroundApp, Header, TextViewBold } from "@components";
+import { BackgroundApp, Header, PopupSignOut, TextViewBold } from "@components";
 import {
   BACKGROUND_HAPPY,
   BACKGROUND_PLAY,
@@ -29,6 +30,7 @@ import {
 } from "@assets";
 import { useSelector } from "react-redux";
 import {
+  AppContext,
   DataUpdateCansAndCoins,
   DataUpdateTurn,
   RootState,
@@ -45,6 +47,9 @@ const _HappyPresent: React.FC<PropsType> = (props) => {
   const { navigation, route } = props;
   const type = route.params?.type;
   const dispatch = useAppDispatch();
+  const { setLoggedIn, isLoggedIn } = React.useContext(AppContext);
+  const [modalVisibleSignOut, setModalVisibleSignOut] = useState(false);
+
   const dataPresent: Present[] = [
     {
       key: "1",
@@ -134,6 +139,55 @@ const _HappyPresent: React.FC<PropsType> = (props) => {
     navigation.push("Home");
   };
 
+  const handleLogOut = () => {
+    let cans: Cans = {
+      blue: 0,
+      green: 0,
+      orange: 0,
+    };
+
+    if (dataPresent[randomNumber].key == "1") {
+      cans.blue = dataUser.cans.blue + 1;
+      cans.green = dataUser.cans.green;
+      cans.orange = dataUser.cans.orange;
+    } else if (dataPresent[randomNumber].key == "2") {
+      cans.blue = dataUser.cans.blue;
+      cans.green = dataUser.cans.green + 1;
+      cans.orange = dataUser.cans.orange;
+    } else if (dataPresent[randomNumber].key == "3") {
+      cans.blue = dataUser.cans.blue;
+      cans.green = dataUser.cans.green;
+      cans.orange = dataUser.cans.orange + 1;
+    }
+
+    const dataUpdate: DataUpdateCansAndCoins = {
+      key: dataUser.key,
+      cans: cans,
+      coins: dataPresent[randomNumber].point + dataUser.coins,
+    };
+
+    let turns = {
+      free: dataUser.turn.free,
+      exchange: dataUser.turn.exchange,
+    };
+
+    if (type == true) {
+      turns.free = dataUser.turn.free - 1;
+    } else {
+      turns.exchange = dataUser.turn.exchange - 1;
+    }
+
+    const dataUpdateTurn: DataUpdateTurn = {
+      key: dataUser.key,
+      turn: turns,
+    };
+
+    dispatch(updateCansAndCoins(dataUpdate));
+    dispatch(updateTurn(dataUpdateTurn));
+    setLoggedIn(false);
+    navigation.push("SignIn");
+  };
+
   return (
     <BackgroundApp uri={listAllImages[BACKGROUND_HAPPY]}>
       <SafeAreaView>
@@ -141,10 +195,26 @@ const _HappyPresent: React.FC<PropsType> = (props) => {
           iconLeft={listAllImages[ICON_ARROW]}
           titleCenter="Vuốt lên để chơi"
           iconRight={listAllImages[ICON_LOGOUT]}
-          loginStatus={true}
+          loginStatus={isLoggedIn}
           iconLeftStyle={{ opacity: 0 }}
           titleCenterStyle={{ opacity: 0 }}
+          onPressRight={() => setModalVisibleSignOut(true)}
         />
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={modalVisibleSignOut}
+        >
+          <PopupSignOut
+            onPressSignOut={() => {
+              setModalVisibleSignOut(!modalVisibleSignOut);
+              handleLogOut();
+            }}
+            onPressCancel={() => {
+              setModalVisibleSignOut(!modalVisibleSignOut);
+            }}
+          />
+        </Modal>
 
         <Image
           source={{ uri: listAllImages[imagePresent] }}

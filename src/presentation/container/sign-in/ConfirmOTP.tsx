@@ -55,36 +55,10 @@ const _ConfirmOTP: React.FC<PropsType> = (props) => {
     }
   }, [code]);
 
-  const getDataUser = async () => {
-    try {
-      const snapshot = await firestore
-        .collection("users")
-        .where("phone", "==", phone)
-        .get();
-      if (!snapshot.empty) {
-        const userDoc = snapshot.docs[0];
-        const user = userDoc.data();
-        const key = userDoc.id;
-        const userWithKey: User = {
-          key: key,
-          name: user.name,
-          phone: user.phone,
-          coins: user.coins,
-          cans: user.cans,
-          turn: user.turn,
-        };
-        setDataUser(userWithKey);
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
   const handleConfirmOTP = () => {
     if (code === codeOTP && validate) {
       if (type) {
         dispatch(getDataUserRedux(phone));
-        // getDataUser();
         setLoggedIn(true);
         navigation.push("Home");
       } else {

@@ -10,6 +10,7 @@ import {
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import {
+  AppContext,
   DataUpdateCoins,
   ExchangeGiftState,
   RootState,
@@ -56,6 +57,7 @@ type PropsType = NativeStackScreenProps<HomeStackParamList, "Collection">;
 const _Collection: React.FC<PropsType> = (props) => {
   const { navigation } = props;
   const dispatch = useAppDispatch();
+  const { setLoggedIn, isLoggedIn } = React.useContext(AppContext);
   const [modalVisibleSignOut, setModalVisibleSignOut] = useState(false);
   const [modalVisibleExchangeGift, setModalVisibleExchangeGift] =
     useState(false);
@@ -167,7 +169,7 @@ const _Collection: React.FC<PropsType> = (props) => {
           <PopupSignOut
             onPressSignOut={() => {
               setModalVisibleSignOut(!modalVisibleSignOut);
-              // setLoggedIn(false);
+              setLoggedIn(false);
               // setDataUser({} as User);
               navigation.push("SignIn");
             }}
@@ -180,7 +182,7 @@ const _Collection: React.FC<PropsType> = (props) => {
           iconLeft={listAllImages[ICON_ARROW]}
           titleCenter="Bộ sưu tập"
           iconRight={listAllImages[ICON_LOGOUT]}
-          loginStatus={true}
+          loginStatus={isLoggedIn}
           containerStyle={{ marginTop: 10 }}
           onPressLeft={() => navigation.push("Home")}
           onPressRight={() => setModalVisibleSignOut(true)}

@@ -23,7 +23,7 @@ import {
   IMAGE_TARGET,
 } from "@assets";
 import { useSelector } from "react-redux";
-import { RootState } from "@shared-state";
+import { AppContext, RootState } from "@shared-state";
 import { getUrlImage } from "../sign-in";
 
 type PropsType = NativeStackScreenProps<HomeStackParamList, "Play">;
@@ -36,7 +36,7 @@ const _Play: React.FC<PropsType> = (props) => {
     (state) => state.storage.storage
   );
   const [modalVisibleSignOut, setModalVisibleSignOut] = useState(false);
-
+  const { isLoggedIn, setLoggedIn } = React.useContext(AppContext);
   const type = route.params?.type;
   const sumPlay = route.params?.sumPlay;
   const [typePlay, setTypePlay] = React.useState<string>("miễn phí");
@@ -82,7 +82,7 @@ const _Play: React.FC<PropsType> = (props) => {
           iconLeft={listAllImages[ICON_ARROW]}
           titleCenter="Vuốt lên để chơi"
           iconRight={listAllImages[ICON_LOGOUT]}
-          loginStatus={true}
+          loginStatus={isLoggedIn}
           containerStyle={{ marginTop: 10 }}
           titleCenterStyle={{ textTransform: "uppercase" }}
           onPressLeft={() => navigation.push("Home")}
@@ -98,7 +98,7 @@ const _Play: React.FC<PropsType> = (props) => {
           <PopupSignOut
             onPressSignOut={() => {
               setModalVisibleSignOut(!modalVisibleSignOut);
-              // setLoggedIn(false);
+              setLoggedIn(false);
               // setDataUser({} as User);
               navigation.push("SignIn");
             }}
