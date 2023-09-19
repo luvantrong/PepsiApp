@@ -99,7 +99,6 @@ const _PopupExchangeGift: React.FC<Props> = (props) => {
           },
         };
         dispatch(updateCansAndCoins(dataUpdateCoinAndCans));
-        console.log("300 coins");
       } else {
         const dataUpdateCoinAndCans = {
           key: userData.key,

@@ -24,7 +24,13 @@ import {
 import { Button } from "../button";
 import { getUrlImage } from "@containers";
 import { useSelector } from "react-redux";
-import { DataUpdateGiftOfMe, RootState, useAppDispatch } from "@shared-state";
+import {
+  DataUpdateCansAndCoins,
+  DataUpdateGiftOfMe,
+  RootState,
+  updateCansAndCoins,
+  useAppDispatch,
+} from "@shared-state";
 import { Gift, User } from "@domain";
 import { TextField } from "../textField";
 import { TextViewBold } from "../textBold";
@@ -238,6 +244,12 @@ const _PopupEnterInfo: React.FC<Props> = (props) => {
       };
       dispatch(DataUpdateGiftOfMe(dataUpdateGiftOfMe));
     }
+    const dataUpdateCoinAndCans: DataUpdateCansAndCoins = {
+      key: user.key,
+      coins: user.coins - item.coinExchange,
+      cans: user.cans,
+    };
+    dispatch(updateCansAndCoins(dataUpdateCoinAndCans));
   };
 
   const handleConfirm = () => {

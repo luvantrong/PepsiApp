@@ -7,6 +7,7 @@ import {
   FlatList,
   ScrollView,
   Modal,
+  Alert,
 } from "react-native";
 import React, { useEffect, useMemo, useState } from "react";
 import { useSelector } from "react-redux";
@@ -138,8 +139,12 @@ const _FlatlistExchangeGift: React.FC<Props> = (props) => {
             item={item}
             listImages={listAllImages}
             onPress={() => {
-              setGift(item);
-              setModalVisible(true);
+              if (user.coins < item.coinExchange) {
+                Alert.alert("Thông báo", "Bạn không đủ coins để đổi quà");
+              } else {
+                setGift(item);
+                setModalVisible(true);
+              }
             }}
             key={item.key}
           />

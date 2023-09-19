@@ -56,11 +56,11 @@ const _SignIn: React.FC<PropsType> = (props) => {
   const handleGoToConfirmOTP = async (phoneNumber: string) => {
     if (validate) {
       if (phoneNumber && !Number.isInteger(Number(phoneNumber))) {
-        Alert.alert("Số điện thoại không hợp lệ");
+        Alert.alert("Thông báo", "Số điện thoại không hợp lệ");
         return;
       }
       if (phoneNumber.length > 10 || phoneNumber.length < 10) {
-        Alert.alert("Số điện thoại phải có 10 số");
+        Alert.alert("Thông báo", "Số điện thoại phải có 10 số");
         return;
       }
 
@@ -73,7 +73,7 @@ const _SignIn: React.FC<PropsType> = (props) => {
         navigation.push("ConfirmOTP", { phoneNumber: phoneNumber, type: true });
       } else {
         // Số điện thoại không tồn tại trong Firestore
-        Alert.alert("Tài khoản không tồn tại");
+        Alert.alert("Thông báo", "Tài khoản không tồn tại");
       }
     }
   };
