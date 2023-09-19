@@ -134,6 +134,144 @@ const _PopupExchangeGift: React.FC<Props> = (props) => {
             data: dataUserUpdate,
           };
           dispatch(DataUpdateGiftOfMe(dataUpdateGiftOfMe));
+        } else if (elements[i].name == "Airpod case") {
+          quantity = userData.giftOfMe[2].quantity + 1;
+          let dataUserUpdate = userData;
+          var updatedGiftOfMe = dataUserUpdate.giftOfMe.map((item, i) => {
+            if (item.name == "Airpod case") {
+              return {
+                ...item,
+                quantity: quantity,
+              };
+            }
+            return item;
+          });
+
+          dataUserUpdate = {
+            ...dataUserUpdate,
+            giftOfMe: updatedGiftOfMe,
+          };
+
+          const dataUpdateGiftOfMe: DataUpdateGiftOfMe = {
+            key: userData.key,
+            data: dataUserUpdate,
+          };
+          dispatch(DataUpdateGiftOfMe(dataUpdateGiftOfMe));
+        } else if (elements[i].name == "Pepsi Tote Bag") {
+          quantity = userData.giftOfMe[3].quantity + 1;
+          let dataUserUpdate = userData;
+          var updatedGiftOfMe = dataUserUpdate.giftOfMe.map((item, i) => {
+            if (item.name == "Pepsi Tote Bag") {
+              return {
+                ...item,
+                quantity: quantity,
+              };
+            }
+            return item;
+          });
+
+          dataUserUpdate = {
+            ...dataUserUpdate,
+            giftOfMe: updatedGiftOfMe,
+          };
+
+          const dataUpdateGiftOfMe: DataUpdateGiftOfMe = {
+            key: userData.key,
+            data: dataUserUpdate,
+          };
+          dispatch(DataUpdateGiftOfMe(dataUpdateGiftOfMe));
+        } else if (elements[i].name == "Portable speaker") {
+          quantity = userData.giftOfMe[4].quantity + 1;
+          let dataUserUpdate = userData;
+          var updatedGiftOfMe = dataUserUpdate.giftOfMe.map((item, i) => {
+            if (item.name == "Portable speaker") {
+              return {
+                ...item,
+                quantity: quantity,
+              };
+            }
+            return item;
+          });
+
+          dataUserUpdate = {
+            ...dataUserUpdate,
+            giftOfMe: updatedGiftOfMe,
+          };
+
+          const dataUpdateGiftOfMe: DataUpdateGiftOfMe = {
+            key: userData.key,
+            data: dataUserUpdate,
+          };
+          dispatch(DataUpdateGiftOfMe(dataUpdateGiftOfMe));
+        } else if (elements[i].name == "Pepsi Tumbler") {
+          quantity = userData.giftOfMe[5].quantity + 1;
+          let dataUserUpdate = userData;
+          var updatedGiftOfMe = dataUserUpdate.giftOfMe.map((item, i) => {
+            if (item.name == "Pepsi Tumbler") {
+              return {
+                ...item,
+                quantity: quantity,
+              };
+            }
+            return item;
+          });
+
+          dataUserUpdate = {
+            ...dataUserUpdate,
+            giftOfMe: updatedGiftOfMe,
+          };
+
+          const dataUpdateGiftOfMe: DataUpdateGiftOfMe = {
+            key: userData.key,
+            data: dataUserUpdate,
+          };
+          dispatch(DataUpdateGiftOfMe(dataUpdateGiftOfMe));
+        } else if (elements[i].name == "Pepsi Jacket") {
+          quantity = userData.giftOfMe[6].quantity + 1;
+          let dataUserUpdate = userData;
+          var updatedGiftOfMe = dataUserUpdate.giftOfMe.map((item, i) => {
+            if (item.name == "Pepsi Jacket") {
+              return {
+                ...item,
+                quantity: quantity,
+              };
+            }
+            return item;
+          });
+
+          dataUserUpdate = {
+            ...dataUserUpdate,
+            giftOfMe: updatedGiftOfMe,
+          };
+
+          const dataUpdateGiftOfMe: DataUpdateGiftOfMe = {
+            key: userData.key,
+            data: dataUserUpdate,
+          };
+          dispatch(DataUpdateGiftOfMe(dataUpdateGiftOfMe));
+        } else if (elements[i].name == "Pepsi Bucket Hat") {
+          quantity = userData.giftOfMe[7].quantity + 1;
+          let dataUserUpdate = userData;
+          var updatedGiftOfMe = dataUserUpdate.giftOfMe.map((item, i) => {
+            if (item.name == "Pepsi Bucket Hat") {
+              return {
+                ...item,
+                quantity: quantity,
+              };
+            }
+            return item;
+          });
+
+          dataUserUpdate = {
+            ...dataUserUpdate,
+            giftOfMe: updatedGiftOfMe,
+          };
+
+          const dataUpdateGiftOfMe: DataUpdateGiftOfMe = {
+            key: userData.key,
+            data: dataUserUpdate,
+          };
+          dispatch(DataUpdateGiftOfMe(dataUpdateGiftOfMe));
         }
 
         dispatch(updateCansAndCoins(dataUpdateCoinAndCans));
