@@ -16,7 +16,6 @@ import {
   DataUpdateGiftOfMe,
   RootState,
   updateCansAndCoins,
-  updateCoins,
   useAppDispatch,
 } from "@shared-state";
 import { Gift, User } from "@domain";

@@ -1,12 +1,10 @@
 import {
   StyleSheet,
-  Text,
   View,
   TextInput,
   StyleProp,
   ViewStyle,
   TextStyle,
-  ImageBackground,
 } from "react-native";
 import React from "react";
 import { fontFamily } from "@assets";

@@ -7,7 +7,6 @@ import { HomeStackParamList } from "@navigation";
 import { Colors } from "@resources";
 import { useSelector } from "react-redux";
 import { RootState } from "@shared-state";
-import { getUrlImage } from "./SignUp";
 
 const contentRules_1 =
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Scelerisque tortor luctus auctor quam. Aliquam eget augue fermentum eu, at etiam. Id porttitor egestas tortor nisl. Maecenas volutpat sapien neque et sit mauris quis. Neque consectetur egestas nam rutrum nisi, eu lobortis et turpis. Duis id parturient sit et faucibus cursus. A maecenas nec enim consectetur non, donec vitae. Gravida vulputate quam nibh gravida. Quis egestas neque, nibh commodo elit sed odio ac. Purus elementum risus aliquam nunc in. Sapien nunc ornare fermentum non laoreet nec turpis sit turpis. \n";

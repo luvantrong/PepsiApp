@@ -3,48 +3,20 @@ import {
   Text,
   View,
   Image,
-  Pressable,
-  FlatList,
   ScrollView,
-  Modal,
   ImageBackground,
 } from "react-native";
 import React, { useEffect, useMemo, useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState, storage } from "@shared-state";
 import {
-  BG_COIN_WARNING,
-  BG_EXCHANGE_WARNING,
-  BG_GETCODE,
-  BUTTON_CLOSE,
-  BUTTON_EXCHANGE,
-  COINT,
   IMAGE_COIN_EXCHANGE,
-  BG_SIGNIN,
-  BACKGROUND_SIGNOUT,
-  BACKGROUND_SIGNUP,
-  BUTTON_SIGNOUT,
   fontFamily,
-  BG_CANCEL,
-  IMAGE_BOX_1,
-  BUTTON_CLOSE_WHITE,
-  BOX_GIFT_ONE,
-  GIFT_AIRPORT,
-  GIFT_COIN,
-  GIFT_BAG,
-  GIFT_ELECTRONIC,
-  GIFT_SONY,
-  GIFT_TUMBLER,
-  GIFT_JACKET,
-  GIFT_HAT,
   BACKGROUND_OF_ME,
   BOX_NONE,
 } from "@assets";
 import { Colors, DimensionsStyle } from "@resources";
-import { PopupEnterInfo } from "../popup";
-import { Gift, User, GiftOfMe } from "@domain";
-import { Button } from "../button";
-import LinearGradient from "react-native-linear-gradient";
+import { User, GiftOfMe } from "@domain";
 
 type Props = {};
 

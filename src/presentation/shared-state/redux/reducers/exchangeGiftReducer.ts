@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { Gift, Present } from "@domain";
+import { Gift } from "@domain";
 import { firestore } from "./storageReducer";
 
 export interface ExchangeGiftState {

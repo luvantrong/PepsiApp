@@ -1,11 +1,4 @@
-import {
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  View,
-  Modal,
-  Image,
-} from "react-native";
+import { SafeAreaView, StyleSheet, Modal, Image } from "react-native";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import {
@@ -13,11 +6,9 @@ import {
   DataUpdateTurn,
   RootState,
   signOut,
-  storage,
   updateTurn,
   useAppDispatch,
 } from "@shared-state";
-import { getUrlImage } from "../sign-in";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { HomeStackParamList } from "@navigation";
 import {
@@ -27,12 +18,9 @@ import {
   PopupErrorQR,
   PopupSignOut,
   PopupSucces,
-  TextField,
-  TextView,
 } from "@components";
 import {
   BACKGROUND_SIGNUP,
-  BG_BUTTON_SELECT_PLAY,
   BG_SIGNIN_CHECK,
   BILL_QR,
   ICON_ARROW,

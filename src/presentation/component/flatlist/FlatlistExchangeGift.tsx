@@ -3,8 +3,6 @@ import {
   Text,
   View,
   Image,
-  Pressable,
-  FlatList,
   ScrollView,
   Modal,
   Alert,
@@ -15,8 +13,6 @@ import { RootState, storage } from "@shared-state";
 import {
   BG_COIN_WARNING,
   BG_EXCHANGE_WARNING,
-  BG_GETCODE,
-  BUTTON_CLOSE,
   BUTTON_EXCHANGE,
   COINT,
   IMAGE_COIN_EXCHANGE,

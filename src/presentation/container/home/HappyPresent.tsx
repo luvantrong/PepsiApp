@@ -1,29 +1,14 @@
-import {
-  StyleSheet,
-  View,
-  PanResponder,
-  Animated,
-  Image,
-  Dimensions,
-  SafeAreaView,
-  Text,
-  Modal,
-} from "react-native";
-import React, { useRef, useState } from "react";
+import { StyleSheet, Image, SafeAreaView, Modal } from "react-native";
+import React, { useState } from "react";
 import { DimensionsStyle } from "@resources";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { HomeStackParamList } from "@navigation";
 import { BackgroundApp, Header, PopupSignOut, TextViewBold } from "@components";
 import {
   BACKGROUND_HAPPY,
-  BACKGROUND_PLAY,
-  BG_SIGNIN_CHECK,
   BUTTON_HAPPY,
   ICON_ARROW,
   ICON_LOGOUT,
-  IMAGE_CENTER_PLAY,
-  IMAGE_HOME,
-  IMAGE_TARGET,
   PRESENT_BLUE,
   PRESENT_GREEN,
   PRESENT_ORANGE,
@@ -39,7 +24,6 @@ import {
   updateTurn,
   useAppDispatch,
 } from "@shared-state";
-import { getUrlImage } from "../sign-in";
 import { Cans, Present, User } from "@domain";
 import { Button } from "@components";
 type PropsType = NativeStackScreenProps<HomeStackParamList, "HappyPresent">;

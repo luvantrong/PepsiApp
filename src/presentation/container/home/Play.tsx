@@ -1,12 +1,9 @@
 import {
   StyleSheet,
-  View,
   PanResponder,
   Animated,
   Image,
-  Dimensions,
   SafeAreaView,
-  Text,
   Modal,
 } from "react-native";
 import React, { useEffect, useRef, useState } from "react";
@@ -24,7 +21,6 @@ import {
 } from "@assets";
 import { useSelector } from "react-redux";
 import { AppContext, RootState, signOut, useAppDispatch } from "@shared-state";
-import { getUrlImage } from "../sign-in";
 
 type PropsType = NativeStackScreenProps<HomeStackParamList, "Play">;
 

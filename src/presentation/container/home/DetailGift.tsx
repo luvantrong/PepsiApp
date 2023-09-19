@@ -4,42 +4,22 @@ import {
   Text,
   View,
   Modal,
-  Image,
   Pressable,
-  TouchableOpacity,
 } from "react-native";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import {
-  RootState,
-  getDataUserRedux,
-  signOut,
-  storage,
-  updateCoins,
-} from "@shared-state";
-import { getUrlImage } from "../sign-in";
+import { RootState, signOut } from "@shared-state";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { HomeStackParamList } from "@navigation";
 import {
   BackgroundApp,
-  Button,
   FlatlistExchangeGift,
   FlatlistGiftOfMe,
   Header,
-  PopupErrorQR,
   PopupSignOut,
-  PopupSucces,
-  TextField,
-  TextView,
 } from "@components";
 import {
   BACKGROUND_DETAIL,
-  BACKGROUND_PRESENT,
-  BACKGROUND_RULES,
-  BACKGROUND_SIGNUP,
-  BG_BUTTON_SELECT_PLAY,
-  BG_SIGNIN_CHECK,
-  BILL_QR,
   ICON_ARROW,
   ICON_LOGOUT,
   fontFamily,
@@ -47,11 +27,7 @@ import {
 import { Colors, DimensionsStyle } from "@resources";
 import { Gift, User } from "@domain";
 import { AppContext } from "@shared-state";
-import { UseSelector } from "react-redux/es/hooks/useSelector";
-import { TextInput } from "react-native-gesture-handler";
-import { DataUpdateCoins } from "@shared-state";
-import { useAppDispatch, getAllExchangeGift } from "@shared-state";
-import { connect } from "react-redux";
+import { useAppDispatch } from "@shared-state";
 
 type PropsType = NativeStackScreenProps<HomeStackParamList, "DetailGift">;
 

@@ -14,20 +14,13 @@ import {
   GIFT_TUMBLER,
   fontFamily,
 } from "@assets";
-import { BackgroundApp, Button, TextField, TextView } from "@components";
+import { BackgroundApp, Button, TextView } from "@components";
 import { Colors, DimensionsStyle } from "@resources";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { HomeStackParamList } from "@navigation";
 import OTPInputView from "@twotalltotems/react-native-otp-input";
 import { useSelector } from "react-redux";
-import {
-  RootState,
-  firestore,
-  getAllExchangeGift,
-  getDataUserRedux,
-  signUp,
-  storage,
-} from "@shared-state";
+import { RootState, getDataUserRedux, signUp } from "@shared-state";
 import { User } from "@domain";
 import { AppContext, useAppDispatch } from "@shared-state";
 

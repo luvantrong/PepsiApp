@@ -5,24 +5,19 @@ import {
   View,
   Image,
   Pressable,
-  TextInput,
 } from "react-native";
 import React, { useState, useEffect } from "react";
 import { Colors, DimensionsStyle } from "@resources";
 import { BackgroundModal } from "../backgroundModal";
 import {
   fontFamily,
-  BACKGROUND_SELECT_PLAY,
-  BG_BUTTON_SELECT_PLAY,
   BUTTON_CLOSE,
-  BUTTON_SELECT_ZERO,
   BACKGROUND_ENTER_INFO,
   BUTTON_SIGNOUT,
   BACKGROUND_SUCCES_EXCHANGE,
   BUTTON_CLOSE_WHITE,
 } from "@assets";
 import { Button } from "../button";
-import { getUrlImage } from "@containers";
 import { useSelector } from "react-redux";
 import {
   DataUpdateCansAndCoins,

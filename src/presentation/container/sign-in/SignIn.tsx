@@ -4,7 +4,6 @@ import {
   Text,
   View,
   Image,
-  TextInput,
   Alert,
 } from "react-native";
 import React, { useState, useEffect } from "react";
@@ -16,15 +15,13 @@ import {
   IMAGE_3_LON_1,
   fontFamily,
 } from "@assets";
-import { RootState, storage } from "@shared-state";
+import { RootState } from "@shared-state";
 import { BackgroundApp, Button, TextField, TextView } from "@components";
 import { Colors, DimensionsStyle } from "@resources";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { HomeStackParamList } from "@navigation";
 import { useSelector } from "react-redux";
-import { getUrlImage } from "./SignUp";
 import { firestore } from "@shared-state";
-import { User } from "@domain";
 
 type PropsType = NativeStackScreenProps<HomeStackParamList, "SignIn">;
 

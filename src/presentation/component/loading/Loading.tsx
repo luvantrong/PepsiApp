@@ -1,9 +1,4 @@
-import {
-  StyleSheet,
-  View,
-  ActivityIndicator,
-  SafeAreaView,
-} from "react-native";
+import { StyleSheet, ActivityIndicator, SafeAreaView } from "react-native";
 import React from "react";
 
 type Props = {

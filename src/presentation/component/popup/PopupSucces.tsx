@@ -12,7 +12,6 @@ import { BackgroundModal } from "../backgroundModal";
 import { useSelector } from "react-redux";
 import { RootState } from "@shared-state";
 import {
-  BACKGROUND_ERROR_CODE,
   BACKGROUND_NOTIFICATION,
   BUTTON_CLOSE,
   IMAGE_TOP_NOTI,

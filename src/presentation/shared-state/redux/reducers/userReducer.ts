@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { Cans, Gift, GiftOfMe, Present, Turn, User } from "@domain";
+import { Cans, GiftOfMe, Turn, User } from "@domain";
 import { firestore } from "./storageReducer";
 import React from "react";
 
@@ -150,36 +150,36 @@ const userSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(signUp.pending, (state, action) => {
+      .addCase(signUp.pending, (state) => {
         state.loading = true;
       })
-      .addCase(signUp.fulfilled, (state, action) => {
+      .addCase(signUp.fulfilled, (state) => {
         state.loading = false;
       })
-      .addCase(signUp.rejected, (state, action) => {
+      .addCase(signUp.rejected, (state) => {
         state.loading = false;
       })
-      .addCase(updateCoins.pending, (state, action) => {
+      .addCase(updateCoins.pending, (state) => {
         state.updateCoins = false;
       })
       .addCase(updateCoins.fulfilled, (state, action) => {
         state.updateCoins = true;
         state.dataUsers.coins = action.payload;
       })
-      .addCase(updateCoins.rejected, (state, action) => {
+      .addCase(updateCoins.rejected, (state) => {
         state.updateCoins = false;
       })
-      .addCase(getDataUserRedux.pending, (state, action) => {
+      .addCase(getDataUserRedux.pending, (state) => {
         state.loading = true;
       })
       .addCase(getDataUserRedux.fulfilled, (state, action) => {
         state.loading = false;
         state.dataUsers = action.payload;
       })
-      .addCase(getDataUserRedux.rejected, (state, action) => {
+      .addCase(getDataUserRedux.rejected, (state) => {
         state.loading = true;
       })
-      .addCase(updateCansAndCoins.pending, (state, action) => {
+      .addCase(updateCansAndCoins.pending, (state) => {
         state.loading = true;
       })
       .addCase(updateCansAndCoins.fulfilled, (state, action) => {
@@ -187,27 +187,27 @@ const userSlice = createSlice({
         state.dataUsers.coins = action.payload.coins;
         state.dataUsers.cans = action.payload.cans;
       })
-      .addCase(updateCansAndCoins.rejected, (state, action) => {
+      .addCase(updateCansAndCoins.rejected, (state) => {
         state.loading = false;
       })
-      .addCase(updateTurn.pending, (state, action) => {
+      .addCase(updateTurn.pending, (state) => {
         state.loading = true;
       })
       .addCase(updateTurn.fulfilled, (state, action) => {
         state.loading = false;
         state.dataUsers.turn = action.payload;
       })
-      .addCase(updateTurn.rejected, (state, action) => {
+      .addCase(updateTurn.rejected, (state) => {
         state.loading = false;
       })
-      .addCase(DataUpdateGiftOfMe.pending, (state, action) => {
+      .addCase(DataUpdateGiftOfMe.pending, (state) => {
         state.loading = true;
       })
       .addCase(DataUpdateGiftOfMe.fulfilled, (state, action) => {
         state.loading = false;
         state.dataUsers = action.payload;
       })
-      .addCase(DataUpdateGiftOfMe.rejected, (state, action) => {
+      .addCase(DataUpdateGiftOfMe.rejected, (state) => {
         state.loading = false;
       });
   },

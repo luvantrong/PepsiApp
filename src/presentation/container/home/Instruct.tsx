@@ -2,7 +2,6 @@ import {
   SafeAreaView,
   ScrollView,
   StyleSheet,
-  Text,
   View,
   Image,
   Modal,
@@ -16,14 +15,11 @@ import {
   BACKGROUND_PRESENT,
   ICON_ARROW,
   ICON_LOGOUT,
-  IMG_INSTRUCT_1,
-  IMG_INSTRUCT_2,
   fontFamily,
 } from "@assets";
 import { IInstruct } from "@domain";
 import { useSelector } from "react-redux";
 import { AppContext, RootState, signOut, useAppDispatch } from "@shared-state";
-import { getUrlImage } from "../sign-in";
 
 type PropsType = NativeStackScreenProps<HomeStackParamList, "Instruct">;
 type ItemProps = {
