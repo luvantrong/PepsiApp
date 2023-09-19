@@ -26,9 +26,11 @@ import { getUrlImage } from "@containers";
 import { useSelector } from "react-redux";
 import {
   DataUpdateCansAndCoins,
+  DataUpdateGift,
   DataUpdateGiftOfMe,
   RootState,
   updateCansAndCoins,
+  updateGift,
   useAppDispatch,
 } from "@shared-state";
 import { Gift, User } from "@domain";
@@ -48,6 +50,10 @@ const _PopupEnterInfo: React.FC<Props> = (props) => {
   const dispatch = useAppDispatch();
   const listAllImages = useSelector<RootState, Record<string, string>>(
     (state) => state.storage.storage
+  );
+
+  const listGift = useSelector<RootState, Gift[]>(
+    (state) => state.exchangeGift.exchangeGifts
   );
 
   const [name, setName] = useState(user.name);
@@ -249,6 +255,18 @@ const _PopupEnterInfo: React.FC<Props> = (props) => {
       coins: user.coins - item.coinExchange,
       cans: user.cans,
     };
+
+    for (let index = 0; index < listGift.length; index++) {
+      const element = listGift[index];
+      if (element.name == item.name) {
+        const dataUpdateGift: DataUpdateGift = {
+          key: element.key,
+          quantity: element.quantity - 1,
+        };
+        dispatch(updateGift(dataUpdateGift));
+      }
+    }
+
     dispatch(updateCansAndCoins(dataUpdateCoinAndCans));
   };
 

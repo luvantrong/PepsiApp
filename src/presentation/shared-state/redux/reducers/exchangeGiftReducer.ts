@@ -31,21 +31,53 @@ export const getAllExchangeGift = createAsyncThunk(
   }
 );
 
+export interface DataUpdateGift {
+  key: string;
+  quantity: number;
+}
+
+export const updateGift = createAsyncThunk(
+  "exchangeGift/updateGift",
+  async (dataUpdateGift: DataUpdateGift) => {
+    const { key, quantity } = dataUpdateGift;
+    const docRef = await firestore
+      .collection("exchangeGift")
+      .doc(key)
+      .update({ quantity });
+    return { quantity, key };
+  }
+);
+
 const exchangeGiftSlice = createSlice({
   name: "exchangeGift",
   initialState: initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(getAllExchangeGift.pending, (state) => {
-      state.loading = true;
-    });
-    builder.addCase(getAllExchangeGift.fulfilled, (state, action) => {
-      state.loading = false;
-      state.exchangeGifts = action.payload;
-    });
-    builder.addCase(getAllExchangeGift.rejected, (state) => {
-      state.loading = false;
-    });
+    builder
+      .addCase(getAllExchangeGift.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(getAllExchangeGift.fulfilled, (state, action) => {
+        state.loading = false;
+        state.exchangeGifts = action.payload;
+      })
+      .addCase(getAllExchangeGift.rejected, (state) => {
+        state.loading = false;
+      })
+      .addCase(updateGift.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(updateGift.fulfilled, (state, action) => {
+        state.loading = false;
+        const { quantity, key } = action.payload;
+        const index = state.exchangeGifts.findIndex((item) => item.key === key);
+        if (index !== -1) {
+          state.exchangeGifts[index].quantity = quantity;
+        }
+      })
+      .addCase(updateGift.rejected, (state) => {
+        state.loading = false;
+      });
   },
 });
 
