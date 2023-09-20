@@ -21,7 +21,11 @@ const _BackgroundApp: React.FC<BackgroundProps> = (props) => {
       source={{ uri: uri }}
       style={[styles.container, styleBackground]}
     >
-      <StatusBar barStyle="light-content" backgroundColor={Colors.WHITE} />
+      <StatusBar
+        barStyle="light-content"
+        backgroundColor={"transparent"}
+        translucent
+      />
       {children}
     </ImageBackground>
   );
